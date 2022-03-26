@@ -31,7 +31,7 @@ const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onCli
             icon = <DashboardIcon/>
         break; 
         default: 
-            icon = <DashboardIcon/>
+            icon = <DashboardIcon viewBox={viewBox}/>
         break;
     }
 
@@ -41,8 +41,7 @@ const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onCli
                 onClick={onClick} 
                 xmlns="http://www.w3.org/2000/svg"
                 version="1.0"
-                width={'100%'} 
-                height={'100%'} 
+                style={{cursor: 'pointer'}}
                 viewBox={viewBox}>
                 {icon}
             </svg>

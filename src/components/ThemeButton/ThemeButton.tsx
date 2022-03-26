@@ -14,9 +14,9 @@ const ThemeButton: FunctionComponent<ThemeButtonProps> = ({open, onClick}) => {
         <>
             {
                 open ? (
-                    <SvgIcon variant="menu-open" onClick={onClick}/>
+                    <SvgIcon variant="menu-open" width={30} height={24} onClick={onClick}/>
                 ) : (
-                    <SvgIcon variant="menu-closed" onClick={onClick}/>
+                    <SvgIcon variant="menu-closed" width={30} height={24} onClick={onClick}/>
                 )
             }
         </>

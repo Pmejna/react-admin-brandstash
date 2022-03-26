@@ -34,12 +34,13 @@ export const MenuClosed: FunctionComponent<MenuClosedProps> = () => {
 
 interface DashboardIconProps {
     /// possible upcoming props
+    viewBox?: string;
 }
  
-export const DashboardIcon: FunctionComponent<DashboardIconProps> = () => {
+export const DashboardIcon: FunctionComponent<DashboardIconProps> = ({viewBox}) => {
     const theme = useTheme();
     return ( 
-    <g id="Group_157" data-name="Group 157" transform="translate(-3169.99 -2395)">
+    <g id="Group_157" data-name="Group 157" transform="translate(-3169.99 -2395)" viewBox={viewBox}>
         <path id="Path_355" data-name="Path 355" fill={theme.palette.common.iconColor} d="M3183.96,2395.748a.748.748,0,0,0-.748-.748h-12.474a.748.748,0,0,0-.748.748v12.474a.748.748,0,0,0,.748.749h12.474a.748.748,0,0,0,.748-.749Zm-1.339,11.881h-10.907v-11.1h10.907Z"/>
         <path id="Path_356" data-name="Path 356" fill={theme.palette.common.iconColor} d="M3273.96,2395.748a.748.748,0,0,0-.749-.748h-12.474a.748.748,0,0,0-.748.748v12.474a.748.748,0,0,0,.748.749h12.474a.748.748,0,0,0,.749-.749Zm-1.53,11.881h-10.907v-11.1h10.907Z" transform="translate(-72.778)"/>
         <path id="Path_357" data-name="Path 357" fill={theme.palette.common.iconColor} d="M3183.96,2484.748a.748.748,0,0,0-.748-.748h-12.474a.748.748,0,0,0-.748.748v12.474a.748.748,0,0,0,.748.748h12.474a.748.748,0,0,0,.748-.748Zm-1.339,11.689h-10.907v-11.1h10.907Z" transform="translate(0 -71.97)"/>

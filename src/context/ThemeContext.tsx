@@ -9,6 +9,8 @@ declare module "@mui/material/styles/createPalette" {
         iconColor: string,
         buttonBackgroundColor: string,
         secondaryTextColor: string,
+        navigationBackgroundColor: string,
+        divider: string;
     }
 }
 
@@ -52,7 +54,9 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     common: {
                         iconColor: themeColors.iconColorLight,
                         buttonBackgroundColor: themeColors.buttonColorLight,
-                        secondaryTextColor: themeColors.secondaryTextColorLight
+                        secondaryTextColor: themeColors.secondaryTextColorLight,
+                        navigationBackgroundColor: themeColors.navigationBackgroundColorLight,
+                        divider: themeColors.dividerColorLight,
                     },
                     secondary: {
                         main: "#000"
@@ -62,7 +66,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     },
                     text: {
                         primary: themeColors.textColorLight
-                    }
+                    },
                 } : {
                     primary: {
                         main: '#FCFBFF',
@@ -73,14 +77,16 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     },
                     common: {
                         iconColor: themeColors.iconColorDark,
-                        buttonBackgroundColor: themeColors.buttonColorDark
+                        buttonBackgroundColor: themeColors.buttonColorDark,
+                        navigationBackgroundColor: themeColors.navigationBackgroundColorDark,
+                        divider: themeColors.dividerColorDark,
                     },
                     background: {
                         default: themeColors.bgMainDark
                     },
                     text: {
                         primary: themeColors.textColorDark
-                    }
+                    },
                 }),
                 
             },

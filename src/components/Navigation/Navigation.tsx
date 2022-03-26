@@ -7,10 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography, { TypographyProps } from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ThemeButton from '../ThemeButton/ThemeButton';
 import SvgIcon from '../SvgIcon/SvgIcon';
@@ -61,38 +58,30 @@ const dummyData: dummyDataInterface[] = [
 ]
 
 const drawerOpenWidth = 180;
-const drawerClosedWidth = 76;
-const paddingOpen = 24;
+const drawerClosedWidth = 80;
+const paddingOpen = 16;
 const paddingClosed = 16;
 
 const openedMixin = (theme: Theme): CSSObject => ({
-  width: drawerOpenWidth,
-//   transition: theme.transitions.create('width', {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.enteringScreen,
-//   }),
-  overflowX: 'hidden',
+  width:      drawerOpenWidth,
+  overflowX:  'hidden',
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
-//   transition: theme.transitions.create('width', {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.leavingScreen,
-//   }),
   overflowX: 'hidden',
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
+    width: drawerClosedWidth,
   },
 });
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
     open?: boolean;
   }>(({ theme, open }) => ({
-  flexGrow: 1,
-  padding: theme.spacing(3),
+  flexGrow:   1,
+  padding:    theme.spacing(3),
   marginLeft: 0,
-  marginTop: 48,
+  marginTop:  48,
   ...(open && {
   }),
 }));
@@ -105,14 +94,13 @@ interface IDrawerHeaderProps {
 const DrawerHeader = styled('div',{
     shouldForwardProp: (prop) => prop !== 'open',
   })<IDrawerHeaderProps>(({ theme, open }) => ({
-  display: 'flex',
+  display:    'flex',
   alignItems: 'center',
   paddingLeft: paddingClosed,
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'flex-start',
   ...(open && {
-    marginLeft: '22px',
     paddingLeft: paddingOpen
   }),
 }));
@@ -125,28 +113,31 @@ const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })<AppBarProps>(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
-//   transition: theme.transitions.create(['width', 'margin'], {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.leavingScreen,
-//   }),
+  backgroundColor: theme.palette.common.navigationBackgroundColor,
+  boxShadow: 'none',
   marginLeft: drawerClosedWidth,
   width: `calc(100% - ${drawerClosedWidth}px)`,
   ...(open && {
     marginLeft: drawerOpenWidth,
     width: `calc(100% - ${drawerOpenWidth}px)`,
-    // transition: theme.transitions.create(['width', 'margin'], {
-    //   easing: theme.transitions.easing.sharp,
-    //   duration: theme.transitions.duration.enteringScreen,
-    // }),
   }),
+}));
+
+interface ToolbarStyledProps {
+  theme: Theme;
+};
+
+const ToolbarStyled = styled(Toolbar, { shouldForwardProp: (prop) => true })<ToolbarStyledProps>(({ theme }) => ({
+  padding: '4px 12px',
 }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
-    width: drawerOpenWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-    boxSizing: 'border-box',
+    width:        drawerOpenWidth,
+    flexShrink:   0,
+    whiteSpace:   'nowrap',
+    boxSizing:    'border-box',
+    borderRight:  `1px solid ${theme.palette.common.divider}`,
     ...(open && {
       ...openedMixin(theme),
       '& .MuiDrawer-paper': openedMixin(theme),
@@ -159,14 +150,13 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 interface DrawerTitleProps extends TypographyProps {
-    // text?: boolean;
     open: boolean;
   }
 
 const DrawerTitle = styled(Typography, {shouldForwardProp: (prop) => true})<DrawerTitleProps>(({theme, open}) => ({
-    color: theme.palette.common.secondaryTextColor,
+    color:    theme.palette.common.secondaryTextColor,
     fontSize: '0.9rem',
-    opacity: 0,
+    opacity:  0,
     ...(open && {
         opacity: 1
     })
@@ -183,39 +173,18 @@ export default function Navigation(props: any) {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography>
-        </Toolbar>
+        <ToolbarStyled theme={theme}>
+          <div style={{width: '100%', borderBottom: `1px solid ${theme.palette.common.divider}`}}>
+            <Typography variant="h6" noWrap component="div">
+              Mini variant drawer
+            </Typography>
+          </div>
+        </ToolbarStyled>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader open={open}>
           <ThemeButton open={open} onClick={handleDrawerToggle}/>
         </DrawerHeader>
-        <Divider />
-        {/* <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItemButton
-              key={text}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-              </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-          ))}
-        </List> */}
         <div style={{padding: 0}}>
           {dummyData.map((category) => (
             <List style={{padding: 0, paddingLeft: open ? 16 : 0}}>
@@ -227,7 +196,7 @@ export default function Navigation(props: any) {
                         return (
                             <ListItemButton
                             key={element.text}
-                            style={{padding: 0, display: 'flex', flexDirection: 'row',  justifyContent: 'center'}}
+                            style={{padding: 0, paddingLeft: open ? 0 : 16, display: 'flex', flexDirection: 'row',  justifyContent: open ? 'center' : 'flex-start'}}
                             sx={{
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
