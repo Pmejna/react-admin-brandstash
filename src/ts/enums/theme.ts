@@ -3,14 +3,14 @@ export enum themeColors {
     bgMainLight                 = "#F1F1F2",
     iconColorLight              = "#00005D",
     textColorLight              = "#00005D",
-    textSecondaryColorLight     = "#00005D",
+    secondaryTextColorLight     = "#979797",
     buttonColorLight            = "#E4D8E9",
     borderDark                  = "#1C0B24",
     bgMainDark                  = "#F1F1F2",
     iconColorDark               = "#148AFF",
     textColorDark               = "#E4D8E9",
-    textSecondaryColorDark      = "#E4D8E9",
     buttonColorDark             = "#E4D8E9",
+    secondaryTextColorDark      = "#979797",
 }
 
 export enum styleCommonUtils {

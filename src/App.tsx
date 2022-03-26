@@ -5,6 +5,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
+import Navigation from './components/Navigation/Navigation';
 import {ThemeContextProvider} from './context/ThemeContext';
 import Dashboard from './pages/Dashboard';
 import ProjectBrief from './pages/Designer/Projects/Brief/ProjectBrief';
@@ -20,7 +21,7 @@ function App() {
     <div className="App">
       <ThemeContextProvider>
         <CssBaseline/>
-        <div>
+        <Navigation>
           <Router>
             <Routes>
               <Route path="/">
@@ -40,7 +41,7 @@ function App() {
               <Route/>
             </Routes>
           </Router>
-        </div>
+        </Navigation>
       </ThemeContextProvider>
     </div>
   );

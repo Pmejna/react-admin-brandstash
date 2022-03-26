@@ -7,7 +7,8 @@ import "@mui/material/styles/createPalette";
 declare module "@mui/material/styles/createPalette" {
     interface CommonColors {
         iconColor: string,
-        buttonBackgroundColor: string
+        buttonBackgroundColor: string,
+        secondaryTextColor: string,
     }
 }
 
@@ -50,7 +51,8 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     },
                     common: {
                         iconColor: themeColors.iconColorLight,
-                        buttonBackgroundColor: themeColors.buttonColorLight
+                        buttonBackgroundColor: themeColors.buttonColorLight,
+                        secondaryTextColor: themeColors.secondaryTextColorLight
                     },
                     secondary: {
                         main: "#000"
