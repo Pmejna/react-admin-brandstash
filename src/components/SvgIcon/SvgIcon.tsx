@@ -2,7 +2,16 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import {
     MenuOpen,
     MenuClosed,
-    DashboardIcon
+    DashboardIcon,
+    NewProjectIcon,
+    AllProjectsIcon,
+    StatsIcon,
+    ClientsIcon,
+    SettingsIcon,
+    MessagesIcon,
+    NotificationsIcon,
+    BriefIcon,
+    AccountStatsIcon
 } from './Icons';
 
 
@@ -16,9 +25,9 @@ interface SvgIconProps {
  
 const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onClick}, children) => {
     let icon: null | ReactNode = null;
-    let iconWidth = width ? width : 40
-    let iconHeight = height ? height : 40
-    let viewBox = `0 0 ${width ? width: 40} ${height ? height: 40}`
+    let iconWidth = width ? width : 28
+    let iconHeight = height ? height : 28
+    let viewBox = `0 0 ${width ? width: 28} ${height ? height: 28}`
 
     switch (variant) {
         case 'menu-open':
@@ -29,6 +38,33 @@ const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onCli
         break; 
         case 'dashboard':
             icon = <DashboardIcon/>
+        break; 
+        case 'projects-all':
+            icon = <AllProjectsIcon/>
+        break; 
+        case 'proposal':
+            icon = <NewProjectIcon/>
+        break; 
+        case 'stats':
+            icon = <StatsIcon/>
+        break; 
+        case 'clients-icon':
+            icon = <ClientsIcon/>
+        break; 
+        case 'settings-icon':
+            icon = <SettingsIcon/>
+        break; 
+        case 'messages-icon':
+            icon = <MessagesIcon/>
+        break; 
+        case 'notifications-icon':
+            icon = <NotificationsIcon/>
+        break; 
+        case 'brief-icon':
+            icon = <BriefIcon/>
+        break; 
+        case 'account-stats-icon':
+            icon = <AccountStatsIcon/>
         break; 
         default: 
             icon = <DashboardIcon viewBox={viewBox}/>

@@ -11,6 +11,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ThemeButton from '../ThemeButton/ThemeButton';
 import SvgIcon from '../SvgIcon/SvgIcon';
+import { extendSxProp } from '@mui/system';
+import { ListItemProps } from '@mui/material';
 
 interface dummyDataInterface {
     category: string;
@@ -29,16 +31,16 @@ const dummyData: dummyDataInterface[] = [
     {
         category: "projects", 
         elements: [
-            {text: "all", slug: "/projects", icon: "projects-icon"},
-            {text: "new proposal", slug: "/projects/new", icon: "proposal-icon"},
-            {text: "stats", slug: "/projects/stats", icon: "stats-icon"},
+            {text: "all", slug: "/projects", icon: "projects-all"},
+            {text: "new", slug: "/projects/new", icon: "proposal"},
+            {text: "stats", slug: "/projects/stats", icon: "stats"},
         ]
     },
     {
         category: "clients", 
         elements: [
             {text: "all", slug: "/clients", icon: "clients-icon"},
-            {text: "briefs", slug: "/clients/briefs", icon: "briefs-icon"},
+            {text: "briefs", slug: "/clients/briefs", icon: "brief-icon"},
             {text: "messages", slug: "/clients/messages", icon: "messages-icon"},
         ]
     },
@@ -58,7 +60,7 @@ const dummyData: dummyDataInterface[] = [
 ]
 
 const drawerOpenWidth = 180;
-const drawerClosedWidth = 80;
+const drawerClosedWidth = 90;
 const paddingOpen = 16;
 const paddingClosed = 16;
 
@@ -96,12 +98,13 @@ const DrawerHeader = styled('div',{
   })<IDrawerHeaderProps>(({ theme, open }) => ({
   display:    'flex',
   alignItems: 'center',
-  paddingLeft: paddingClosed,
+  paddingLeft: 0,
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-  justifyContent: 'flex-start',
+  justifyContent: 'center',
   ...(open && {
-    paddingLeft: paddingOpen
+    paddingLeft: paddingOpen,
+    justifyContent: 'flex-start'
   }),
 }));
 
@@ -156,11 +159,22 @@ interface DrawerTitleProps extends TypographyProps {
 const DrawerTitle = styled(Typography, {shouldForwardProp: (prop) => true})<DrawerTitleProps>(({theme, open}) => ({
     color:    theme.palette.common.secondaryTextColor,
     fontSize: '0.9rem',
-    opacity:  0,
+    opacity:  1,
+    marginTop: '1rem',
+    textAlign: 'center',
     ...(open && {
-        opacity: 1
+      textAlign: 'left',
+      fontSize: '1rem',
     })
 }))
+
+interface LiTextProps extends TypographyProps{
+  open?: boolean;
+}
+
+const LiText = styled(Typography, {shouldForwardProp: (prop) => true})<LiTextProps>(({open}) => ({
+    fontSize: open ? '1.2rem' : '0.8rem',
+}));
 
 export default function Navigation(props: any) {
   const theme = useTheme();
@@ -196,19 +210,16 @@ export default function Navigation(props: any) {
                         return (
                             <ListItemButton
                             key={element.text}
-                            style={{padding: 0, paddingLeft: open ? 0 : 16, display: 'flex', flexDirection: 'row',  justifyContent: open ? 'center' : 'flex-start'}}
+                            style={{padding: 0, paddingLeft: 0, display: 'flex', flexDirection: open ? 'row' : 'column',  justifyContent: open ? 'flex-start' : 'center'}}
                             sx={{
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 paddingLeft: 0,
+                                paddingBottom: 6
                             }}
                             >
                                 <SvgIcon variant={element.icon}/>
-                                {
-                                    open ? (
-                                        <ListItemText primary={element.text} sx={{ opacity: open ? 1 : 0 }} />
-                                    ) : null
-                                }
+                                        <LiText>{element.text}</LiText>
                             </ListItemButton>
                         )
                     })
