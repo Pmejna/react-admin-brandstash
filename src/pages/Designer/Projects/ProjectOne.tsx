@@ -1,11 +1,14 @@
 import React, {FC} from 'react';
+import Wrapper from '../../../components/Wrapper/Wrapper';
 
 const ProjectOne: FC = () => {
 
     return (
-        <div>
-            One project
-        </div>
+        <>
+            <Wrapper>
+                One project
+            </Wrapper>
+        </>
     )
 }
 

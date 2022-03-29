@@ -1,8 +1,10 @@
 import React from 'react';
-const DashboardDesigner = () => {
-    return (
-        <div></div>
-    )
-}
-
+import Wrapper from '../../components/Wrapper/Wrapper';
+const DashboardDesigner = () => (
+    <>
+        <Wrapper>
+            Dashboard Designer
+        </Wrapper>
+    </>
+)
 export default DashboardDesigner

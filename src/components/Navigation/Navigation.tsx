@@ -8,11 +8,11 @@ import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
+import { Link } from 'react-router-dom';
 import ThemeButton from '../ThemeButton/ThemeButton';
 import SvgIcon from '../SvgIcon/SvgIcon';
-import { extendSxProp } from '@mui/system';
-import { ListItemProps } from '@mui/material';
+import SearchInput from './SearchInput/SearchInput';
+
 
 interface dummyDataInterface {
     category: string;
@@ -189,9 +189,7 @@ export default function Navigation(props: any) {
       <AppBar position="fixed" open={open}>
         <ToolbarStyled theme={theme}>
           <div style={{width: '100%', borderBottom: `1px solid ${theme.palette.common.divider}`}}>
-            <Typography variant="h6" noWrap component="div">
-              Mini variant drawer
-            </Typography>
+            <SearchInput/>
           </div>
         </ToolbarStyled>
       </AppBar>
@@ -217,6 +215,8 @@ export default function Navigation(props: any) {
                                 paddingLeft: 0,
                                 paddingBottom: 6
                             }}
+                            component={Link}
+                            to={element.slug}
                             >
                                 <SvgIcon variant={element.icon}/>
                                         <LiText>{element.text}</LiText>
