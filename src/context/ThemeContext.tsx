@@ -8,9 +8,14 @@ declare module "@mui/material/styles/createPalette" {
     interface CommonColors {
         iconColor: string,
         buttonBackgroundColor: string,
+        secondaryButtonBackgroundColor: string,
+        buttonColor: string,
+        secondaryButtonColor: string,
+        secondaryButtonHoverColor: string,
         secondaryTextColor: string,
         navigationBackgroundColor: string,
         divider: string;
+        borderSecondary: string;
     }
 }
 
@@ -54,9 +59,14 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     common: {
                         iconColor: themeColors.iconColorLight,
                         buttonBackgroundColor: themeColors.buttonColorLight,
+                        secondaryButtonBackgroundColor: themeColors.secondaryButtonBgColorLight,
+                        buttonColor: themeColors.buttonColorLight,
+                        secondaryButtonColor: themeColors.secondaryButtonColorLight,
+                        secondaryButtonHoverColor: themeColors.secondaryButtonHoverColorLight,
                         secondaryTextColor: themeColors.secondaryTextColorLight,
                         navigationBackgroundColor: themeColors.navigationBackgroundColorLight,
                         divider: themeColors.dividerColorLight,
+                        borderSecondary: themeColors.borderSecondaryLight,
                     },
                     secondary: {
                         main: "#000"
@@ -77,9 +87,14 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     },
                     common: {
                         iconColor: themeColors.iconColorDark,
-                        buttonBackgroundColor: themeColors.buttonColorDark,
+                        buttonBackgroundColor: themeColors.buttonBgColorDark,
+                        secondaryButtonBackgroundColor: themeColors.secondaryButtonBgColorDark,
+                        buttonColor: themeColors.buttonColorDark,
+                        secondaryButtonColor: themeColors.secondaryButtonColorDark,
                         navigationBackgroundColor: themeColors.navigationBackgroundColorDark,
                         divider: themeColors.dividerColorDark,
+                        borderSecondary: themeColors.borderSecondaryDark,
+
                     },
                     background: {
                         default: themeColors.bgMainDark

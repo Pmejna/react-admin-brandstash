@@ -1,14 +1,14 @@
 import React, {FC} from 'react';
 import Wrapper from '../../../components/Wrapper/Wrapper';
 
-const ProjectNew: FC = () => {
+const ProjectsBriefs: FC = () => {
     return (
         <>
             <Wrapper>
-                New Project
+                Projects Briefs All
             </Wrapper>
         </>
     )
 }
 
-export default ProjectNew;
+export default ProjectsBriefs;

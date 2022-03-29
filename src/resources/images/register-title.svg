@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="405.69" height="100.494" viewBox="0 0 405.69 100.494">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_28" data-name="Rectangle 28" width="340.191" height="82.109" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Path_54" data-name="Path 54" d="M67.276,270.787H32.989l11.954,12.219H67.276v4.081L77.614,276.9,67.276,263.98Z" transform="translate(-32.989 -263.98)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectangle_31" data-name="Rectangle 31" width="44.625" height="23.107" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <rect id="Rectangle_33" data-name="Rectangle 33" width="199.791" height="32.951" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_199" data-name="Group 199" transform="translate(-70.098 -97.133)">
+    <g id="Group_10" data-name="Group 10" transform="translate(135.598 99.043)" style="isolation: isolate">
+      <g id="Group_9" data-name="Group 9">
+        <g id="Group_8" data-name="Group 8" clip-path="url(#clip-path)">
+          <text id="BrandStash" transform="translate(0 53.304)" fill="#00005d" font-size="63" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Brand</tspan><tspan y="0" letter-spacing="-0.024em">S</tspan><tspan y="0">tash</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Group_163" data-name="Group 163">
+      <path id="Path_53" data-name="Path 53" d="M32.37,248.346,22.032,235.429l10.338-10.19v4.08H54.7l10.538,12.22H32.37Z" transform="translate(48.066 -128.106)" fill="#fdd202"/>
+      <g id="Group_17" data-name="Group 17" transform="translate(81.585 137.749)">
+        <g id="Group_16" data-name="Group 16" clip-path="url(#clip-path-2)">
+          <g id="Group_15" data-name="Group 15">
+            <g id="Group_14" data-name="Group 14">
+              <g id="Group_13" data-name="Group 13" clip-path="url(#clip-path-3)">
+                <image id="Rectangle_30" data-name="Rectangle 30" width="45.29" height="23.652" transform="translate(-0.366 -0.105)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAAAvCAIAAADsJUonAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFGSURBVGhD7dsxVsJAFIXhhBZ6e1gA7IBkJy5BViCuAHagroRxB9Feau1JHS8nT8idEzVqxbz7Ncyj/M9kJgXkTdNklyMvX2z1P8v5OGxnNnSM7NOZp+e6uHm1ocNpDkCR9cO7DZ/y2/u3u8f4Wz92m2mxmNjgeXe0ytU+VAcblAO6j4xy0LGqHEenY1U5DO4THCLKcRaqWjmIchDlIMpBlIMoB1EOohxEOYhyEOUgykGUgygHUQ6iHEQ5iHIQ5SCj9fXVcj62yb3j7gjbmYq07GFRkdb57FARoKNUReKbxXmROAd4LtKTA3D72sqZ/hzFYrLbTG3wpD8H+CzyZQ5wWOS7HOCtyKCf2YbqUK72NiQKlymu1B92Ryv5PdK2wGJQDki4yKkFDM0BSRbptoBf5IDEikQt4C//WMDJGqrahksWv3xn2QeoN2HHB5SeiAAAAABJRU5ErkJggg=="/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <rect id="Rectangle_32" data-name="Rectangle 32" width="17.223" height="17.223" transform="translate(89.411 120.886)" fill="#00005d"/>
+    </g>
+    <g id="Group_20" data-name="Group 20" transform="translate(186.188 164.677)" style="isolation: isolate">
+      <g id="Group_19" data-name="Group 19">
+        <g id="Group_18" data-name="Group 18" clip-path="url(#clip-path-4)">
+          <text id="Your_brand_home" data-name="Your brand home" transform="translate(0 20.906)" fill="#000d34" font-size="25" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0" letter-spacing="-0.087em">Y</tspan><tspan y="0">our brand home</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

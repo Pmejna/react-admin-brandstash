@@ -1,10 +1,13 @@
 import React, {FC} from 'react';
+import Wrapper from '../../../components/Wrapper/Wrapper';
 
 const ProjectsStats: FC = () => {
     return (
-        <div>
-            Projects Stats
-        </div>
+        <>
+            <Wrapper>
+                Projects Stats
+            </Wrapper>
+        </>
     )
 }
 
