@@ -4,7 +4,6 @@ import { FunctionComponent } from "react";
 
 
 interface ButtonStyledProps extends ButtonProps {
-    primary?: boolean;
     theme?: Theme;
     secondary?: boolean;
     variant?: "text" | "outlined" | "contained";
@@ -12,6 +11,7 @@ interface ButtonStyledProps extends ButtonProps {
 
 interface StyledButtonProps extends ButtonStyledProps {
     children?: React.ReactNode;
+    type?: "submit" | "button";
 }
 
 const ButtonStyled = styled(Button)<ButtonStyledProps>(({theme, variant, secondary}) => ({
@@ -24,10 +24,10 @@ const ButtonStyled = styled(Button)<ButtonStyledProps>(({theme, variant, seconda
     }
 }))
  
-const StyledButton: FunctionComponent<StyledButtonProps> = ({children, variant, sx, secondary, onClick}) => {
+const StyledButton: FunctionComponent<StyledButtonProps> = ({children, variant, sx, secondary, onClick, type}) => {
     const theme = useTheme();
     return ( 
-        <ButtonStyled theme={theme} variant={variant} sx={sx} secondary={secondary} onClick={onClick}>{children}</ButtonStyled>
+        <ButtonStyled theme={theme} variant={variant} sx={sx} secondary={secondary} onClick={onClick} type={type?type:"button"}>{children}</ButtonStyled>
      );
 }
  
