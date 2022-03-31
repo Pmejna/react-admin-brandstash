@@ -23,7 +23,7 @@ import ProjectsAll from './pages/Designer/Projects/ProjectsAll';
 import ProjectsStats from './pages/Designer/Projects/ProjectsStats';
 import Login from './pages/Login';
 import Notifications from './pages/Notifications';
-import Register from './pages/Register';
+import Register from './pages/Register/Register';
 import Settings from './pages/Settings';
 
 function App() {
