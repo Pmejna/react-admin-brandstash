@@ -106,11 +106,15 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                 
             },
             typography: {
+                fontFamily: [
+                    'Source Sans Pro',
+                    'serif',
+                ].join(','),
                 h3: {
-                    fontFamily: "roboto",
+                    fontFamily: "Source Sans Pro",
                 },
                 h4: {
-                    fontFamily: "roboto"
+                    fontFamily: "Source Sans Pro",
                 },
                 h5: {
                     color: "#43543"

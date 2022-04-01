@@ -26,7 +26,7 @@ const Login: FunctionComponent<LoginProps> = () => {
         e.preventDefault();
         const url: string = process.env.REACT_APP_API_URL ?? 'error';
         console.log(process.env.REACT_APP_API_URL);
-        const response = await axios.post(url+'/login', loginState);
+        const response = await axios.post(url+'/login', loginState, {withCredentials: true});
         if (response.data) {
                 navigate("/dashboard") 
         }
