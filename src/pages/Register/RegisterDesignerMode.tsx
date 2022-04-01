@@ -1,5 +1,6 @@
 import { FormControl, FormHelperText, Grid, Input, InputLabel, Typography } from "@mui/material";
 import React, { FunctionComponent, SyntheticEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import StyledButton from "../../components/Common/StyledButton/StyledButton";
 import axios from "axios";
 import { companyType } from "../../ts/enums/company";
@@ -29,12 +30,16 @@ const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () =>
         password_confirm: '',
         role_id: 7
     });
-
+    const navigate = useNavigate()
     const submitForm = async (e: SyntheticEvent) => {
         e.preventDefault();
 
         const response = await axios.post('http://127.0.0.1:8000/v1/api/register', registerState);
-        console.log(response.data);
+        if (response.data) {
+            setTimeout( () => {
+                navigate("/login") 
+            }, 1000)
+        }
     }
 
     return ( 

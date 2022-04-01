@@ -8,6 +8,7 @@ import registerQuoteBg from "../../resources/images/register-quote-bg.svg";
 import SelectRegistrationMode from "./SelectRegistrationMode";
 import RegisterDesignerMode from "./RegisterDesignerMode";
 import RegisterBrandMode from "./RegisterBrandMode";
+import LoginRegisterWrapper from "../../components/Wrapper/LoginRegisterWrapper";
 
 interface RegisterProps {
     
@@ -18,112 +19,72 @@ const Register: FunctionComponent<RegisterProps> = () => {
     const [mode, setMode] = useState("select-mode");
 
     return ( 
-        <Grid
-            component='main'
-            container
-            sx={{ 
-                minHeight: '100vh',
-            }}
-
-        >
+        <LoginRegisterWrapper background={background}>
             <Grid
                 item
-                xs={12}
-                md={5}
-                lg={4}
+                component='div'
                 sx={{
-                    backgroundColor: "#fff",
-                    p: 3,
+                    marginTop: '6vh'
                 }}
             >
-                <Grid
-                    component='div'
-                    container
+                <Box
+                    component='figure'
                     sx={{
                         display: "flex",
-                        flexDirection: "column",
                         justifyContent: "center",
-
                     }}
                 >
-                    <Grid
-                        item
-                        component='div'
+                    <Box component='img' src={registerTitle} alt="Register Title" 
                         sx={{
-                            marginTop: '6vh'
-                        }}
-                    >
-                        <Box
-                            component='figure'
+                            width: "240px",
+                            height: 'auto'
+                        }}/>
+                </Box>
+            </Grid>
+            {
+                mode === "select-mode" && (
+                <Grid
+                    item
+                    component='div'
+                >
+                    <Box component='figure' sx={{ display: "flex", justifyContent: "center", position: 'relative' }}>
+                        <Box component='img' src={registerQuoteBg} alt="Register Quote" 
                             sx={{
-                                display: "flex",
-                                justifyContent: "center",
+                                width: "400px",
+                            }}
+                        />
+                        <Typography 
+                            variant="body2" 
+                            sx={{
+                                position: "absolute",
+                                left: '50%',
+                                top: '50%',
+                                transform: 'translate(-50%, -50%)',
+                                width: '300px',
+                                textAlign: 'center',
+                                fontWeight: 300
                             }}
                         >
-                            <Box component='img' src={registerTitle} alt="Register Title" 
-                                sx={{
-                                    width: "240px",
-                                    height: 'auto'
-                                }}/>
-                        </Box>
-                    </Grid>
-                    {
-                        mode === "select-mode" && (
-                        <Grid
-                            item
-                            component='div'
-                        >
-                            <Box component='figure' sx={{ display: "flex", justifyContent: "center", position: 'relative' }}>
-                                <Box component='img' src={registerQuoteBg} alt="Register Quote" 
-                                    sx={{
-                                        width: "400px",
-                                    }}
-                                />
-                                <Typography 
-                                    variant="body2" 
-                                    sx={{
-                                        position: "absolute",
-                                        left: '50%',
-                                        top: '50%',
-                                        transform: 'translate(-50%, -50%)',
-                                        width: '300px',
-                                        textAlign: 'center',
-                                        fontWeight: 300
-                                    }}
-                                >
-                                    "We connect you with creatives, designers, and developers who are passionate about what they do."
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        )
-                    }
-                    <Grid
-                        item
-                        component='div'
-                    >
-                        {
-                            (mode === "select-mode") ? (
-                                <SelectRegistrationMode onClick={setMode}/>
-                            ) : (mode === "register-designer") 
-                                ?   (<RegisterDesignerMode/>)
-                                :   (<RegisterBrandMode/>)
-                        }
-                    </Grid>
+                            "We connect you with creatives, designers, and developers who are passionate about what they do."
+                        </Typography>
+                    </Box>
                 </Grid>
-            </Grid>
+                )
+            }
             <Grid
                 item
-                md={7}
-                lg={8}
-                sx={{
-                    display: {xs: 'none', md: 'block', overflow: 'hidden', maxHeight: '100vh', margin: 0},
-                }}
+                component='div'
             >
-                <Box component='figure' sx={{p: 0, overflow: 'hidden', m: 0}}>
-                    <Box component='img' src={background} alt='register' sx={{width: '100%', height: 'auto', minHeight: '100vh'}} />
-                </Box>                
+                {
+                    (mode === "select-mode") ? (
+                        <SelectRegistrationMode onClick={setMode}/>
+                    ) : (mode === "register-designer") 
+                        ?   (<RegisterDesignerMode/>)
+                        :   (<RegisterBrandMode/>)
+                }
             </Grid>
-        </Grid> 
+        </LoginRegisterWrapper>
+                    
     );
 }
  
