@@ -1,8 +1,73 @@
-import React from 'react';
-const Login = () => {
-    return (
-        <div>Login</div>
-    )
+import { FormControl, Grid, Input, InputLabel, Typography } from '@mui/material';
+import axios from 'axios';
+import React, { FunctionComponent, SyntheticEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import StyledButton from '../components/Common/StyledButton/StyledButton';
+import LoginRegisterWrapper from '../components/Wrapper/LoginRegisterWrapper';
+import background from "../resources/images/login-bg.png";
+
+
+interface LoginProps {
 }
 
-export default Login
+interface LoginStateProps {
+    email: string;
+    password: string;
+}
+ 
+const Login: FunctionComponent<LoginProps> = () => {
+    const [loginState, setLoginState] = useState<LoginStateProps>({
+        email: "",
+        password: ""
+    });
+
+    const navigate = useNavigate()
+    const login = async (e: SyntheticEvent) => {
+        e.preventDefault();
+        const url: string = process.env.REACT_APP_API_URL ?? 'error';
+        console.log(process.env.REACT_APP_API_URL);
+        const response = await axios.post(url+'/login', loginState);
+        if (response.data) {
+                navigate("/dashboard") 
+        }
+
+    }
+
+    return ( 
+        <LoginRegisterWrapper background={background}>
+            <Grid item component="form" onSubmit={login} sx={{mx: 4}} xs={12}>
+            <Typography variant="h2" sx={{ marginTop: '10vh', marginBottom: '1.2rem', fontSize: '1.6rem', textAlign: 'center'}}>Your Design Studio Sign Up</Typography>
+                <Grid container sx={{display: 'flex', flexDirection: 'row', marginTop: '1rem'}}>
+                    <Grid item xs={12} sx={{marginTop: '1.4rem'}}>
+                        <FormControl sx={{width: '100%', paddingRight: '0.8rem'}}>
+                            <InputLabel htmlFor="email">Email</InputLabel>
+                            <Input 
+                                id="email" 
+                                type='email'
+                                onChange={e => setLoginState(previousState => ( {...previousState, email: e.target.value}))}
+                            />
+                        </FormControl>
+                    </Grid>
+                    <Grid item xs={12} sx={{gap: '0.4rem', marginTop: '1.4rem'}}>
+                        <FormControl sx={{width: '100%'}}>
+                            <InputLabel htmlFor="password">Password</InputLabel>
+                            <Input 
+                                id="password"
+                                type='password' 
+                                onChange={e => setLoginState(previousState => ( {...previousState, password: e.target.value}))}
+                                required
+                            />
+                        </FormControl>
+                    </Grid>
+                    <Grid container sx={{marginTop: "1rem"}}>
+                        <Grid item xs={12} sx={{display: 'flex', justifyContent: 'center' }}>
+                            <StyledButton variant="contained" secondary={true} sx={{minWidth: '300px'}} type="submit">Login</StyledButton>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </LoginRegisterWrapper>
+     );
+}
+ 
+export default Login;
