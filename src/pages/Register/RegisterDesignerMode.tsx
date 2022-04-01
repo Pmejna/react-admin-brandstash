@@ -17,10 +17,11 @@ interface RegisterState {
     email: string | null;
     password: string | null;
     password_confirm: string | null;
+    role_id: number;
 }
  
 const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () => {
-    const [registerState, setRegisterState] = useState({
+    const [registerState, setRegisterState] = useState<RegisterState>({
         company_name: '', 
         company_type: companyType.company_designer,
         first_name: '', 
@@ -30,11 +31,13 @@ const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () =>
         password_confirm: '',
         role_id: 7
     });
+
     const navigate = useNavigate()
     const submitForm = async (e: SyntheticEvent) => {
         e.preventDefault();
+        const url: string = process.env.REACT_APP_API_URL ?? 'error';
 
-        const response = await axios.post('http://127.0.0.1:8000/v1/api/register', registerState);
+        const response = await axios.post(url, registerState);
         if (response.data) {
             setTimeout( () => {
                 navigate("/login") 
@@ -89,6 +92,7 @@ const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () =>
                             <InputLabel htmlFor="email">Email Address</InputLabel>
                             <Input 
                                 id="email" 
+                                type="email"
                                 onChange={e => setRegisterState(previousState => ( {...previousState, email: e.target.value}))}
                                 required
                             />
@@ -101,6 +105,7 @@ const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () =>
                             <InputLabel htmlFor="password">Password</InputLabel>
                             <Input 
                                 id="password" 
+                                type="password"
                                 onChange={e => setRegisterState(previousState => ( {...previousState, password: e.target.value}))}
                                 required
                             />
@@ -111,6 +116,7 @@ const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () =>
                             <InputLabel htmlFor="confirm-password">Confirm Password</InputLabel>
                             <Input 
                                 id="confirm-password" 
+                                type="password"
                                 onChange={e => setRegisterState(previousState => ( {...previousState, password_confirm: e.target.value}))}
                                 required
                             />

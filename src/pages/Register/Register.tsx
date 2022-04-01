@@ -3,7 +3,6 @@ import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { FunctionComponent, useState } from "react";
 import background from "../../resources/images/register-bg.png";
-import registerTitle from "../../resources/images/register-title.svg";
 import registerQuoteBg from "../../resources/images/register-quote-bg.svg";
 import SelectRegistrationMode from "./SelectRegistrationMode";
 import RegisterDesignerMode from "./RegisterDesignerMode";
@@ -11,7 +10,6 @@ import RegisterBrandMode from "./RegisterBrandMode";
 import LoginRegisterWrapper from "../../components/Wrapper/LoginRegisterWrapper";
 
 interface RegisterProps {
-    
 }
  
 const Register: FunctionComponent<RegisterProps> = () => {
@@ -20,27 +18,6 @@ const Register: FunctionComponent<RegisterProps> = () => {
 
     return ( 
         <LoginRegisterWrapper background={background}>
-            <Grid
-                item
-                component='div'
-                sx={{
-                    marginTop: '6vh'
-                }}
-            >
-                <Box
-                    component='figure'
-                    sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                    }}
-                >
-                    <Box component='img' src={registerTitle} alt="Register Title" 
-                        sx={{
-                            width: "240px",
-                            height: 'auto'
-                        }}/>
-                </Box>
-            </Grid>
             {
                 mode === "select-mode" && (
                 <Grid
