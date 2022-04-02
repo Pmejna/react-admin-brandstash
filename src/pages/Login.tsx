@@ -1,7 +1,7 @@
-import { FormControl, Grid, Input, InputLabel, Typography } from '@mui/material';
+import { Box, FormControl, Grid, Input, InputLabel, Typography, useTheme } from '@mui/material';
 import axios from 'axios';
 import React, { FunctionComponent, SyntheticEvent, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import StyledButton from '../components/Common/StyledButton/StyledButton';
 import LoginRegisterWrapper from '../components/Wrapper/LoginRegisterWrapper';
 import background from "../resources/images/login-bg.png";
@@ -20,17 +20,15 @@ const Login: FunctionComponent<LoginProps> = () => {
         email: "",
         password: ""
     });
+    const theme = useTheme();
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const login = async (e: SyntheticEvent) => {
         e.preventDefault();
         const url: string = process.env.REACT_APP_API_URL ?? 'error';
-        console.log(process.env.REACT_APP_API_URL);
-        const response = await axios.post(url+'/login', loginState, {withCredentials: true});
-        if (response.data) {
-                navigate("/dashboard") 
-        }
 
+        const response = await axios.post(url+'/login', loginState, {withCredentials: true});
+        console.log(response)
     }
 
     return ( 
@@ -65,6 +63,17 @@ const Login: FunctionComponent<LoginProps> = () => {
                         </Grid>
                     </Grid>
                 </Grid>
+            </Grid>
+            <Grid
+                item
+                component='div'
+            >
+                <Typography variant="body2" sx={{ marginTop: '2rem', fontSize: '1.6rem', textAlign: 'center', fontWeight: 300}}>
+                    Don't have an account?
+                </Typography>
+                <Box component='div' sx={{ display: "flex", justifyContent: "center" }}>
+                    <Link style={{fontSize: '1.3rem', textDecoration: 'none', color: `${theme.palette.primary.main}`}} to='/'>Register</Link>
+                </Box>
             </Grid>
         </LoginRegisterWrapper>
      );
