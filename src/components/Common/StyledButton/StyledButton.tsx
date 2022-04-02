@@ -19,6 +19,7 @@ const ButtonStyled = styled(Button)<ButtonStyledProps>(({theme, variant, seconda
     border: (variant === "contained") ? 'none' : `1px solid ${theme.palette.common.divider}`,
     backgroundColor: (variant === "contained" && !secondary) ? theme.palette.common.buttonBackgroundColor : (secondary ? theme.palette.common.secondaryButtonBackgroundColor : 'transparent'),
     color: (variant === "contained" && !secondary) ? theme.palette.common.buttonColor : (secondary ? theme.palette.common.secondaryButtonColor : theme.palette.common.buttonColor),
+    fontWeight: 600,
     '&:hover': {
         color: (variant === "contained" && !secondary) ? theme.palette.common.buttonColor : (secondary ? theme.palette.common.secondaryButtonHoverColor : theme.palette.common.buttonColor),
     }
