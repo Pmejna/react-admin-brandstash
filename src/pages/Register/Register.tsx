@@ -8,12 +8,15 @@ import SelectRegistrationMode from "./SelectRegistrationMode";
 import RegisterDesignerMode from "./RegisterDesignerMode";
 import RegisterBrandMode from "./RegisterBrandMode";
 import LoginRegisterWrapper from "../../components/Wrapper/LoginRegisterWrapper";
+import { Link } from "react-router-dom";
+import { useTheme } from '@mui/material/styles';
 
 interface RegisterProps {
 }
  
 const Register: FunctionComponent<RegisterProps> = () => {
     
+    const theme = useTheme();
     const [mode, setMode] = useState("select-mode");
 
     return ( 
@@ -59,6 +62,17 @@ const Register: FunctionComponent<RegisterProps> = () => {
                         ?   (<RegisterDesignerMode/>)
                         :   (<RegisterBrandMode/>)
                 }
+            </Grid>
+            <Grid
+                item
+                component='div'
+            >
+                <Typography variant="body2" sx={{ marginTop: '2rem', fontSize: '1.6rem', textAlign: 'center', fontWeight: 300}}>
+                    Already have an account?
+                </Typography>
+                <Box component='div' sx={{ display: "flex", justifyContent: "center" }}>
+                    <Link style={{textDecoration: 'none', color: `${theme.palette.primary.main}`}} to='/login'>Log In</Link>
+                </Box>
             </Grid>
         </LoginRegisterWrapper>
                     

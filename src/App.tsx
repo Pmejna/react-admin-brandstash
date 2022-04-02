@@ -5,6 +5,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
+import "typeface-source-sans-pro";
 import Navigation from './components/Navigation/Navigation';
 import {ThemeContextProvider} from './context/ThemeContext';
 import AccountStats from './pages/AccountStats';
