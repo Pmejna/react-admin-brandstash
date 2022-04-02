@@ -35,7 +35,7 @@ const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () =>
     const navigate = useNavigate()
     const submitForm = async (e: SyntheticEvent) => {
         e.preventDefault();
-        const url: string = process.env.REACT_APP_API_URL ?? 'error';
+        const url: string = process.env.REACT_APP_API_URL+'/register' ?? 'error';
 
         const response = await axios.post(url, registerState);
         if (response.data) {

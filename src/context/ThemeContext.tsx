@@ -111,13 +111,19 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     'serif',
                 ].join(','),
                 h3: {
-                    fontFamily: "Source Sans Pro",
+                    
                 },
                 h4: {
-                    fontFamily: "Source Sans Pro",
+                    
                 },
                 h5: {
                     color: "#43543"
+                },
+                body1: {
+                    
+                },
+                body2: {
+                    
                 },
             },
             components: {

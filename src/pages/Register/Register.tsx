@@ -42,7 +42,8 @@ const Register: FunctionComponent<RegisterProps> = () => {
                                 transform: 'translate(-50%, -50%)',
                                 width: '300px',
                                 textAlign: 'center',
-                                fontWeight: 300
+                                fontWeight: 300,
+                                fontSize: '1.5rem',
                             }}
                         >
                             "We connect you with creatives, designers, and developers who are passionate about what they do."
@@ -71,7 +72,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
                     Already have an account?
                 </Typography>
                 <Box component='div' sx={{ display: "flex", justifyContent: "center" }}>
-                    <Link style={{textDecoration: 'none', color: `${theme.palette.primary.main}`}} to='/login'>Log In</Link>
+                    <Link style={{fontSize: '1.3rem', textDecoration: 'none', color: `${theme.palette.primary.main}`}} to='/login'>Log In</Link>
                 </Box>
             </Grid>
         </LoginRegisterWrapper>
