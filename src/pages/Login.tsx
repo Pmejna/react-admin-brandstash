@@ -1,6 +1,7 @@
 import { Box, FormControl, Grid, Input, InputLabel, Typography, useTheme } from '@mui/material';
 import axios from 'axios';
 import React, { FunctionComponent, SyntheticEvent, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
 import StyledButton from '../components/Common/StyledButton/StyledButton';
 import LoginRegisterWrapper from '../components/Wrapper/LoginRegisterWrapper';
@@ -20,6 +21,8 @@ const Login: FunctionComponent<LoginProps> = () => {
         email: "",
         password: ""
     });
+
+    const [redirect, setRedirect] = useState(false);
     const theme = useTheme();
 
     // const navigate = useNavigate()
@@ -27,14 +30,25 @@ const Login: FunctionComponent<LoginProps> = () => {
         e.preventDefault();
         const url: string = process.env.REACT_APP_API_URL ?? 'error';
 
-        const response = await axios.post(url+'/login', loginState, {withCredentials: true});
-        console.log(response)
+        await axios.post(url+'/login', loginState, {withCredentials: true})
+        .then( res=> {
+            if (res.data) {
+                setRedirect(true);
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
+    if (redirect) {
+        return <Navigate to="/dashboard" />;
     }
 
     return ( 
         <LoginRegisterWrapper background={background}>
             <Grid item component="form" onSubmit={login} sx={{mx: 4}} xs={12}>
-            <Typography variant="h2" sx={{ marginTop: '10vh', marginBottom: '1.2rem', fontSize: '1.6rem', textAlign: 'center'}}>Your Design Studio Sign Up</Typography>
+            <Typography variant="h2" sx={{ marginTop: '10vh', marginBottom: '1.2rem', fontSize: '1.6rem', textAlign: 'center'}}>Login To Your Account</Typography>
                 <Grid container sx={{display: 'flex', flexDirection: 'row', marginTop: '1rem'}}>
                     <Grid item xs={12} sx={{marginTop: '1.4rem'}}>
                         <FormControl sx={{width: '100%', paddingRight: '0.8rem'}}>

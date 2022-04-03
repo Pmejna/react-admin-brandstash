@@ -5,11 +5,10 @@ import React, { FunctionComponent, useState } from "react";
 import background from "../../resources/images/register-bg.png";
 import registerQuoteBg from "../../resources/images/register-quote-bg.svg";
 import SelectRegistrationMode from "./SelectRegistrationMode";
-import RegisterDesignerMode from "./RegisterDesignerMode";
-import RegisterBrandMode from "./RegisterBrandMode";
 import LoginRegisterWrapper from "../../components/Wrapper/LoginRegisterWrapper";
 import { Link } from "react-router-dom";
 import { useTheme } from '@mui/material/styles';
+import RegisterForm from "./RegisterForm";
 
 interface RegisterProps {
 }
@@ -60,8 +59,8 @@ const Register: FunctionComponent<RegisterProps> = () => {
                     (mode === "select-mode") ? (
                         <SelectRegistrationMode onClick={setMode}/>
                     ) : (mode === "register-designer") 
-                        ?   (<RegisterDesignerMode/>)
-                        :   (<RegisterBrandMode/>)
+                        ?   (<RegisterForm changeMode={setMode} type="design-company"/>)
+                        :   (<RegisterForm changeMode={setMode} type="brand-company"/>)
                 }
             </Grid>
             <Grid
