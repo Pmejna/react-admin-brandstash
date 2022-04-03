@@ -1,12 +1,14 @@
-import { FormControl, FormHelperText, Grid, Input, InputLabel, Typography } from "@mui/material";
-import React, { FunctionComponent, SyntheticEvent, useState } from "react";
+import { Box, FormControl, FormHelperText, Grid, Input, InputLabel, Typography } from "@mui/material";
+import React, { Dispatch, FunctionComponent, SetStateAction, SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StyledButton from "../../components/Common/StyledButton/StyledButton";
 import axios from "axios";
 import { companyType } from "../../ts/enums/company";
 
-interface RegisterDesignerModeProps {
-    
+
+interface RegisterFormProps {
+    type: 'design-company' | 'brand-company';
+    changeMode: Dispatch<SetStateAction<string>>
 }
 
 interface RegisterState {
@@ -19,17 +21,26 @@ interface RegisterState {
     password_confirm: string | null;
     role_id: number;
 }
+
+enum CompanyAdminRole {
+    designAdmin = 7,
+    brandAdmin = 6
+}
  
-const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () => {
+const RegisterForm: FunctionComponent<RegisterFormProps> = ({type, changeMode}) => {
     const [registerState, setRegisterState] = useState<RegisterState>({
-        company_name: '', 
-        company_type: companyType.company_designer,
-        first_name: '', 
-        last_name: '', 
-        email: '', 
-        password: '', 
-        password_confirm: '',
-        role_id: 7
+        company_name:       '', 
+        company_type:       type === 'design-company' 
+                                ? companyType.company_designer 
+                                : companyType.company_brand,
+        first_name:         '', 
+        last_name:          '', 
+        email:              '', 
+        password:           '', 
+        password_confirm:   '',
+        role_id:            type === 'design-company' 
+                                ? CompanyAdminRole.designAdmin 
+                                : CompanyAdminRole.brandAdmin
     });
 
     const navigate = useNavigate()
@@ -54,7 +65,24 @@ const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () =>
             }}
         >
             <Grid item component="form" onSubmit={submitForm} sx={{mx: 4}} xs={12}>
-                <Typography variant="h2" sx={{ marginTop: '10vh', marginBottom: '1.2rem', fontSize: '1.6rem', textAlign: 'center'}}>Your Design Studio Sign Up</Typography>
+                <Typography 
+                    variant="h2" 
+                    sx={{ 
+                        marginTop: '10vh',
+                        marginBottom: '1.2rem', 
+                        fontSize: '1.6rem', 
+                        textAlign: 'center'
+                    }}
+                >
+                    {`Your ${type === 'design-company' ? 'Design Studio' : 'Brand Company'} Sign Up`}
+                </Typography>
+                <Box sx={{display: 'flex', justifyContent: 'center'}}>
+                    {
+                        type === 'design-company' 
+                        ?   <StyledButton onClick={() => changeMode('register-brand')}>{`Switch to Brand Company Registration`}</StyledButton>
+                        :   <StyledButton onClick={() => changeMode('register-designer')}>{`Switch to Design Company Registration`}</StyledButton>
+                    }
+                </Box>
                 <Grid container sx={{display: 'flex', flexDirection: 'row', marginTop: '1rem'}}>
                     <Grid item xs={12} md={6}>
                         <FormControl sx={{width: '100%', paddingRight: '0.8rem'}}>
@@ -133,4 +161,4 @@ const RegisterDesignerMode: FunctionComponent<RegisterDesignerModeProps> = () =>
      );
 }
  
-export default RegisterDesignerMode;
+export default RegisterForm;

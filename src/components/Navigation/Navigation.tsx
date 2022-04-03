@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import ThemeButton from '../ThemeButton/ThemeButton';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import SearchInput from './SearchInput/SearchInput';
+import NavBar from '../NavBar/NavBar';
 
 
 interface dummyDataInterface {
@@ -34,7 +35,7 @@ const dummyData: dummyDataInterface[] = [
             {text: "all", slug: "/projects", icon: "projects-all"},
             {text: "new", slug: "/projects/new", icon: "proposal"},
             {text: "stats", slug: "/projects/stats", icon: "stats"},
-        ]
+        ] 
     },
     {
         category: "clients", 
@@ -108,32 +109,6 @@ const DrawerHeader = styled('div',{
   }),
 }));
 
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  backgroundColor: theme.palette.common.navigationBackgroundColor,
-  boxShadow: 'none',
-  marginLeft: drawerClosedWidth,
-  width: `calc(100% - ${drawerClosedWidth}px)`,
-  ...(open && {
-    marginLeft: drawerOpenWidth,
-    width: `calc(100% - ${drawerOpenWidth}px)`,
-  }),
-}));
-
-interface ToolbarStyledProps {
-  theme: Theme;
-};
-
-const ToolbarStyled = styled(Toolbar, { shouldForwardProp: (prop) => true })<ToolbarStyledProps>(({ theme }) => ({
-  padding: '4px 12px',
-}));
-
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     width:        drawerOpenWidth,
@@ -179,6 +154,8 @@ const LiText = styled(Typography, {shouldForwardProp: (prop) => true})<LiTextPro
 export default function Navigation(props: any) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
+  
+
 
   const handleDrawerToggle = () => {
     setOpen(!open);
@@ -186,13 +163,12 @@ export default function Navigation(props: any) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <ToolbarStyled theme={theme}>
-          <div style={{width: '100%', borderBottom: `1px solid ${theme.palette.common.divider}`}}>
-            <SearchInput/>
-          </div>
-        </ToolbarStyled>
-      </AppBar>
+      <NavBar 
+        open={open}
+        drawerClosedWidth={drawerClosedWidth}
+        drawerOpenWidth={drawerOpenWidth}
+      >
+      </NavBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader open={open}>
           <ThemeButton open={open} onClick={handleDrawerToggle}/>
