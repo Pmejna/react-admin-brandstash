@@ -13,6 +13,7 @@ import ThemeButton from '../ThemeButton/ThemeButton';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import SearchInput from './SearchInput/SearchInput';
 import NavBar from '../NavBar/NavBar';
+import MenuButton from './MenuButton/MenuButton';
 
 
 interface dummyDataInterface {
@@ -171,7 +172,7 @@ export default function Navigation(props: any) {
       </NavBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader open={open}>
-          <ThemeButton open={open} onClick={handleDrawerToggle}/>
+          <MenuButton open={open} onClick={handleDrawerToggle} />
         </DrawerHeader>
         <div style={{padding: 0}}>
           {dummyData.map((category) => (

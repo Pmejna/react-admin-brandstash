@@ -11,7 +11,9 @@ import {
     MessagesIcon,
     NotificationsIcon,
     BriefIcon,
-    AccountStatsIcon
+    AccountStatsIcon,
+    ThemeDarkIcon,
+    ThemeLightIcon
 } from './Icons';
 
 
@@ -20,32 +22,33 @@ interface SvgIconProps {
     width?: number;
     height?: number;
     mode?: string;
-    onClick?: React.MouseEventHandler<SVGSVGElement>
+    onClick?: React.MouseEventHandler<SVGSVGElement>;
+    style?: React.CSSProperties;
 }
  
-const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onClick}, children) => {
+const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onClick, style}, children) => {
     let icon: null | ReactNode = null;
     let iconWidth = width ? width : 28
     let iconHeight = height ? height : 28
     let viewBox = `0 0 ${width ? width: 28} ${height ? height: 28}`
 
     switch (variant) {
-        case 'menu-open':
+        case 'menu-open-icon':
             icon = <MenuOpen/>
         break; 
-        case 'menu-closed':
+        case 'menu-closed-icon':
             icon = <MenuClosed/>
         break; 
-        case 'dashboard':
+        case 'dashboard-icon':
             icon = <DashboardIcon/>
         break; 
-        case 'projects-all':
+        case 'projects-all-icon':
             icon = <AllProjectsIcon/>
         break; 
-        case 'proposal':
+        case 'proposal-icon':
             icon = <NewProjectIcon/>
         break; 
-        case 'stats':
+        case 'stats-icon':
             icon = <StatsIcon/>
         break; 
         case 'clients-icon':
@@ -62,6 +65,15 @@ const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onCli
         break; 
         case 'brief-icon':
             icon = <BriefIcon/>
+        break; 
+        case 'account-stats-icon':
+            icon = <AccountStatsIcon/>
+        break; 
+        case 'theme-dark-icon':
+            icon = <ThemeDarkIcon/>
+        break; 
+        case 'theme-light-icon':
+            icon = <ThemeLightIcon/>
         break; 
         case 'account-stats-icon':
             icon = <AccountStatsIcon/>
