@@ -1,25 +1,30 @@
 import { useTheme } from '@emotion/react';
+import { Box, SvgIcon } from '@mui/material';
 import React, {FunctionComponent, MouseEventHandler, useContext} from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
-import SvgIcon from '../SvgIcon/SvgIcon';
+import { ThemeDarkIcon, ThemeLightIcon } from '../SvgIcon/Icons';
 
 interface ThemeButtonProps {
-    open: boolean;
-    onClick: MouseEventHandler<SVGSVGElement>
+    onClick?: MouseEventHandler<SVGSVGElement>;
+    fontSize: "small" | "inherit" | "large" | "medium" | undefined;
 }
  
-const ThemeButton: FunctionComponent<ThemeButtonProps> = ({open, onClick}) => {
+const ThemeButton: FunctionComponent<ThemeButtonProps> = ({onClick, fontSize, ...props}) => {
     const {mode, toggleTheme} = useContext(ThemeContext);
     return ( 
-        <>
+        <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', px: '12px'}}>
             {
-                open ? (
-                    <SvgIcon variant="menu-open" width={30} height={24} onClick={onClick}/>
+                mode === 'light' ? (
+                    <SvgIcon fontSize={fontSize} onClick={toggleTheme} {...props}>
+                        <ThemeDarkIcon/>
+                    </SvgIcon>
                 ) : (
-                    <SvgIcon variant="menu-closed" width={30} height={24} onClick={onClick}/>
+                    <SvgIcon fontSize={fontSize} onClick={toggleTheme} {...props}>
+                        <ThemeLightIcon/>
+                    </SvgIcon>
                 )
             }
-        </>
+        </Box>
     );
 }
  

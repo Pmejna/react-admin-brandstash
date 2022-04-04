@@ -226,5 +226,47 @@ export const AllProjectsIcon: FunctionComponent<AllProjectsIconProps> = ({viewBo
     </>
      );
 }
+
+interface ThemeDarkIconProps {
+    viewBox?: string;
+}
+ 
+export const ThemeDarkIcon: FunctionComponent<ThemeDarkIconProps> = ({viewBox}) => {
+    const theme = useTheme();
+    return ( 
+    <>
+        <g id="Subtraction_1" data-name="Subtraction 1" transform="translate(1990 -3)" fill="none">
+            <path d="M-1979.091,25a10.793,10.793,0,0,1-7.714-3.222A10.974,10.974,0,0,1-1990,14a10.975,10.975,0,0,1,3.2-7.779A10.793,10.793,0,0,1-1979.091,3c.123,0,.248,0,.372.006a9.258,9.258,0,0,0-2.889,6.763,9.28,9.28,0,0,0,9.231,9.308,9.129,9.129,0,0,0,3.252-.594A10.925,10.925,0,0,1-1979.091,25Z" stroke="none"/>
+            <path d="M -1979.0908203125 23.59980201721191 C -1976.37744140625 23.59980201721191 -1973.8408203125 22.42942810058594 -1972.06689453125 20.47209930419922 C -1972.170043945312 20.47506713867188 -1972.2734375 20.4765510559082 -1972.376953125 20.4765510559082 C -1978.239013671875 20.4765510559082 -1983.008178710938 15.673171043396 -1983.008178710938 9.769021034240723 C -1983.008178710938 8.000167846679688 -1982.589965820312 6.305712223052979 -1981.79931640625 4.792730331420898 C -1983.298950195312 5.240189552307129 -1984.67333984375 6.060661315917969 -1985.810668945312 7.207401275634766 C -1987.609375 9.021181106567383 -1988.599975585938 11.43355083465576 -1988.599975585938 14.00013065338135 C -1988.599975585938 16.56637191772461 -1987.609375 18.97850036621094 -1985.810668945312 20.79216194152832 C -1984.015014648438 22.60269165039062 -1981.628540039062 23.59980201721191 -1979.0908203125 23.59980201721191 M -1979.0908203125 24.99980163574219 C -1982.004638671875 24.99980163574219 -1984.744140625 23.85561180114746 -1986.8046875 21.77802085876465 C -1988.865234375 19.70036125183105 -1990 16.9381217956543 -1990 14.00013065338135 C -1990 11.06182098388672 -1988.865234375 8.299341201782227 -1986.8046875 6.221580982208252 C -1984.744140625 4.1439208984375 -1982.004638671875 2.999701023101807 -1979.0908203125 2.999701023101807 C -1978.968017578125 2.999701023101807 -1978.843017578125 3.001821041107178 -1978.718994140625 3.006000995635986 C -1980.581787109375 4.78230094909668 -1981.608154296875 7.183600902557373 -1981.608154296875 9.769021034240723 C -1981.608154296875 14.90121078491211 -1977.467041015625 19.07655143737793 -1972.376953125 19.07655143737793 C -1971.257568359375 19.07655143737793 -1970.1630859375 18.87663078308105 -1969.124755859375 18.48234176635742 C -1970.879150390625 22.44199180603027 -1974.79150390625 24.99980163574219 -1979.0908203125 24.99980163574219 Z" stroke="none" fill={theme.palette.common.iconColor}/>
+        </g>
+    </>
+     );
+}
+
+interface ThemeLightIconProps {
+    viewBox?: string;
+}
+ 
+export const ThemeLightIcon: FunctionComponent<ThemeLightIconProps> = ({viewBox}) => {
+    const theme = useTheme();
+    return ( 
+    <>
+        <g id="Group_202" data-name="Group 202" transform="translate(-1535.9 -19.9)">
+            <g id="Ellipse_13" data-name="Ellipse 13" transform="translate(1540.35 24.35)" fill="none" stroke={theme.palette.common.iconColor} stroke-width="1.4">
+                <circle cx="8.5" cy="8.5" r="8.5" stroke="none"/>
+                <circle cx="8.5" cy="8.5" r="7.8" fill="none"/>
+            </g>
+            <path id="Path_605" data-name="Path 605" d="M3542.5,20.6v3.082" transform="translate(-1993.65)" fill="none" stroke={theme.palette.common.iconColor} stroke-linecap="round" stroke-width="1.4"/>
+            <path id="Path_606" data-name="Path 606" d="M3542.5,20.6v3.082" transform="translate(-1993.65 21.418)" fill="none" stroke={theme.palette.common.iconColor} stroke-linecap="round" stroke-width="1.4"/>
+            <path id="Path_607" data-name="Path 607" d="M0,0V3.082" transform="translate(1561.1 32.85) rotate(90)" fill="none" stroke={theme.palette.common.iconColor} stroke-linecap="round" stroke-width="1.4"/>
+            <path id="Path_608" data-name="Path 608" d="M0,0V3.082" transform="translate(1539.682 32.85) rotate(90)" fill="none" stroke={theme.palette.common.iconColor} stroke-linecap="round" stroke-width="1.4"/>
+            <path id="Path_609" data-name="Path 609" d="M0,0V3.082" transform="translate(1557.512 41.512) rotate(135)" fill="none" stroke={theme.palette.common.iconColor} stroke-linecap="round" stroke-width="1.4"/>
+            <path id="Path_610" data-name="Path 610" d="M0,0V3.082" transform="translate(1542.367 26.367) rotate(135)" fill="none" stroke={theme.palette.common.iconColor} stroke-linecap="round" stroke-width="1.4"/>
+            <path id="Path_611" data-name="Path 611" d="M0,0V3.082" transform="translate(1540.188 41.512) rotate(-135)" fill="none" stroke={theme.palette.common.iconColor} stroke-linecap="round" stroke-width="1.4"/>
+            <path id="Path_612" data-name="Path 612" d="M0,0V3.082" transform="translate(1555.333 26.367) rotate(-135)" fill="none" stroke={theme.palette.common.iconColor} stroke-linecap="round" stroke-width="1.4"/>
+        </g>
+    </>
+     );
+}
  
  
