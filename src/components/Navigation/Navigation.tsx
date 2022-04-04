@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import { styled, useTheme, Theme, CSSObject, SxProps } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -13,6 +13,9 @@ import ThemeButton from '../ThemeButton/ThemeButton';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import SearchInput from './SearchInput/SearchInput';
 import NavBar from '../NavBar/NavBar';
+import MenuButton from './MenuButton/MenuButton';
+import axios from 'axios';
+import { CircularProgress } from '@mui/material';
 
 
 interface dummyDataInterface {
@@ -151,62 +154,98 @@ const LiText = styled(Typography, {shouldForwardProp: (prop) => true})<LiTextPro
     fontSize: open ? '1.2rem' : '0.8rem',
 }));
 
+type SectionElements = {
+  section_icon: string;
+  section_id: number;
+  section_name: string;
+  section_slug: string;
+  section_text: string;
+}
+
+type Section = {
+  section_cat_id: number;
+  section_cat_name: string;
+  sections: SectionElements[];
+}
+
+interface NavigationInterface {
+}  
+
 export default function Navigation(props: any) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
+  const [navData, setNavData] = useState<Section[]>([]);
+  const [loading, setLoading] = useState(true);
+  const url: string = process.env.REACT_APP_API_URL ?? 'error';
+
+  useEffect(() => {
+    (async () => {
+      await axios.get(url+'/section-category/all', {withCredentials: true})
+      .then(res => {
+        console.log(res.data.data)
+        setNavData(res.data.data);
+        setLoading(false);
+      }).catch(err => {
+          console.log(err);
+        });
+    })();
+  }, []);
   
-
-
   const handleDrawerToggle = () => {
     setOpen(!open);
   }
+  
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <NavBar 
-        open={open}
-        drawerClosedWidth={drawerClosedWidth}
-        drawerOpenWidth={drawerOpenWidth}
-      >
-      </NavBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader open={open}>
-          <ThemeButton open={open} onClick={handleDrawerToggle}/>
-        </DrawerHeader>
-        <div style={{padding: 0}}>
-          {dummyData.map((category) => (
-            <List style={{padding: 0, paddingLeft: open ? 16 : 0}}>
-                    <DrawerTitle theme={theme} open={open}>
-                        {category.category.toUpperCase()}
-                    </DrawerTitle>
-                {
-                    category.elements.map((element) => {
-                        return (
-                            <ListItemButton
-                            key={element.text}
-                            style={{padding: 0, paddingLeft: 0, display: 'flex', flexDirection: open ? 'row' : 'column',  justifyContent: open ? 'flex-start' : 'center'}}
-                            sx={{
-                                minHeight: 48,
-                                justifyContent: open ? 'initial' : 'center',
-                                paddingLeft: 0,
-                                paddingBottom: 6
-                            }}
-                            component={Link}
-                            to={element.slug}
-                            >
-                                <SvgIcon variant={element.icon}/>
-                                        <LiText>{element.text}</LiText>
-                            </ListItemButton>
-                        )
-                    })
-                }
-            </List>
-          ))}
-        </div>
-      </Drawer>
-        <Main open={open}>
-            {props.children ? props.children : null}
-        </Main>
-    </Box>
+      loading && navData === [] ? 
+      <CircularProgress /> : 
+       (
+        <Box sx={{ display: 'flex' }}>
+          <CssBaseline />
+          <NavBar 
+            open={open}
+            drawerClosedWidth={drawerClosedWidth}
+            drawerOpenWidth={drawerOpenWidth}
+          >
+          </NavBar>
+          <Drawer variant="permanent" open={open}>
+            <DrawerHeader open={open}>
+              <MenuButton open={open} onClick={handleDrawerToggle} />
+            </DrawerHeader>
+            <Box style={{padding: 0}}>
+              {navData?.map((category) => (
+                <List style={{padding: 0, paddingLeft: open ? 16 : 0}}>
+                        <DrawerTitle theme={theme} open={open}>
+                            {category.section_cat_name.toUpperCase()}
+                        </DrawerTitle>
+                    {
+                        category.sections.map((element) => {
+                            return (
+                                <ListItemButton
+                                key={element.section_text}
+                                style={{padding: 0, paddingLeft: 0, display: 'flex', flexDirection: open ? 'row' : 'column',  justifyContent: open ? 'flex-start' : 'center'}}
+                                sx={{
+                                    minHeight: 48,
+                                    justifyContent: open ? 'initial' : 'center',
+                                    paddingLeft: 0,
+                                    paddingBottom: 6
+                                }}
+                                component={Link}
+                                to={element.section_slug}
+                                >
+                                    <SvgIcon variant={element.section_icon}/>
+                                            <LiText>{element.section_text}</LiText>
+                                </ListItemButton>
+                            )
+                        })
+                    }
+                </List>
+              ))}
+            </Box>
+          </Drawer>
+            <Main open={open}>
+                {props.children ? props.children : null}
+            </Main>
+        </Box>
+    )
   );
 }

@@ -13,7 +13,7 @@ export enum themeColors {
     dividerColorLight               = "#979797",
     borderSecondaryLight            = "#A1D0FF",
     borderDark                      = "#1C0B24",
-    bgMainDark                      = "#F1F1F2",
+    bgMainDark                      = "#18191E",
     iconColorDark                   = "#148AFF",
     textColorDark                   = "#E4D8E9",
     buttonBgColorDark               = "#E4D8E9",
