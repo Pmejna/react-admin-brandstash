@@ -28,9 +28,8 @@ const Login: FunctionComponent<LoginProps> = () => {
     // const navigate = useNavigate()
     const login = async (e: SyntheticEvent) => {
         e.preventDefault();
-        const url: string = process.env.REACT_APP_API_URL ?? 'error';
 
-        await axios.post(url+'/login', loginState, {withCredentials: true})
+        await axios.post('/login', loginState)
         .then( res=> {
             if (res.data) {
                 setRedirect(true);

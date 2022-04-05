@@ -1,9 +1,10 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useEffect, useState} from 'react';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import { styled, useTheme, Theme, CSSObject, SxProps } from '@mui/material/styles';
-import { Avatar, Box, Grid, Toolbar } from '@mui/material';
+import { Avatar, Box, CircularProgress, Grid, Toolbar } from '@mui/material';
 import SearchInput from '../Navigation/SearchInput/SearchInput';
 import ThemeButton from '../ThemeButton/ThemeButton';
+import axios from 'axios';
 
 
 interface AppBarProps extends MuiAppBarProps {
@@ -34,6 +35,16 @@ interface AppBarProps extends MuiAppBarProps {
     padding: '4px 12px',
   }));
 
+type User = {
+  user_id:                string;
+	user_first_name:        string;
+	user_last_name:         string;
+	user_email:             string;
+	user_job_title?:        string;
+	user_created_datetime:  Date;
+	user_updated_datetime:  Date;
+}
+
 interface NavBarProps {
     open?:              boolean;
     drawerOpenWidth:    number
@@ -46,7 +57,20 @@ const NavBar: FunctionComponent<NavBarProps> = ({
     drawerClosedWidth,
 }) => {
     const theme = useTheme();
-
+    const [user, setUser] = useState<User | null>(null);
+    useEffect(() => {
+      (async () => (
+        await axios.get('/user')
+          .then(res => {
+            setUser(res.data);
+          })
+            .catch(err => {
+              console.log(err);
+            })
+        )
+      )();
+    }, [])
+    
     function stringToColor(string: string) {
         let hash = 0;
         let i;
@@ -92,7 +116,7 @@ const NavBar: FunctionComponent<NavBarProps> = ({
             <Grid item xs={7} lg={8}>
                 <Grid container  sx={{display: 'flex', flexDirection: 'row-reverse'}}>
                     <ThemeButton fontSize="medium"/>
-                    <Avatar {...stringAvatar('Kent Dodds')} />
+                    { user ? (<Avatar {...stringAvatar(`${user.user_first_name} ${user.user_last_name}`)} />) : <CircularProgress />}
                 </Grid>
             </Grid>
           </Grid>
