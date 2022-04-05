@@ -5,6 +5,7 @@ import { Avatar, Box, CircularProgress, Grid, Toolbar } from '@mui/material';
 import SearchInput from '../Navigation/SearchInput/SearchInput';
 import ThemeButton from '../ThemeButton/ThemeButton';
 import axios from 'axios';
+import MenuListComposition from '../Common/MenuList/MenuList';
 
 
 interface AppBarProps extends MuiAppBarProps {
@@ -115,7 +116,8 @@ const NavBar: FunctionComponent<NavBarProps> = ({
                 
             <Grid item xs={7} lg={8}>
                 <Grid container  sx={{display: 'flex', flexDirection: 'row-reverse'}}>
-                    <ThemeButton fontSize="medium"/>
+                    <ThemeButton fontSize="large"/>
+                    <MenuListComposition />
                     { user ? (<Avatar {...stringAvatar(`${user.user_first_name} ${user.user_last_name}`)} />) : <CircularProgress />}
                 </Grid>
             </Grid>
