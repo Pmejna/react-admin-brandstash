@@ -176,11 +176,10 @@ export default function Navigation(props: any) {
   const [open, setOpen] = useState(true);
   const [navData, setNavData] = useState<Section[]>([]);
   const [loading, setLoading] = useState(true);
-  const url: string = process.env.REACT_APP_API_URL ?? 'error';
 
   useEffect(() => {
     (async () => {
-      await axios.get(url+'/section-category/all', {withCredentials: true})
+      await axios.get('/section-category/all')
       .then(res => {
         console.log(res.data.data)
         setNavData(res.data.data);

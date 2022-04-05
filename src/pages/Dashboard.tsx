@@ -3,10 +3,9 @@ import React, { useEffect } from 'react';
 import Wrapper from '../components/Wrapper/Wrapper';
 const Dashboard = () => {
     useEffect(() => {
-        const url: string = process.env.REACT_APP_API_URL ?? 'error';
         (
             async () => {
-                const {data} = await axios.get(url+'/user', {withCredentials: true});
+                const {data} = await axios.get('/user');
             }
         )()
     }, [])
