@@ -41,7 +41,7 @@ const Login: FunctionComponent<LoginProps> = () => {
     }
 
     if (redirect) {
-        return <Navigate to="/dashboard" />;
+        return <Navigate to="/" />;
     }
 
     return ( 

@@ -8,9 +8,7 @@ interface ClientProjectProps {
 const ClientProject: FunctionComponent<ClientProjectProps> = () => {
     return ( 
         <>
-            <Wrapper>
-                Client Project
-            </Wrapper>
+            Client Project
         </>
      );
 }

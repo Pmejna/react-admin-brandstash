@@ -8,9 +8,7 @@ interface ClientsBriefsProps {
 const ClientsBriefs: FunctionComponent<ClientsBriefsProps> = () => {
     return ( 
         <>
-            <Wrapper>
-                Clients Briefs
-            </Wrapper>
+            Clients Briefs
         </>
      );
 }

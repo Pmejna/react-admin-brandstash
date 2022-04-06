@@ -1,5 +1,6 @@
-import React, { ReactNode } from "react";
-import { Route, Routes } from "react-router-dom";
+import axios from "axios";
+import React, { FunctionComponent, ReactNode, useEffect, useMemo, useState } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "../../pages/Dashboard";
 import ProjectBrief from "../../pages/Designer/Brief/ProjectBrief";
 import ProjectsBriefs from "../../pages/Designer/Brief/ProjectsBriefs";
@@ -8,30 +9,49 @@ import ProjectOne from "../../pages/Designer/Projects/ProjectOne";
 import ProjectsAll from "../../pages/Designer/Projects/ProjectsAll";
 import ProjectsStats from "../../pages/Designer/Projects/ProjectsStats";
 import Login from "../../pages/Login";
+import { User } from "../../ts/types/user";
 import Navigation from "../Navigation/Navigation";
 
+export const UserContext = React.createContext<User | null>(null);
+
 interface Props {
-    children: ReactNode;
-}
- 
-interface State {
-    
 }
 
-const initialState: State = {
-};
- 
-class  Wrapper extends React.Component<Props, State> {
-    state = {}
-    render() { 
-        return ( 
-            <>
-                <Navigation>
-                    {this.props.children}
-                </Navigation>
-            </>
-         );
-    }
+interface WrapperProps {
+    children: ReactNode;
+}
+
+const Wrapper: FunctionComponent<WrapperProps> = ({children}) => {
+
+    const [redirect, setRedirect] = useState(false);
+    const [user, setUser] = useState<User | null>(null);
+    const userData = useMemo<User | void>(() => {
+        (
+            async  () => {
+                try {
+                    const {data} = await axios.get('user');
+                    setUser(data);
+                    return data;
+                }catch (err) {
+                    setRedirect(true)
+                }
+            }
+        )()
+        }, [])
+
+    return ( 
+        <UserContext.Provider value={user}>
+            {
+                redirect 
+                ? <Navigate to="/login" /> 
+                : (
+                    <Navigation>
+                        {children}
+                    </Navigation>
+                ) 
+            }
+        </UserContext.Provider>
+     );
 }
  
 export default Wrapper;

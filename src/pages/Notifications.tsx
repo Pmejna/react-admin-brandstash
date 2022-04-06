@@ -7,9 +7,7 @@ interface NotificationsProps {
  
 const Notifications: FunctionComponent<NotificationsProps> = () => (
     <>
-        <Wrapper>
-            Notifications
-        </Wrapper>
+        Notifications
     </>
 )
 export default Notifications;

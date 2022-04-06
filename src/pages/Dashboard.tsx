@@ -11,9 +11,7 @@ const Dashboard = () => {
     }, [])
 
     return (
-        <Wrapper>
             <div>Home: Dashboard</div>
-        </Wrapper>
     )
 }
 

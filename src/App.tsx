@@ -3,10 +3,12 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  Outlet
 } from 'react-router-dom';
 import "typeface-source-sans-pro";
 import Navigation from './components/Navigation/Navigation';
+import Wrapper from './components/Wrapper/Wrapper';
 import {ThemeContextProvider} from './context/ThemeContext';
 import AccountStats from './pages/AccountStats';
 import Dashboard from './pages/Dashboard';
@@ -34,39 +36,41 @@ function App() {
         <Router>
           <CssBaseline/>
           <Routes>
-              <Route path="/">
-                  <Route index element={<Register/>}/>
-                  <Route path="login" element={<Login/>}/>
-                  <Route path="dashboard" element={<Dashboard/>}/>
-                  <Route path="projects">
-                      <Route index element={<ProjectsAll/>}/>
-                      <Route path=":projectUuid" element={<ProjectOne/>}/>
-                      <Route path="new" element={<ProjectNew/>}/>
-                      <Route path="stats" element={<ProjectsStats/>}/>
-                  </Route>
-                  <Route path="brief">
-                      <Route index element={<ProjectsBriefs/>}/>
-                      <Route path=":briefUuid" element={<ProjectBrief/>}/>
-                  </Route>
-                  <Route path="clients">
-                      <Route index element={<ClientsAll/>}/>
-                      <Route path=":clientUuid">
-                          <Route index element={<ClientView/>}/>                        
-                          <Route path="briefs">
-                              <Route index element={<ClientsBriefs/>}/>
-                              <Route path=":briefUuid" element={<ClientBrief/>}/>
-                          </Route>
-                          <Route path="projects">
-                            <Route index element={<ClientProjects/>}/>
-                            <Route path=":projectUuid" element={<ClientProject/>}/>
-                          </Route>
+                <Route path="/">
+                  <Route path="/login" element={<Login/>}/>
+                  <Route path="/register" element={<Register/>}/>
+                  <Route element={<Wrapper><Outlet/></Wrapper>}>
+                      <Route index element={<Dashboard/>}/>
+                      <Route path="projects">
+                          <Route index element={<ProjectsAll/>}/>
+                          <Route path=":projectUuid" element={<ProjectOne/>}/>
+                          <Route path="new" element={<ProjectNew/>}/>
+                          <Route path="stats" element={<ProjectsStats/>}/>
                       </Route>
-                      <Route path="briefs" element={<ClientsBriefs/>}/>
+                      <Route path="brief">
+                          <Route index element={<ProjectsBriefs/>}/>
+                          <Route path=":briefUuid" element={<ProjectBrief/>}/>
+                      </Route>
+                      <Route path="clients">
+                          <Route index element={<ClientsAll/>}/>
+                          <Route path=":clientUuid">
+                              <Route index element={<ClientView/>}/>                        
+                              <Route path="briefs">
+                                  <Route index element={<ClientsBriefs/>}/>
+                                  <Route path=":briefUuid" element={<ClientBrief/>}/>
+                              </Route>
+                              <Route path="projects">
+                                <Route index element={<ClientProjects/>}/>
+                                <Route path=":projectUuid" element={<ClientProject/>}/>
+                              </Route>
+                          </Route>
+                          <Route path="briefs" element={<ClientsBriefs/>}/>
+                      </Route>
+                      <Route path="notifications" element={<Notifications/>}/>
+                      <Route path="account-stats" element={<AccountStats/>}/>
+                      <Route path="settings" element={<Settings/>}/>
                   </Route>
-                  <Route path="notifications" element={<Notifications/>}/>
-                  <Route path="account-stats" element={<AccountStats/>}/>
-                  <Route path="settings" element={<Settings/>}/>
-              </Route>
+                </Route>
           </Routes>
         </Router>
       </ThemeContextProvider>

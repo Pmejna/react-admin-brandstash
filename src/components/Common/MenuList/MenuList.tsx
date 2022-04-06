@@ -58,7 +58,6 @@ export default function MenuListComposition() {
 
     prevOpen.current = open;
   }, [open]);
-  console.log(anchorRef.current);
 
   return (
     <Stack direction="row" spacing={2}>

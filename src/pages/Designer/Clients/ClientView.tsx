@@ -8,9 +8,7 @@ interface ClientViewProps {
 const ClientView: FunctionComponent<ClientViewProps> = () => {
     return ( 
         <>
-            <Wrapper>
-                Client View
-            </Wrapper>
+            Client View
         </>
      );
 }

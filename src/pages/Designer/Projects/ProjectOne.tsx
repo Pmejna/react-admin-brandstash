@@ -5,9 +5,7 @@ const ProjectOne: FC = () => {
 
     return (
         <>
-            <Wrapper>
-                One project
-            </Wrapper>
+            One project
         </>
     )
 }
