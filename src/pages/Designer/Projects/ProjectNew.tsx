@@ -4,9 +4,7 @@ import Wrapper from '../../../components/Wrapper/Wrapper';
 const ProjectNew: FC = () => {
     return (
         <>
-            <Wrapper>
-                New Project
-            </Wrapper>
+            New Project
         </>
     )
 }

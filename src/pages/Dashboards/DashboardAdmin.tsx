@@ -3,9 +3,7 @@ import Wrapper from '../../components/Wrapper/Wrapper';
 const DashboardAdmin = () => {
     return (
         <>
-            <Wrapper>
-                Dashboard Admin
-            </Wrapper>
+            Dashboard Admin
         </>
     )
 }

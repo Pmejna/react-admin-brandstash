@@ -8,9 +8,7 @@ interface ClientsAllProps {
 const ClientsAll: FunctionComponent<ClientsAllProps> = () => {
     return ( 
         <>
-            <Wrapper>
-                Clients
-            </Wrapper>
+            Clients
         </>
      );
 }

@@ -4,9 +4,7 @@ import Wrapper from '../../../components/Wrapper/Wrapper';
 const ProjectBrief: FC = () => {
     return (
         <>
-            <Wrapper>
-                Project Brief
-            </Wrapper>
+            Project Brief
         </>
     )
 }

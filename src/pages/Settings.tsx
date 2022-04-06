@@ -8,9 +8,7 @@ interface SettingsProps {
 const Settings: FunctionComponent<SettingsProps> = () => {
     return ( 
         <>
-            <Wrapper>
                 Settings
-            </Wrapper>
         </>
      );
 }

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import { styled, useTheme, Theme, CSSObject, SxProps } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -177,18 +177,19 @@ export default function Navigation(props: any) {
   const [navData, setNavData] = useState<Section[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useMemo(() => {
     (async () => {
+      if (navData.length === 0) {
       await axios.get('/section-category/all')
       .then(res => {
-        console.log(res.data.data)
+        console.log("Navigation reload")
         setNavData(res.data.data);
         setLoading(false);
       }).catch(err => {
           console.log(err);
         });
-    })();
-  }, []);
+    }})();
+  }, [navData]);
   
   const handleDrawerToggle = () => {
     setOpen(!open);
@@ -204,7 +205,7 @@ export default function Navigation(props: any) {
             open={open}
             drawerClosedWidth={drawerClosedWidth}
             drawerOpenWidth={drawerOpenWidth}
-          >
+          > 
           </NavBar>
           <Drawer variant="permanent" open={open}>
             <DrawerHeader open={open}>

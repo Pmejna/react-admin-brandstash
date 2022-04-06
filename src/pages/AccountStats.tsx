@@ -8,9 +8,7 @@ interface AccountStatsProps {
 const AccountStats: FunctionComponent<AccountStatsProps> = () => {
     return ( 
         <>
-            <Wrapper>
-                Account Stats
-            </Wrapper>
+            Account Stats
         </>
      );
 }
