@@ -12,6 +12,8 @@ export enum themeColors {
     secondaryButtonHoverColorLight  = "#fff",
     dividerColorLight               = "#979797",
     borderSecondaryLight            = "#A1D0FF",
+    navActiveBgColorLight           = "#ededed",
+    navInactiveBgColorLight         = "transparent",
     borderDark                      = "#1C0B24",
     bgMainDark                      = "#18191E",
     iconColorDark                   = "#148AFF",
@@ -25,6 +27,8 @@ export enum themeColors {
     navigationBackgroundColorDark   = "#18191E",
     dividerColorDark                = "rgba(65,160,255,0.41)",
     borderSecondaryDark             = "#A1D0FF",
+    navActiveBgColorDark            = "#2211aa",
+    navInactiveBgColorDark          = "transparent",
 }
 
 export enum styleCommonUtils {

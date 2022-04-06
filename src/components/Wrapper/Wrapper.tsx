@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { FunctionComponent, ReactNode, useEffect, useMemo, useState } from "react";
+import { useLocation} from "react-router-dom";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "../../pages/Dashboard";
 import ProjectBrief from "../../pages/Designer/Brief/ProjectBrief";
@@ -21,10 +22,11 @@ interface WrapperProps {
     children: ReactNode;
 }
 
-const Wrapper: FunctionComponent<WrapperProps> = ({children}) => {
+const Wrapper: FunctionComponent<WrapperProps> = ({children}, ...props) => {
 
     const [redirect, setRedirect] = useState(false);
     const [user, setUser] = useState<User | null>(null);
+    const [currentLocation, setCurrentLocation] = useState<string>("");
     const userData = useMemo<User | void>(() => {
         (
             async  () => {
@@ -38,6 +40,12 @@ const Wrapper: FunctionComponent<WrapperProps> = ({children}) => {
             }
         )()
         }, [])
+    
+    let location = useLocation();
+    useEffect(() => {
+        setCurrentLocation(location.pathname);
+    }, [location])
+    
 
     return ( 
         <UserContext.Provider value={user}>
@@ -45,7 +53,7 @@ const Wrapper: FunctionComponent<WrapperProps> = ({children}) => {
                 redirect 
                 ? <Navigate to="/login" /> 
                 : (
-                    <Navigation>
+                    <Navigation location={location}>
                         {children}
                     </Navigation>
                 ) 
