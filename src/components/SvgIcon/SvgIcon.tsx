@@ -24,9 +24,11 @@ interface SvgIconProps {
     mode?: string;
     onClick?: React.MouseEventHandler<SVGSVGElement>;
     style?: React.CSSProperties;
+    margin?: number;
+    marginLeft?: number;
 }
  
-const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onClick, style}, children) => {
+const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onClick, style, margin, marginLeft}, children) => {
     let icon: null | ReactNode = null;
     let iconWidth = width ? width : 28
     let iconHeight = height ? height : 28
@@ -84,7 +86,15 @@ const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onCli
     }
 
     return ( 
-        <figure style={{width: iconWidth, height: iconHeight, display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 0}}>
+        <figure style={{
+            width: iconWidth, 
+            height: iconHeight, 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            margin: margin ? margin : 0, 
+            marginLeft: marginLeft ? marginLeft : 0
+        }}>
             <svg
                 onClick={onClick} 
                 xmlns="http://www.w3.org/2000/svg"

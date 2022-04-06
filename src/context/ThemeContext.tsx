@@ -16,6 +16,8 @@ declare module "@mui/material/styles/createPalette" {
         navigationBackgroundColor: string,
         divider: string;
         borderSecondary: string;
+        navActive: string;
+        navInactive: string;
     }
 }
 
@@ -67,6 +69,8 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                         navigationBackgroundColor: themeColors.navigationBackgroundColorLight,
                         divider: themeColors.dividerColorLight,
                         borderSecondary: themeColors.borderSecondaryLight,
+                        navActive: themeColors.navActiveBgColorLight,
+                        navInactive: themeColors.navInactiveBgColorLight,
                     },
                     secondary: {
                         main: "#000"
@@ -94,7 +98,8 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                         navigationBackgroundColor: themeColors.navigationBackgroundColorDark,
                         divider: themeColors.dividerColorDark,
                         borderSecondary: themeColors.borderSecondaryDark,
-
+                        navActive: themeColors.navActiveBgColorDark,
+                        navInactive: themeColors.navInactiveBgColorDark,
                     },
                     background: {
                         default: themeColors.bgMainDark
