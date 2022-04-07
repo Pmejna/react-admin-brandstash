@@ -1,5 +1,4 @@
 import { CssBaseline } from '@mui/material';
-import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,7 +6,6 @@ import {
   Outlet
 } from 'react-router-dom';
 import "typeface-source-sans-pro";
-import Navigation from './components/Navigation/Navigation';
 import Wrapper from './components/Wrapper/Wrapper';
 import {ThemeContextProvider} from './context/ThemeContext';
 import AccountStats from './pages/AccountStats';

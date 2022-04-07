@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import React, { createContext, FC, useContext, useMemo, useState } from "react";
+import { createContext, FC, useContext, useMemo, useState } from "react";
 import { styleCommonUtils, themeColors } from "../ts/enums/theme";
 import "@mui/material/styles/createPalette";
 

@@ -3,12 +3,12 @@ import React, {FunctionComponent, MouseEventHandler, useContext} from 'react';
 import { SettingsIcon } from '../../SvgIcon/Icons';
 
 interface SettingsButtonProps {
-    onClick?: MouseEventHandler<SVGSVGElement>;
-    fontSize?: "small" | "inherit" | "large" | "medium" | undefined;
-    ref?: React.Ref<any>;
-    open?: boolean;
-    id?: string;
-    handleToggle?: () => void;
+    onClick?:       MouseEventHandler<SVGSVGElement>;
+    ref?:           React.Ref<any>;
+    handleToggle?:  () => void;
+    fontSize?:      "small" | "inherit" | "large" | "medium" | undefined;
+    open?:          boolean;
+    id?:            string;
 }
  
 const SettingsButton: FunctionComponent<SettingsButtonProps> = React.forwardRef(({

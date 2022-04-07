@@ -6,12 +6,13 @@ import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import ListItemButton, { ListItemButtonBaseProps } from '@mui/material/ListItemButton';
+import isPropValid from '@emotion/is-prop-valid';
 import {NavLink } from 'react-router-dom';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import NavBar from '../NavBar/NavBar';
 import MenuButton from './MenuButton/MenuButton';
 import axios from 'axios';
-import { CircularProgress, ListItem } from '@mui/material';
+import { CircularProgress} from '@mui/material';
 
 
 const drawerOpenWidth = 180;
@@ -84,13 +85,13 @@ interface DrawerTitleProps extends TypographyProps {
     open: boolean;
   }
 
-const DrawerTitle = styled(Typography, {shouldForwardProp: (prop) => true})<DrawerTitleProps>(({theme, open}) => ({
-    color:    theme.palette.common.secondaryTextColor,
-    fontSize: '0.9rem',
-    opacity:  1,
-    marginTop: '1rem',
-    marginLeft: open ? 16 : 0,
-    textAlign: 'center',
+const DrawerTitle = styled(Typography, {shouldForwardProp: () => true})<DrawerTitleProps>(({theme, open}) => ({
+    marginTop:    '1rem',
+    marginLeft:   open ? 16 : 0,
+    opacity:      1,
+    color:        theme.palette.common.secondaryTextColor,
+    fontSize:     '0.9rem',
+    textAlign:    'center',
     ...(open && {
       textAlign: 'left',
       fontSize: '1rem',
@@ -102,43 +103,38 @@ interface LiTextProps extends TypographyProps{
   isActive: () => boolean;
 }
 
-const LiText = styled(Typography, {shouldForwardProp: (prop) => true})<LiTextProps>(({isActive, open}) => ({
+const LiText = styled(Typography, {shouldForwardProp: isPropValid})<LiTextProps>(({open, isActive}) => ({
     fontSize: open ? '1.2rem' : '0.8rem',
     fontWeight: isActive() ? 'bold' : 'normal',
 }));
 
 type SectionElements = {
   section_icon: string;
-  section_id: number;
+  section_id:   number;
   section_name: string;
   section_slug: string;
   section_text: string;
 }
 
 type Section = {
-  section_cat_id: number;
+  sections:         SectionElements[];
+  section_cat_id:   number;
   section_cat_name: string;
-  sections: SectionElements[];
 }
 
 interface StyledListItemButtonProps extends ListItemButtonBaseProps {
-  open?: boolean;
-  isActive: () => boolean;
   component?: React.ElementType;
-  to: string;
-  sx?: SxProps<Theme>;
-  theme?: Theme;
+  theme?:     Theme;
+  sx?:        SxProps<Theme>;
+  isActive:   () => boolean;
+  open?:      boolean;
+  to:         string;
 }
 
-const StyledListItemButton = styled(ListItemButton, {shouldForwardProp: (prop) => true})<StyledListItemButtonProps>(({open, isActive, theme}) => ({
+const StyledListItemButton = styled(ListItemButton)<StyledListItemButtonProps>(({open, isActive, theme}) => ({
   fontSize: open ? '1.2rem' : '0.8rem',
   backgroundColor: isActive() ? theme.palette.common.navActive : theme.palette.common.navInactive,
 }));
-
-interface NavigationInterface {
-}  
-
-
 
 export default function Navigation(props: any) {
   useEffect(() => {
@@ -184,36 +180,34 @@ export default function Navigation(props: any) {
             </DrawerHeader>
             <Box style={{padding: 0}}>
               {navData?.map((category) => (
-                <List style={{padding: 0}}>
-                        <DrawerTitle theme={theme} open={open}>
-                            {category.section_cat_name.toUpperCase()}
-                        </DrawerTitle>
-                    {
-                        category.sections.map((element) => {
-                            let active = () => props.location.pathname === element.section_slug ? true : false
-                            console.log(active());
-                            return (
-                                <StyledListItemButton
-                                  key={element.section_text}
-                                  style={{padding: 0, paddingLeft: 0, display: 'flex', flexDirection: open ? 'row' : 'column',  justifyContent: open ? 'flex-start' : 'center'}}
-                                  sx={{
-                                      minHeight: 48,
-                                      justifyContent: open ? 'initial' : 'center',
-                                      paddingLeft: 0,
-                                      paddingBottom: 6
-                                  }}
-                                  component={NavLink}
-                                  to={element.section_slug}
-                                  isActive={
-                                    active
-                                  }
-                                >
-                                    <SvgIcon variant={element.section_icon} marginLeft={ open ? 16 : 0}/>
-                                    <LiText isActive={active}>{element.section_text}</LiText>
-                                </StyledListItemButton>
-                            )
-                        })
-                    }
+                <List style={{padding: 0}} key={category.section_cat_name+'_li'}>
+                  <DrawerTitle theme={theme} open={open} key={category.section_cat_name}>
+                      {category.section_cat_name.toUpperCase()}
+                  </DrawerTitle>
+                  {
+                    category.sections.map((element) => {
+                      let active = () => props.location.pathname === element.section_slug ? true : false
+                      return (
+                        <StyledListItemButton
+                          key={element.section_text}
+                          sx={{
+                            padding: 0, 
+                            paddingLeft: 0, 
+                            display: 'flex', 
+                            flexDirection: open ? 'row' : 'column', 
+                            justifyContent: open ? 'flex-start' : 'center',
+                            minHeight: 48,
+                          }}
+                          component={NavLink}
+                          to={element.section_slug}
+                          isActive={active}
+                        >
+                          <SvgIcon variant={element.section_icon} marginLeft={ open ? 16 : 0}/>
+                          <LiText isActive={active}>{element.section_text}</LiText>
+                        </StyledListItemButton>
+                      )
+                    })
+                  }
                 </List>
               ))}
             </Box>

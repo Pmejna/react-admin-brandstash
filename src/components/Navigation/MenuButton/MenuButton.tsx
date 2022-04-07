@@ -2,9 +2,9 @@ import {FunctionComponent, MouseEventHandler} from 'react';
 import SvgIcon from '../../SvgIcon/SvgIcon';
 
 interface MenuButtonProps {
-    open: boolean;
-    onClick?: MouseEventHandler<SVGSVGElement>;
-    style?: React.CSSProperties;
+    style?:     React.CSSProperties;
+    onClick?:   MouseEventHandler<SVGSVGElement>;
+    open:       boolean;
 }
  
 const MenuButton: FunctionComponent<MenuButtonProps> = ({open, onClick, style}) => {

@@ -1,34 +1,65 @@
-import styled from "@emotion/styled";
-import { Button, ButtonProps, Theme, useTheme } from "@mui/material";
 import { FunctionComponent } from "react";
-
+import styled from "@emotion/styled";
+import { 
+    Button, 
+    ButtonProps, 
+    Theme, 
+    useTheme 
+} from "@mui/material";
 
 interface ButtonStyledProps extends ButtonProps {
-    theme?: Theme;
+    theme?:     Theme;
     secondary?: boolean;
-    variant?: "text" | "outlined" | "contained";
+    variant?:   "text" | "outlined" | "contained";
 }
 
 interface StyledButtonProps extends ButtonStyledProps {
-    children?: React.ReactNode;
-    type?: "submit" | "button";
+    children?:  React.ReactNode;
+    type?:      "submit" | "button";
 }
 
 const ButtonStyled = styled(Button)<ButtonStyledProps>(({theme, variant, secondary}) => ({
     borderRadius: 12,
-    border: (variant === "contained") ? 'none' : `1px solid ${theme.palette.common.divider}`,
-    backgroundColor: (variant === "contained" && !secondary) ? theme.palette.common.buttonBackgroundColor : (secondary ? theme.palette.common.secondaryButtonBackgroundColor : 'transparent'),
-    color: (variant === "contained" && !secondary) ? theme.palette.common.buttonColor : (secondary ? theme.palette.common.secondaryButtonColor : theme.palette.common.buttonColor),
+    border: (variant === "contained") 
+            ? 'none' 
+            : `1px solid ${theme.palette.common.divider}`
+    ,
+    backgroundColor: (variant === "contained" && !secondary) 
+            ? theme.palette.common.buttonBackgroundColor 
+            :   (secondary 
+                        ? theme.palette.common.secondaryButtonBackgroundColor 
+                        : 'transparent'
+                ),
+    color: (variant === "contained" && !secondary) 
+            ? theme.palette.common.buttonColor 
+            :   (secondary 
+                        ? theme.palette.common.secondaryButtonColor 
+                        : theme.palette.common.buttonColor
+                ),
     fontWeight: 600,
     '&:hover': {
-        color: (variant === "contained" && !secondary) ? theme.palette.common.buttonColor : (secondary ? theme.palette.common.secondaryButtonHoverColor : theme.palette.common.buttonColor),
+        color: (variant === "contained" && !secondary) 
+            ? theme.palette.common.buttonColor : 
+            (secondary 
+                    ? theme.palette.common.secondaryButtonHoverColor 
+                    : theme.palette.common.buttonColor
+            ),
     }
 }))
  
 const StyledButton: FunctionComponent<StyledButtonProps> = ({children, variant, sx, secondary, onClick, type}) => {
     const theme = useTheme();
     return ( 
-        <ButtonStyled theme={theme} variant={variant} sx={sx} secondary={secondary} onClick={onClick} type={type?type:"button"}>{children}</ButtonStyled>
+        <ButtonStyled 
+            theme={theme} 
+            variant={variant} 
+            sx={sx} 
+            secondary={secondary} 
+            onClick={onClick} 
+            type={type?type:"button"}
+        >
+            {children}
+        </ButtonStyled>
      );
 }
  

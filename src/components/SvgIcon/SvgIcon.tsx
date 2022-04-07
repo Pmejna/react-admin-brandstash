@@ -18,17 +18,17 @@ import {
 
 
 interface SvgIconProps {
-    variant: string;
-    width?: number;
-    height?: number;
-    mode?: string;
-    onClick?: React.MouseEventHandler<SVGSVGElement>;
-    style?: React.CSSProperties;
-    margin?: number;
-    marginLeft?: number;
+    style?:     React.CSSProperties;
+    onClick?:   React.MouseEventHandler<SVGSVGElement>;
+    variant:    string;
+    width?:     number;
+    height?:    number;
+    mode?:      string;
+    margin?:    number;
+    marginLeft?:number;
 }
  
-const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onClick, style, margin, marginLeft}, children) => {
+const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onClick, margin, marginLeft}) => {
     let icon: null | ReactNode = null;
     let iconWidth = width ? width : 28
     let iconHeight = height ? height : 28
@@ -81,7 +81,7 @@ const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onCli
             icon = <AccountStatsIcon/>
         break; 
         default: 
-            icon = <DashboardIcon viewBox={viewBox}/>
+            icon = <DashboardIcon/>
         break;
     }
 

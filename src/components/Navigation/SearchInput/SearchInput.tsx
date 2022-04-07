@@ -2,11 +2,7 @@ import { IconButton, InputBase, useTheme } from "@mui/material";
 import { FunctionComponent } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 
-interface SearchInputProps {
-    
-}
- 
-const SearchInput: FunctionComponent<SearchInputProps> = () => {
+const SearchInput: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
         <>

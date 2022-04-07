@@ -1,6 +1,5 @@
-import { useTheme } from '@emotion/react';
 import { Box, SvgIcon } from '@mui/material';
-import React, {FunctionComponent, MouseEventHandler, useContext} from 'react';
+import {FunctionComponent, MouseEventHandler, useContext} from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import { ThemeDarkIcon, ThemeLightIcon } from '../SvgIcon/Icons';
 
