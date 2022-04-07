@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
@@ -8,7 +8,6 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import SettingsButton from './SettingsButton';
-import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function MenuListComposition() {
@@ -27,7 +26,6 @@ export default function MenuListComposition() {
     ) {
       return;
     }
-
     setOpen(false);
   };
 
@@ -55,7 +53,6 @@ export default function MenuListComposition() {
     if (prevOpen.current === true && open === false) {
       anchorRef.current!.focus();
     }
-
     prevOpen.current = open;
   }, [open]);
 

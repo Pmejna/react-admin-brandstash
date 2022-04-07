@@ -1,12 +1,7 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import { useTheme } from '@mui/material/styles';
 
-
-interface MenuOpenProps {
-    /// possible upcoming props
-}
- 
-export const MenuOpen: FunctionComponent<MenuOpenProps> = () => {
+export const MenuOpen: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
         <g id="Menu_open" data-name="Menu_open" transform="translate(-162 -24)">
@@ -17,11 +12,7 @@ export const MenuOpen: FunctionComponent<MenuOpenProps> = () => {
      );
 };
 
-interface MenuClosedProps {
-    /// possible upcoming props
-}
-
-export const MenuClosed: FunctionComponent<MenuClosedProps> = () => {
+export const MenuClosed: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_176" data-name="Group 176" transform="translate(-162 -24)">
@@ -32,11 +23,7 @@ export const MenuClosed: FunctionComponent<MenuClosedProps> = () => {
      );
 };
 
-interface MessagesIconProps {
-    /// possible upcoming props
-}
-
-export const MessagesIcon: FunctionComponent<MessagesIconProps> = () => {
+export const MessagesIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_185" data-name="Group 185" transform="translate(0 0)">
@@ -48,11 +35,7 @@ export const MessagesIcon: FunctionComponent<MessagesIconProps> = () => {
      );
 };
 
-interface SettingsIconProps {
-    /// possible upcoming props
-}
-
-export const SettingsIcon: FunctionComponent<SettingsIconProps> = () => {
+export const SettingsIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_187" data-name="Group 187" transform="translate(0 0)">
@@ -64,11 +47,7 @@ export const SettingsIcon: FunctionComponent<SettingsIconProps> = () => {
      );
 };
 
-interface NotificationsIconProps {
-    /// possible upcoming props
-}
-
-export const NotificationsIcon: FunctionComponent<NotificationsIconProps> = () => {
+export const NotificationsIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
     <g id="Group_189" data-name="Group 189" transform="translate(0 0)">
@@ -82,12 +61,7 @@ export const NotificationsIcon: FunctionComponent<NotificationsIconProps> = () =
      );
 };
 
-interface ClientsIconProps {
-    /// possible upcoming props
-    viewBox?: string;
-}
- 
-export const ClientsIcon: FunctionComponent<ClientsIconProps> = ({viewBox}) => {
+export const ClientsIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
     <g id="Group_182" data-name="Group 182" transform="translate(0 0)">
@@ -104,12 +78,7 @@ export const ClientsIcon: FunctionComponent<ClientsIconProps> = ({viewBox}) => {
      );
 }
 
-interface DashboardIconProps {
-    /// possible upcoming props
-    viewBox?: string;
-}
- 
-export const DashboardIcon: FunctionComponent<DashboardIconProps> = ({viewBox}) => {
+export const DashboardIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_165" data-name="Group 165" transform="translate(-3169.99 -2395)">
@@ -121,12 +90,7 @@ export const DashboardIcon: FunctionComponent<DashboardIconProps> = ({viewBox}) 
      );
 }
 
-interface BriefIconProps {
-    /// possible upcoming props
-    viewBox?: string;
-}
- 
-export const BriefIcon: FunctionComponent<BriefIconProps> = ({viewBox}) => {
+export const BriefIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_74" data-name="Group 74" transform="translate(-3153.61 -728.09)">
@@ -139,12 +103,7 @@ export const BriefIcon: FunctionComponent<BriefIconProps> = ({viewBox}) => {
      );
 }
 
-interface AccountStatsIconProps {
-    /// possible upcoming props
-    viewBox?: string;
-}
- 
-export const AccountStatsIcon: FunctionComponent<AccountStatsIconProps> = ({viewBox}) => {
+export const AccountStatsIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_46" data-name="Group 46" transform="translate(-1674 -730.78)">
@@ -155,12 +114,7 @@ export const AccountStatsIcon: FunctionComponent<AccountStatsIconProps> = ({view
      );
 }
 
-interface StatsIconProps {
-    /// possible upcoming props
-    viewBox?: string;
-}
- 
-export const StatsIcon: FunctionComponent<StatsIconProps> = ({viewBox}) => {
+export const StatsIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_92" data-name="Group 92" transform="translate(-1084 -2114.17)">
@@ -170,12 +124,7 @@ export const StatsIcon: FunctionComponent<StatsIconProps> = ({viewBox}) => {
      );
 }
  
-interface NewProjectIconProps {
-    /// possible upcoming props
-    viewBox?: string;
-}
- 
-export const NewProjectIcon: FunctionComponent<NewProjectIconProps> = ({viewBox}) => {
+export const NewProjectIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
     <>
@@ -195,12 +144,7 @@ export const NewProjectIcon: FunctionComponent<NewProjectIconProps> = ({viewBox}
      );
 }
 
-interface AllProjectsIconProps {
-    /// possible upcoming props
-    viewBox?: string;
-}
- 
-export const AllProjectsIcon: FunctionComponent<AllProjectsIconProps> = ({viewBox}) => {
+export const AllProjectsIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
     <>
@@ -227,11 +171,7 @@ export const AllProjectsIcon: FunctionComponent<AllProjectsIconProps> = ({viewBo
      );
 }
 
-interface ThemeDarkIconProps {
-    viewBox?: string;
-}
- 
-export const ThemeDarkIcon: FunctionComponent<ThemeDarkIconProps> = ({viewBox}) => {
+export const ThemeDarkIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
     <>
@@ -243,11 +183,7 @@ export const ThemeDarkIcon: FunctionComponent<ThemeDarkIconProps> = ({viewBox}) 
      );
 }
 
-interface ThemeLightIconProps {
-    viewBox?: string;
-}
- 
-export const ThemeLightIcon: FunctionComponent<ThemeLightIconProps> = ({viewBox}) => {
+export const ThemeLightIcon: FunctionComponent = () => {
     const theme = useTheme();
     return ( 
     <>

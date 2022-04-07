@@ -1,7 +1,4 @@
-import axios from 'axios';
-import React, { FunctionComponent, useEffect } from 'react';
-import Wrapper from '../components/Wrapper/Wrapper';
-
+import { FunctionComponent} from 'react';
 
 const Dashboard: FunctionComponent = () => {
 

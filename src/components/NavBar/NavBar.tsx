@@ -1,11 +1,16 @@
-import React, {FunctionComponent, useContext, useEffect, useState} from 'react';
+import {FunctionComponent, useContext} from 'react';
+import { 
+  Avatar, 
+  CircularProgress, 
+  Grid, 
+  Toolbar 
+} from '@mui/material';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import { styled, useTheme, Theme, CSSObject, SxProps } from '@mui/material/styles';
-import { Avatar, Box, CircularProgress, Grid, Toolbar } from '@mui/material';
+import { styled, useTheme, Theme} from '@mui/material/styles';
 import SearchInput from '../Navigation/SearchInput/SearchInput';
 import ThemeButton from '../ThemeButton/ThemeButton';
-import axios from 'axios';
 import MenuListComposition from '../Common/MenuList/MenuList';
+import isPropValid from '@emotion/is-prop-valid'
 import { User } from '../../ts/types/user';
 import { UserContext } from '../Wrapper/Wrapper';
 
@@ -17,16 +22,16 @@ interface AppBarProps extends MuiAppBarProps {
   }
   
   const AppBar = styled(MuiAppBar, {
-    shouldForwardProp: (prop) => prop !== 'open',
-  })<AppBarProps>(({ theme, open, drawerOpenWidth, drawerClosedWidth}) => ({
+    shouldForwardProp: isPropValid
+  })<AppBarProps>(({ theme, open, ...prop}) => ({
     zIndex: theme.zIndex.drawer + 1,
     backgroundColor: theme.palette.common.navigationBackgroundColor,
     boxShadow: 'none',
-    marginLeft: drawerClosedWidth,
-    width: `calc(100% - ${drawerClosedWidth}px)`,
+    marginLeft: prop.drawerClosedWidth,
+    width: `calc(100% - ${prop.drawerClosedWidth}px)`,
     ...(open && {
-      marginLeft: drawerOpenWidth,
-      width: `calc(100% - ${drawerOpenWidth}px)`,
+      marginLeft: prop.drawerOpenWidth,
+      width: `calc(100% - ${prop.drawerOpenWidth}px)`,
     }),
   }));
   
@@ -37,8 +42,6 @@ interface AppBarProps extends MuiAppBarProps {
   const ToolbarStyled = styled(Toolbar, { shouldForwardProp: (prop) => true })<ToolbarStyledProps>(({ theme }) => ({
     padding: '4px 12px',
   }));
-
-
 
 interface NavBarProps {
     open?:              boolean;
@@ -95,12 +98,18 @@ const NavBar: FunctionComponent<NavBarProps> = ({
             <Grid item xs={5} lg={4}>
                 <SearchInput />
             </Grid>
-                
             <Grid item xs={7} lg={8}>
                 <Grid container  sx={{display: 'flex', flexDirection: 'row-reverse'}}>
                     <ThemeButton fontSize="large"/>
                     <MenuListComposition />
-                    { user ? (<Avatar {...stringAvatar(`${user.user_first_name} ${user.user_last_name}`)} />) : <CircularProgress />}
+                    { !user ? 
+                      <CircularProgress /> :
+                      (<Avatar 
+                        {...stringAvatar(`
+                        ${user.user_first_name?user.user_first_name:'F'} 
+                        ${user.user_last_name?user.user_last_name:'N'}`)} 
+                      />)
+                    }
                 </Grid>
             </Grid>
           </Grid>

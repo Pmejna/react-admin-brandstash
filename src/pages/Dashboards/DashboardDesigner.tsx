@@ -1,5 +1,4 @@
-import React, { FunctionComponent } from 'react';
-import Wrapper from '../../components/Wrapper/Wrapper';
+import { FunctionComponent } from 'react';
 
 interface DashboardDesignerProps {
     location: any;

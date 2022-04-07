@@ -1,5 +1,5 @@
-import { Box, Grid } from "@mui/material";
 import { FunctionComponent, ReactNode } from "react";
+import { Box, Grid } from "@mui/material";
 import title from '../../resources/images/login-register-title.svg';
 
 declare module "*.png" {
@@ -71,7 +71,13 @@ const LoginRegisterWrapper: FunctionComponent<LoginRegisterWrapperProps> = ({bac
                     md={7}
                     lg={8}
                     sx={{
-                        display: {xs: 'none', md: 'block', overflow: 'hidden', maxHeight: '100vh', margin: 0},
+                        display: {
+                            xs: 'none', 
+                            md: 'block', 
+                            overflow: 'hidden', 
+                            maxHeight: '100vh', 
+                            margin: 0
+                        },
                     }}
                 >
                     <Box component='figure' sx={{p: 0, overflow: 'hidden', m: 0}}>
