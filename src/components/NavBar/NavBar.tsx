@@ -56,7 +56,7 @@ const NavBar: FunctionComponent<NavBarProps> = ({
 }) => {
     const theme = useTheme();
     const user = useContext<User | null>(UserContext);
-    console.log(user?.user_first_name)
+    console.log(user)
     function stringToColor(string: string) {
         let hash = 0;
         let i;

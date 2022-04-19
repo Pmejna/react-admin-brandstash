@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import Wrapper from "../components/Wrapper/Wrapper";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 interface NotificationsProps {
     
