@@ -13,6 +13,7 @@ import NavBar from '../NavBar/NavBar';
 import MenuButton from './MenuButton/MenuButton';
 import axios from 'axios';
 import { CircularProgress} from '@mui/material';
+import { useNavigation } from '../../lib/fetcher-hooks';
 
 
 const drawerOpenWidth = 180;
@@ -54,6 +55,7 @@ const DrawerHeader = styled('div',{
   display:    'flex',
   alignItems: 'center',
   paddingLeft: 0,
+  backgroundColor: theme.palette.common.sideBarBackgroundColor,
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'center',
@@ -70,6 +72,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     whiteSpace:   'nowrap',
     boxSizing:    'border-box',
     borderRight:  `1px solid ${theme.palette.common.divider}`,
+    height: '100vh',
+    backgroundColor: theme.palette.common.sideBarBackgroundColor,
     ...(open && {
       ...openedMixin(theme),
       '& .MuiDrawer-paper': openedMixin(theme),
@@ -89,7 +93,7 @@ const DrawerTitle = styled(Typography, {shouldForwardProp: () => true})<DrawerTi
     marginTop:    '1rem',
     marginLeft:   open ? 16 : 0,
     opacity:      1,
-    color:        theme.palette.common.secondaryTextColor,
+    color:        theme.palette.common.sideBarTextColor,
     fontSize:     '0.9rem',
     textAlign:    'center',
     ...(open && {
@@ -108,21 +112,7 @@ const LiText = styled(Typography, {shouldForwardProp: isPropValid})<LiTextProps>
     fontWeight: isActive() ? 'bold' : 'normal',
 }));
 
-type SectionElements = {
-  section_icon: string;
-  section_id:   number;
-  section_name: string;
-  section_slug: string;
-  section_text: string;
-}
-
-type Section = {
-  sections:         SectionElements[];
-  section_cat_id:   number;
-  section_cat_name: string;
-}
-
-interface StyledListItemButtonProps extends ListItemButtonBaseProps {
+export interface StyledListItemButtonProps extends ListItemButtonBaseProps {
   component?: React.ElementType;
   theme?:     Theme;
   sx?:        SxProps<Theme>;
@@ -142,31 +132,17 @@ export default function Navigation(props: any) {
     
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const [navData, setNavData] = useState<Section[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useMemo(() => {
-    (async () => {
-      if (navData.length === 0) {
-      await axios.get('/section-category/all')
-      .then(res => {
-        setNavData(res.data.data);
-        setLoading(false);
-      }).catch(err => {
-          console.log(err);
-        });
-    }})();
-  }, [navData]);
+  const {sections, isError, isLoading} = useNavigation();
   
   const handleDrawerToggle = () => {
     setOpen(!open);
   }
   
   return (
-      loading && navData === [] ? 
+      isLoading ? 
       <CircularProgress /> : 
        (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', height: '100vh' }}>
           <CssBaseline />
           <NavBar 
             open={open}
@@ -178,14 +154,14 @@ export default function Navigation(props: any) {
             <DrawerHeader open={open}>
               <MenuButton open={open} onClick={handleDrawerToggle} />
             </DrawerHeader>
-            <Box style={{padding: 0}}>
-              {navData?.map((category) => (
+            <Box style={{padding: 0, height: '100%', backgroundColor: theme.palette.common.sideBarBackgroundColor}}>
+              {sections.data?.map((category: any) => (
                 <List style={{padding: 0}} key={category.section_cat_name+'_li'}>
                   <DrawerTitle theme={theme} open={open} key={category.section_cat_name}>
                       {category.section_cat_name.toUpperCase()}
                   </DrawerTitle>
                   {
-                    category.sections.map((element) => {
+                    category.sections.map((element: any) => {
                       let active = () => props.location.pathname === element.section_slug ? true : false
                       return (
                         <StyledListItemButton

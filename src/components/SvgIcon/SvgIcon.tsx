@@ -13,7 +13,9 @@ import {
     BriefIcon,
     AccountStatsIcon,
     ThemeDarkIcon,
-    ThemeLightIcon
+    ThemeLightIcon,
+    ManagementIcon,
+    InvoicesIcon
 } from './Icons';
 
 
@@ -70,6 +72,12 @@ const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onCli
         break; 
         case 'account-stats-icon':
             icon = <AccountStatsIcon/>
+        break; 
+        case 'management-icon':
+            icon = <ManagementIcon/>
+        break; 
+        case 'invoices-icon':
+            icon = <InvoicesIcon/>
         break; 
         case 'theme-dark-icon':
             icon = <ThemeDarkIcon/>

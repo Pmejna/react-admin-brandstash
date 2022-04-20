@@ -1,5 +1,6 @@
 import {FunctionComponent} from 'react';
 import { useTheme } from '@mui/material/styles';
+import { palette } from '@mui/system';
 
 export const MenuOpen: FunctionComponent = () => {
     const theme = useTheme();
@@ -170,6 +171,58 @@ export const AllProjectsIcon: FunctionComponent = () => {
     </>
      );
 }
+
+export const ManagementIcon: FunctionComponent = () => {
+    const theme = useTheme();
+    return ( 
+    <>
+    <defs>
+        <clipPath id="clip-Artboard_11">
+            <rect width="28" height="28"/>
+        </clipPath>
+    </defs>
+    <g id="Artboard_11" data-name="Artboard – 11" clip-path="url(#clip-Artboard_11)">
+        <g id="Group_46" data-name="Group 46" transform="translate(-1671.001 -727.78)">
+            <path id="Path_58" data-name="Path 58" d="M1695.651,752.554h-20.646V731.271a.5.5,0,0,0-1.006,0v21.8a.479.479,0,0,0,.484.484h21.166a.5.5,0,0,0,0-1.006Z" transform="translate(0)" fill={theme.palette.common.iconColor}/>
+            <path id="Path_59" data-name="Path 59" d="M1746.457,785.848a3.3,3.3,0,1,0-3.3,3.3A3.3,3.3,0,0,0,1746.457,785.848Zm-6.107,0a2.807,2.807,0,1,1,2.807,2.807A2.81,2.81,0,0,1,1740.35,785.848Z" transform="translate(-57.581 -45.262)" fill={theme.palette.common.iconColor}/>
+            <path id="Path_60" data-name="Path 60" d="M1694.229,761.685a.49.49,0,0,0,.685-.114l2.486-3.491,1.315.791a.491.491,0,0,0,.63-.107l1.386-1.662a5.684,5.684,0,0,0,5.139-.219l3.638,3.638a1.48,1.48,0,0,0,2.094-2.093l-3.615-3.615a5.678,5.678,0,0,0-.314-6.256l1.423-1.789,1.138.833a.49.49,0,0,0,.67-.085l2.429-2.968a.491.491,0,0,0-.76-.622l-2.133,2.608-1.143-.837a.492.492,0,0,0-.675.091l-1.607,2.021a5.688,5.688,0,1,0-7.147,8.8l-1,1.2-1.344-.808a.49.49,0,0,0-.652.136l-2.75,3.862a.491.491,0,0,0,.116.685Zm16.678-2.563a.5.5,0,0,1-.7.7l-3.508-3.508a5.733,5.733,0,0,0,.711-.7l3.5,3.5Zm-12.53-7.2a4.709,4.709,0,1,1,4.709,4.709A4.714,4.714,0,0,1,1698.378,751.922Z" transform="translate(-17.509 -11.335)" fill={theme.palette.common.iconColor}/>
+        </g>
+    </g>
+    </>
+     );
+}
+
+export const InvoicesIcon: FunctionComponent = () => {
+    const theme = useTheme();
+    return ( 
+    <>
+    <defs>
+        <clipPath id="clip-path">
+            <rect id="Rectangle_83" data-name="Rectangle 83" width="18" height="23.273" fill={theme.palette.common.iconColor}/>
+        </clipPath>
+        <clipPath id="clip-Artboard_15">
+            <rect width="28" height="28"/>
+        </clipPath>
+    </defs>
+    <g id="Artboard_15" data-name="Artboard 15" clip-path="url(#clip-Artboard_15)">
+        <g id="Group_194" data-name="Group 194" transform="translate(5 3.337)">
+            <g id="Group_192" data-name="Group 192" clip-path="url(#clip-path)">
+                <path id="Path_587" data-name="Path 587" d="M16.125,23.273H1.876A1.878,1.878,0,0,1,0,21.4V1.876A1.878,1.878,0,0,1,1.876,0H16.125A1.878,1.878,0,0,1,18,1.876V21.4a1.878,1.878,0,0,1-1.876,1.876M1.876.773a1.1,1.1,0,0,0-1.1,1.1V21.4a1.1,1.1,0,0,0,1.1,1.1H16.125a1.1,1.1,0,0,0,1.1-1.1V1.876a1.1,1.1,0,0,0-1.1-1.1Z" fill={theme.palette.common.iconColor}/>
+                <path id="Path_588" data-name="Path 588" d="M16.561,3.025H4.211a.387.387,0,0,1-.387-.386V.386A.387.387,0,0,1,4.211,0h12.35a.387.387,0,0,1,.387.386V2.639a.387.387,0,0,1-.387.386M4.6,2.252H16.174V.773H4.6Z" transform="translate(-1.386)" fill={theme.palette.common.iconColor}/>
+                <path id="Path_589" data-name="Path 589" d="M6.715,12.858a.385.385,0,0,1-.274-.113L5.494,11.8a.387.387,0,0,1,.546-.547l.675.675L8.337,10.3a.386.386,0,0,1,.546.546l-1.9,1.9a.385.385,0,0,1-.274.113" transform="translate(-1.95 -3.693)" fill={theme.palette.common.iconColor}/>
+                <path id="Path_590" data-name="Path 590" d="M6.715,20.292h0a.387.387,0,0,1-.274-.113l-.947-.947a.387.387,0,1,1,.546-.547l.675.675,1.623-1.622a.386.386,0,0,1,.546.546l-1.9,1.9a.387.387,0,0,1-.274.113" transform="translate(-1.95 -6.387)" fill={theme.palette.common.iconColor}/>
+                <path id="Path_591" data-name="Path 591" d="M6.715,27.724a.387.387,0,0,1-.274-.113l-.947-.948a.387.387,0,1,1,.546-.547l.675.675,1.623-1.622a.386.386,0,0,1,.546.546l-1.9,1.9a.387.387,0,0,1-.274.113" transform="translate(-1.95 -9.081)" fill={theme.palette.common.iconColor}/>
+                <path id="Path_592" data-name="Path 592" d="M18.962,13.936H13.571a.386.386,0,1,1,0-.773h5.391a.386.386,0,1,1,0,.773" transform="translate(-4.779 -4.771)" fill={theme.palette.common.iconColor}/>
+                <path id="Path_593" data-name="Path 593" d="M18.962,21.369H13.571a.387.387,0,0,1,0-.773h5.391a.387.387,0,0,1,0,.773" transform="translate(-4.779 -7.465)" fill={theme.palette.common.iconColor}/>
+                <path id="Path_594" data-name="Path 594" d="M18.962,28.8H13.571a.387.387,0,0,1,0-.773h5.391a.387.387,0,0,1,0,.773" transform="translate(-4.779 -10.158)" fill={theme.palette.common.iconColor}/>
+            </g>
+        </g>
+    </g>
+    </>
+     );
+}
+
+
 
 export const ThemeDarkIcon: FunctionComponent = () => {
     const theme = useTheme();

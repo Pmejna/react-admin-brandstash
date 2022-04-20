@@ -56,7 +56,7 @@ const NavBar: FunctionComponent<NavBarProps> = ({
 }) => {
     const theme = useTheme();
     const user = useContext<User | null>(UserContext);
-
+    console.log(user)
     function stringToColor(string: string) {
         let hash = 0;
         let i;
@@ -105,9 +105,7 @@ const NavBar: FunctionComponent<NavBarProps> = ({
                     { !user ? 
                       <CircularProgress /> :
                       (<Avatar 
-                        {...stringAvatar(`
-                        ${user.user_first_name?user.user_first_name:'F'} 
-                        ${user.user_last_name?user.user_last_name:'N'}`)} 
+                        {...stringAvatar(`${user.user_first_name} ${user.user_last_name}`)} 
                       />)
                     }
                 </Grid>

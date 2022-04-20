@@ -14,6 +14,8 @@ declare module "@mui/material/styles/createPalette" {
         secondaryButtonHoverColor: string,
         secondaryTextColor: string,
         navigationBackgroundColor: string,
+        sideBarBackgroundColor: string,
+        sideBarTextColor: string,
         divider: string;
         borderSecondary: string;
         navActive: string;
@@ -67,6 +69,8 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                         secondaryButtonHoverColor: themeColors.secondaryButtonHoverColorLight,
                         secondaryTextColor: themeColors.secondaryTextColorLight,
                         navigationBackgroundColor: themeColors.navigationBackgroundColorLight,
+                        sideBarBackgroundColor: themeColors.sideBarBackgroundColorLight,
+                        sideBarTextColor: themeColors.sideBarTextColorLight,
                         divider: themeColors.dividerColorLight,
                         borderSecondary: themeColors.borderSecondaryLight,
                         navActive: themeColors.navActiveBgColorLight,
@@ -96,6 +100,8 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                         buttonColor: themeColors.buttonColorDark,
                         secondaryButtonColor: themeColors.secondaryButtonColorDark,
                         navigationBackgroundColor: themeColors.navigationBackgroundColorDark,
+                        sideBarBackgroundColor: themeColors.sideBarBackgroundColorDark,
+                        sideBarTextColor: themeColors.sideBarTextColorDark,
                         divider: themeColors.dividerColorDark,
                         borderSecondary: themeColors.borderSecondaryDark,
                         navActive: themeColors.navActiveBgColorDark,

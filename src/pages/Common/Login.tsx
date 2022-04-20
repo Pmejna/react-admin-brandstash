@@ -3,9 +3,9 @@ import axios from 'axios';
 import React, { FunctionComponent, SyntheticEvent, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
-import StyledButton from '../components/Common/StyledButton/StyledButton';
-import LoginRegisterWrapper from '../components/Wrapper/LoginRegisterWrapper';
-import background from "../resources/images/login-bg.png";
+import StyledButton from '../../components/Common/StyledButton/StyledButton';
+import LoginRegisterWrapper from '../../components/Wrapper/LoginRegisterWrapper';
+import background from "../../resources/images/login-bg.png";
 
 
 interface LoginProps {

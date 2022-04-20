@@ -91,7 +91,7 @@ export default function MenuListComposition() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={() => navigate('/settings')}>Settings</MenuItem>
+                    <MenuItem onClick={() => navigate('/user')}>Account</MenuItem>
                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
