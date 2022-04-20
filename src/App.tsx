@@ -49,7 +49,7 @@ function App() {
                         <Route path="new" element={<ProjectNew/>}/>
                         <Route path="stats" element={<ProjectsStats/>}/>
                     </Route>
-                    <Route path="brief">
+                    <Route path="briefs">
                         <Route index element={<ProjectsBriefs/>}/>
                         <Route path=":briefUuid" element={<ProjectBrief/>}/>
                     </Route>
@@ -69,8 +69,8 @@ function App() {
                         <Route path="briefs" element={<ClientsBriefs/>}/>
                     </Route>
                     <Route path="account-stats" element={<AccountStats/>}/>
-                    <Route path="invoices" element={<Invoices/>}/>
-                    <Route path="management" element={<Management/>}/>
+                    <Route path="business/invoices" element={<Invoices/>}/>
+                    <Route path="business" element={<Management/>}/>
                     <Route path="notifications" element={<Notifications/>}/>
                     <Route path="user" element={<User/>}/>
                 </Route>

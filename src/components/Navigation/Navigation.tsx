@@ -55,6 +55,7 @@ const DrawerHeader = styled('div',{
   display:    'flex',
   alignItems: 'center',
   paddingLeft: 0,
+  backgroundColor: theme.palette.common.sideBarBackgroundColor,
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'center',
@@ -71,6 +72,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     whiteSpace:   'nowrap',
     boxSizing:    'border-box',
     borderRight:  `1px solid ${theme.palette.common.divider}`,
+    height: '100vh',
+    backgroundColor: theme.palette.common.sideBarBackgroundColor,
     ...(open && {
       ...openedMixin(theme),
       '& .MuiDrawer-paper': openedMixin(theme),
@@ -90,7 +93,7 @@ const DrawerTitle = styled(Typography, {shouldForwardProp: () => true})<DrawerTi
     marginTop:    '1rem',
     marginLeft:   open ? 16 : 0,
     opacity:      1,
-    color:        theme.palette.common.secondaryTextColor,
+    color:        theme.palette.common.sideBarTextColor,
     fontSize:     '0.9rem',
     textAlign:    'center',
     ...(open && {
@@ -139,7 +142,7 @@ export default function Navigation(props: any) {
       isLoading ? 
       <CircularProgress /> : 
        (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', height: '100vh' }}>
           <CssBaseline />
           <NavBar 
             open={open}
@@ -151,7 +154,7 @@ export default function Navigation(props: any) {
             <DrawerHeader open={open}>
               <MenuButton open={open} onClick={handleDrawerToggle} />
             </DrawerHeader>
-            <Box style={{padding: 0}}>
+            <Box style={{padding: 0, height: '100%', backgroundColor: theme.palette.common.sideBarBackgroundColor}}>
               {sections.data?.map((category: any) => (
                 <List style={{padding: 0}} key={category.section_cat_name+'_li'}>
                   <DrawerTitle theme={theme} open={open} key={category.section_cat_name}>
