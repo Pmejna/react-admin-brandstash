@@ -26,6 +26,7 @@ interface AppBarProps extends MuiAppBarProps {
   })<AppBarProps>(({ theme, open, ...prop}) => ({
     zIndex: theme.zIndex.drawer + 1,
     backgroundColor: theme.palette.common.navigationBackgroundColor,
+    backgroundImage: "none",
     boxShadow: 'none',
     marginLeft: prop.drawerClosedWidth,
     width: `calc(100% - ${prop.drawerClosedWidth}px)`,

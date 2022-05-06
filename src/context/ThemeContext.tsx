@@ -6,6 +6,7 @@ import "@mui/material/styles/createPalette";
 
 declare module "@mui/material/styles/createPalette" {
     interface CommonColors {
+        backgroundPrimary: string,
         iconColor: string,
         buttonBackgroundColor: string,
         secondaryButtonBackgroundColor: string,
@@ -62,7 +63,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     },
                     common: {
                         iconColor: themeColors.iconColorLight,
-                        buttonBackgroundColor: themeColors.buttonColorLight,
+                        buttonBackgroundColor: themeColors.buttonBgColorLight,
                         secondaryButtonBackgroundColor: themeColors.secondaryButtonBgColorLight,
                         buttonColor: themeColors.buttonColorLight,
                         secondaryButtonColor: themeColors.secondaryButtonColorLight,
@@ -75,6 +76,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                         borderSecondary: themeColors.borderSecondaryLight,
                         navActive: themeColors.navActiveBgColorLight,
                         navInactive: themeColors.navInactiveBgColorLight,
+                        backgroundPrimary: themeColors.bgMainLight,
                     },
                     secondary: {
                         main: "#000"
@@ -106,6 +108,8 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                         borderSecondary: themeColors.borderSecondaryDark,
                         navActive: themeColors.navActiveBgColorDark,
                         navInactive: themeColors.navInactiveBgColorDark,
+                        backgroundPrimary: themeColors.bgMainDark,
+
                     },
                     background: {
                         default: themeColors.bgMainDark
@@ -141,7 +145,11 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                 MuiPaper: {
                     styleOverrides: {
                         elevation1: {
-                            boxShadow: styleCommonUtils.boxShadowLight
+                            boxShadow: "none",
+                            border: "1px solid",
+                            borderColor: `${mode === "light" ? themeColors.borderSecondaryLight : themeColors.borderSecondaryDark}`,
+                            backgroundColor: `${mode === "light" ? themeColors.cardBgLight : themeColors.cardBgDark}`,
+                            backgroundImage: "none"
                         },
                         rounded: {
                             borderRadius: 12,
