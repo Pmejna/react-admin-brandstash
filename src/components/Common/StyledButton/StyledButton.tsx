@@ -47,7 +47,7 @@ const ButtonStyled = styled(Button)<ButtonStyledProps>(({theme, variant, seconda
     }
 }))
  
-const StyledButton: FunctionComponent<StyledButtonProps> = ({children, variant, sx, secondary, onClick, type}) => {
+const StyledButton: FunctionComponent<StyledButtonProps> = ({children, variant, sx, secondary, onClick, type, startIcon, endIcon}) => {
     const theme = useTheme();
     return ( 
         <ButtonStyled 
@@ -57,6 +57,8 @@ const StyledButton: FunctionComponent<StyledButtonProps> = ({children, variant, 
             secondary={secondary} 
             onClick={onClick} 
             type={type?type:"button"}
+            startIcon={startIcon}
+            endIcon={endIcon}
         >
             {children}
         </ButtonStyled>
