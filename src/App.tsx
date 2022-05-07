@@ -19,7 +19,7 @@ import ClientProjects from './pages/Designer/Clients/ClientProjects';
 import ClientsAll from './pages/Designer/Clients/ClientsAll';
 import ClientsBriefs from './pages/Designer/Clients/ClientsBriefs';
 import ClientView from './pages/Designer/Clients/ClientView';
-import ProjectNew from './pages/Designer/Projects/ProjectNew';
+import ProjectNew from './pages/Designer/Projects/ProjectNew/ProjectNew';
 import ProjectOne from './pages/Designer/Projects/ProjectOne';
 import ProjectsAll from './pages/Designer/Projects/ProjectsAll';
 import ProjectsStats from './pages/Designer/Projects/ProjectsStats';

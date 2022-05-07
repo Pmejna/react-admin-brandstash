@@ -159,6 +159,29 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                         },
                     },
                 },
+                MuiDialog: {
+                    styleOverrides: {
+                        paper: {
+                            backgroundColor: "#fff",
+                            color: "#090b14",
+                        },
+                    }
+                },
+                MuiDialogTitle: {
+                    styleOverrides: {
+                        root: {
+                            color: "#090b14",
+                            fontSize: "1.5rem",
+                        }
+                    }
+                },
+                MuiDialogContentText: {
+                    styleOverrides: {
+                        root: {
+                            color: "#3d3d3d"
+                        }
+                    }
+                },
             },
         })
     ), [mode])

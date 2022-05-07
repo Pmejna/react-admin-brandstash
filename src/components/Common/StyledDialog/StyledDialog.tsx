@@ -5,17 +5,19 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { SelectChangeEvent } from '@mui/material/Select';
 import { FC, useState } from 'react';
 
 interface StyledDialogProps {
   children?:  React.ReactNode;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  dialogContentText?: string;
+  dialogTitleText?: string;
 }
 
-const StyledDialog: FC<StyledDialogProps> = ({children}) => {
-  const [open, setOpen] = useState(false);
+const StyledDialog: FC<StyledDialogProps> = ({dialogContentText, dialogTitleText, children, open, setOpen}) => {
   const [fullWidth, setFullWidth] = useState(true);
-  const [maxWidth, setMaxWidth] = useState<DialogProps['maxWidth']>('sm');
+  const [maxWidth, setMaxWidth] = useState<DialogProps['maxWidth']>('lg');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -27,19 +29,16 @@ const StyledDialog: FC<StyledDialogProps> = ({children}) => {
 
   return (
     <>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open max-width dialog
-      </Button>
       <Dialog
         fullWidth={fullWidth}
         maxWidth={maxWidth}
         open={open}
         onClose={handleClose}
       >
-        <DialogTitle>Optional sizes</DialogTitle>
+        <DialogTitle>{dialogTitleText}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            You can set my maximum width and whether to adapt or not.
+            {dialogContentText}
           </DialogContentText>
           <Box
             noValidate
@@ -55,7 +54,7 @@ const StyledDialog: FC<StyledDialogProps> = ({children}) => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
+          <Button sx={{backgroundColor: "#dedede", color: "#090b14"}} onClick={handleClose}>Close</Button>
         </DialogActions>
       </Dialog>
     </>
