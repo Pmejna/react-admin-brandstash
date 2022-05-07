@@ -9,6 +9,7 @@ declare module "@mui/material/styles/createPalette" {
         backgroundPrimary: string,
         iconColor: string,
         buttonBackgroundColor: string,
+        buttonBackgroundColorHovered: string,
         secondaryButtonBackgroundColor: string,
         buttonColor: string,
         secondaryButtonColor: string,
@@ -64,6 +65,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     common: {
                         iconColor: themeColors.iconColorLight,
                         buttonBackgroundColor: themeColors.buttonBgColorLight,
+                        buttonBackgroundColorHovered: themeColors.buttonBgColorHoverLight,
                         secondaryButtonBackgroundColor: themeColors.secondaryButtonBgColorLight,
                         buttonColor: themeColors.buttonColorLight,
                         secondaryButtonColor: themeColors.secondaryButtonColorLight,
@@ -98,6 +100,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     common: {
                         iconColor: themeColors.iconColorDark,
                         buttonBackgroundColor: themeColors.buttonBgColorDark,
+                        buttonBackgroundColorHovered: themeColors.buttonBgColorHoverDark,
                         secondaryButtonBackgroundColor: themeColors.secondaryButtonBgColorDark,
                         buttonColor: themeColors.buttonColorDark,
                         secondaryButtonColor: themeColors.secondaryButtonColorDark,

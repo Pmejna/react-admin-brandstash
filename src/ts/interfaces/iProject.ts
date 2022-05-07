@@ -1,0 +1,43 @@
+export enum ProjectStatus {
+    ACTIVE = 'ACTIVE',
+    INACTIVE = 'INACTIVE',
+    COMPLETED = 'COMPLETED',
+}
+
+export enum ProjectPriority {
+    LOW = 'LOW',
+    MEDIUM = 'MEDIUM',
+    HIGH = 'HIGH',
+}
+
+export interface ICreateProject {
+    user_id?: string | null;
+    project_name: string;
+    project_description: string;
+    project_status?: ProjectStatus | "";
+    project_type: string;
+    project_priority?: ProjectPriority | "";
+    project_budget?: number | null,
+    project_objective: string,
+    project_progress: number,
+    project_start_date?: Date | null,
+    project_end_date?: Date | null,
+    project_company_uuid: string
+    project_client_company_uuid?: string
+}
+
+export interface IUpdateProject {
+    user_id?: string | null;
+    project_name?: string;
+    project_description?: string;
+    project_status?: ProjectStatus | "";
+    project_type?: string;
+    project_priority?: ProjectPriority | "";
+    project_budget?: number | null,
+    project_objective?: string,
+    project_progress?: number,
+    project_start_date?: Date | null,
+    project_end_date?: Date | null,
+    project_company_uuid?: string
+    project_client_company_uuid?: string
+}

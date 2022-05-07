@@ -44,6 +44,7 @@ const ButtonStyled = styled(Button)<ButtonStyledProps>(({theme, variant, seconda
                     ? theme.palette.common.secondaryButtonHoverColor 
                     : theme.palette.common.buttonColor
             ),
+        backgroundColor: theme.palette.common.buttonBackgroundColorHovered
     }
 }))
  
