@@ -9,6 +9,7 @@ declare module "@mui/material/styles/createPalette" {
         backgroundPrimary: string,
         iconColor: string,
         buttonBackgroundColor: string,
+        buttonBackgroundColorHovered: string,
         secondaryButtonBackgroundColor: string,
         buttonColor: string,
         secondaryButtonColor: string,
@@ -64,6 +65,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     common: {
                         iconColor: themeColors.iconColorLight,
                         buttonBackgroundColor: themeColors.buttonBgColorLight,
+                        buttonBackgroundColorHovered: themeColors.buttonBgColorHoverLight,
                         secondaryButtonBackgroundColor: themeColors.secondaryButtonBgColorLight,
                         buttonColor: themeColors.buttonColorLight,
                         secondaryButtonColor: themeColors.secondaryButtonColorLight,
@@ -98,6 +100,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                     common: {
                         iconColor: themeColors.iconColorDark,
                         buttonBackgroundColor: themeColors.buttonBgColorDark,
+                        buttonBackgroundColorHovered: themeColors.buttonBgColorHoverDark,
                         secondaryButtonBackgroundColor: themeColors.secondaryButtonBgColorDark,
                         buttonColor: themeColors.buttonColorDark,
                         secondaryButtonColor: themeColors.secondaryButtonColorDark,
@@ -155,6 +158,29 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                             borderRadius: 12,
                         },
                     },
+                },
+                MuiDialog: {
+                    styleOverrides: {
+                        paper: {
+                            backgroundColor: `${mode === "light" ? themeColors.cardBgLight : themeColors.cardBgDark}`,
+                            color: "#090b14",
+                        },
+                    }
+                },
+                MuiDialogTitle: {
+                    styleOverrides: {
+                        root: {
+                            color: `${mode === "light" ? "#090b14" : "#fff"}`,
+                            fontSize: "1.5rem",
+                        }
+                    }
+                },
+                MuiDialogContentText: {
+                    styleOverrides: {
+                        root: {
+                            color: "#3d3d3d"
+                        }
+                    }
                 },
             },
         })

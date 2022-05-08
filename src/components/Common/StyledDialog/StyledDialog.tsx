@@ -5,17 +5,20 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { SelectChangeEvent } from '@mui/material/Select';
 import { FC, useState } from 'react';
 
 interface StyledDialogProps {
   children?:  React.ReactNode;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  dialogContentText?: string;
+  dialogTitleText?: string;
+  fullScreen?: boolean;
 }
 
-const StyledDialog: FC<StyledDialogProps> = ({children}) => {
-  const [open, setOpen] = useState(false);
+const StyledDialog: FC<StyledDialogProps> = ({dialogContentText, dialogTitleText, children, open, setOpen, fullScreen}) => {
   const [fullWidth, setFullWidth] = useState(true);
-  const [maxWidth, setMaxWidth] = useState<DialogProps['maxWidth']>('sm');
+  const [maxWidth, setMaxWidth] = useState<DialogProps['maxWidth']>('xl');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -27,35 +30,39 @@ const StyledDialog: FC<StyledDialogProps> = ({children}) => {
 
   return (
     <>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open max-width dialog
-      </Button>
       <Dialog
         fullWidth={fullWidth}
+        fullScreen={fullScreen}
         maxWidth={maxWidth}
         open={open}
-        onClose={handleClose}
+        disableEscapeKeyDown
       >
-        <DialogTitle>Optional sizes</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            You can set my maximum width and whether to adapt or not.
-          </DialogContentText>
-          <Box
-            noValidate
-            component="form"
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              m: 'auto',
-              width: 'fit-content',
-            }}
-          >
+        <DialogTitle 
+          sx={{
+            marginBottom: '1rem'
+          }}>
+          {dialogTitleText}
+        </DialogTitle>
+        <DialogContent sx={{
+            paddingY: "1rem"
+        }}>
+          {dialogContentText && <DialogContentText>{dialogContentText}</DialogContentText>}
               {children}
-          </Box>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
+        <DialogActions sx={{
+          position: "absolute",
+          top: "0.4rem",
+          right: "0.4rem",
+        }}>
+          <Button 
+            sx={{
+              backgroundColor: "#dedede", 
+              color: "#090b14"
+            }} 
+            onClick={handleClose}
+          >
+            Close
+          </Button>
         </DialogActions>
       </Dialog>
     </>
