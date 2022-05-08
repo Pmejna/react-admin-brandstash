@@ -3,7 +3,7 @@ import { styled} from '@mui/material/styles';
 import { FunctionComponent } from "react";
 
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+export const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: "#084077",
       color: theme.palette.common.white,
@@ -13,7 +13,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
   
-  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+ export const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
     },
@@ -25,13 +25,13 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 interface StyledTableProps {
     tableHead: string[];
-    tableData: any[];
+    tableData?: any[];
 }
  
-const StyledTable: FunctionComponent<StyledTableProps> = ({tableHead, tableData}) => {
+const StyledTable: FunctionComponent<StyledTableProps> = ({tableHead, tableData, children}) => {
     return ( 
         <>
-            <TableContainer component={Paper} sx={{}}>
+            <TableContainer component={Paper} sx={{borderRadius: 0}}>
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
                     <TableHead>
                         <TableRow>
@@ -45,17 +45,21 @@ const StyledTable: FunctionComponent<StyledTableProps> = ({tableHead, tableData}
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                    {tableData.map((rows) => (
-                        <StyledTableRow key={rows[0]}>
-                            {
-                                rows.map((row: any, index: number) => (
-                                    <StyledTableCell key={row+index} align={index > 0 ? "right" : "left"}>
-                                        {row}
-                                    </StyledTableCell>
-                                ))
-                            }
-                        </StyledTableRow>
-                    ))}
+                    {
+                     (children && !tableData) ? children : (
+                        tableData?.map((rows) => (
+                                <StyledTableRow key={rows[0]}>
+                                    {
+                                        rows.map((row: any, index: number) => (
+                                            <StyledTableCell key={row+index} align={index > 0 ? "right" : "left"}>
+                                                {row}
+                                            </StyledTableCell>
+                                        ))
+                                    }
+                                </StyledTableRow>
+                            ))
+                        )
+                    }
                     </TableBody>
                 </Table>
             </TableContainer>
