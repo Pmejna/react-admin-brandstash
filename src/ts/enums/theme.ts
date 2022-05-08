@@ -27,7 +27,7 @@ export enum themeColors {
     buttonBgColorHoverDark          = "#1268dd",
     buttonColorDark                 = "#fff",
     secondaryButtonBgColorDark      = "#FDD202",
-    secondaryButtonColorDark        = "#FDD202",
+    secondaryButtonColorDark        = "#090b14",
     secondaryButtonHoverColorDark   = "#fff",
     secondaryTextColorDark          = "#979797",
     navigationBackgroundColorDark   = "#090b14",

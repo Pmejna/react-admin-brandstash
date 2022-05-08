@@ -13,11 +13,12 @@ interface StyledDialogProps {
   setOpen: (open: boolean) => void;
   dialogContentText?: string;
   dialogTitleText?: string;
+  fullScreen?: boolean;
 }
 
-const StyledDialog: FC<StyledDialogProps> = ({dialogContentText, dialogTitleText, children, open, setOpen}) => {
+const StyledDialog: FC<StyledDialogProps> = ({dialogContentText, dialogTitleText, children, open, setOpen, fullScreen}) => {
   const [fullWidth, setFullWidth] = useState(true);
-  const [maxWidth, setMaxWidth] = useState<DialogProps['maxWidth']>('lg');
+  const [maxWidth, setMaxWidth] = useState<DialogProps['maxWidth']>('xl');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -31,30 +32,37 @@ const StyledDialog: FC<StyledDialogProps> = ({dialogContentText, dialogTitleText
     <>
       <Dialog
         fullWidth={fullWidth}
+        fullScreen={fullScreen}
         maxWidth={maxWidth}
         open={open}
-        onClose={handleClose}
+        disableEscapeKeyDown
       >
-        <DialogTitle>{dialogTitleText}</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            {dialogContentText}
-          </DialogContentText>
-          <Box
-            noValidate
-            component="form"
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              m: 'auto',
-              width: 'fit-content',
-            }}
-          >
+        <DialogTitle 
+          sx={{
+            marginBottom: '1rem'
+          }}>
+          {dialogTitleText}
+        </DialogTitle>
+        <DialogContent sx={{
+            paddingY: "1rem"
+        }}>
+          {dialogContentText && <DialogContentText>{dialogContentText}</DialogContentText>}
               {children}
-          </Box>
         </DialogContent>
-        <DialogActions>
-          <Button sx={{backgroundColor: "#dedede", color: "#090b14"}} onClick={handleClose}>Close</Button>
+        <DialogActions sx={{
+          position: "absolute",
+          top: "0.4rem",
+          right: "0.4rem",
+        }}>
+          <Button 
+            sx={{
+              backgroundColor: "#dedede", 
+              color: "#090b14"
+            }} 
+            onClick={handleClose}
+          >
+            Close
+          </Button>
         </DialogActions>
       </Dialog>
     </>

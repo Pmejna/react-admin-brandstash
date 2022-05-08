@@ -17,7 +17,6 @@ const ProjectNewModal: FC<ProjectNewProps> = ({open, setOpen}) => {
             open={open} 
             setOpen={setOpen} 
             dialogTitleText="Create New Project" 
-            dialogContentText="Please fill in the form and click to create new project"
         >
             <ProjectNewForm/>
         </StyledDialog>

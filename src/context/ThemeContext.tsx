@@ -162,7 +162,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                 MuiDialog: {
                     styleOverrides: {
                         paper: {
-                            backgroundColor: "#fff",
+                            backgroundColor: `${mode === "light" ? themeColors.cardBgLight : themeColors.cardBgDark}`,
                             color: "#090b14",
                         },
                     }
@@ -170,7 +170,7 @@ export const ThemeContextProvider: FC<ThemeContextProviderProps> = ({children}) 
                 MuiDialogTitle: {
                     styleOverrides: {
                         root: {
-                            color: "#090b14",
+                            color: `${mode === "light" ? "#090b14" : "#fff"}`,
                             fontSize: "1.5rem",
                         }
                     }
