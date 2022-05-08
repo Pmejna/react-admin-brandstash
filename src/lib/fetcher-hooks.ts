@@ -22,6 +22,16 @@ export const useProjects = () => {
     }
 }
 
+export const useProject = (uuid: string) => {
+    const {data, error} = useSWR(`/project/${uuid}`, fetcher)
+
+    return {
+        project: data,
+        isLoading: !data && !error,
+        isError: error
+    }
+}
+
 export const useNavigation = () => {
     const {data, error} = useSWR('/section-category/all', fetcher)
 
