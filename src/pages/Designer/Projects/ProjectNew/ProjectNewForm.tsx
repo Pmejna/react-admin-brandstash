@@ -7,8 +7,11 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useMe } from "../../../../lib/fetcher-hooks";
 import dayjs from "dayjs";
 
+interface ProjectNewFormProps {
+    callback: () => void;
+}
 
-const ProjectNewForm: FunctionComponent = () => {
+const ProjectNewForm: FunctionComponent<ProjectNewFormProps> = ({callback}) => {
     const {user, isError, isLoading} = useMe();
     const [newProjectState, setNewProjectState] = useState<ICreateProject>({
         user_id: "",
@@ -32,21 +35,22 @@ const ProjectNewForm: FunctionComponent = () => {
 
     const startData = dayjs(newProjectState.project_start_date);
     const endData = dayjs(newProjectState.project_end_date);
-    const parseSubmitData = () => {
+    const  parseSubmitData = async () => {
         setNewProjectState(prevState => ({...prevState, project_start_date: startData.format("MMMM D, YYYY h:mm A"), project_end_date: endData.format("MMMM D, YYYY h:mm A")}));
     };
 
     const submitForm = async (e: SyntheticEvent) => {
         e.preventDefault();
+        await parseSubmitData();
         const url: string = process.env.REACT_APP_API_URL+'/project/create' ?? 'error';
-        const parsedData = parseSubmitData();
-        console.log(newProjectState)
+        // console.log(newProjectState)
         const response = await axios.post(url, newProjectState);
         if (response.data) {
             console.log({
                 message: "Project created successfully",
                 data: response.data
             })
+            callback();
         }
     }
     

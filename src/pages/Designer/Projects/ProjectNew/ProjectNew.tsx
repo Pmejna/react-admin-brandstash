@@ -18,7 +18,7 @@ const ProjectNewModal: FC<ProjectNewProps> = ({open, setOpen}) => {
             setOpen={setOpen} 
             dialogTitleText="Create New Project" 
         >
-            <ProjectNewForm/>
+            <ProjectNewForm callback={() => setOpen(false)}/>
         </StyledDialog>
     );
 }
