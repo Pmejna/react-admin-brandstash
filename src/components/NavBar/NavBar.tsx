@@ -95,9 +95,9 @@ const NavBar: FunctionComponent<NavBarProps> = ({
             drawerClosedWidth={drawerClosedWidth}
         >
         <ToolbarStyled theme={theme}>
-          <Grid container style={{width: '100%', borderBottom: `1px solid ${theme.palette.common.divider}`, display: 'flex', flexDirection: 'row'}}>
+          <Grid container style={{width: '100%', display: 'flex', flexDirection: 'row', paddingBottom: "0.4rem", borderBottom: `1px solid ${theme.palette.common.divider}`}}>
             <Grid item xs={5} lg={4}>
-                <SearchInput />
+                {/* <SearchInput /> */}
             </Grid>
             <Grid item xs={7} lg={8}>
                 <Grid container  sx={{display: 'flex', flexDirection: 'row-reverse'}}>

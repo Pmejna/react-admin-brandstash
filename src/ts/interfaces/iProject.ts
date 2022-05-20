@@ -1,14 +1,5 @@
-export enum ProjectStatus {
-    ACTIVE = 'ACTIVE',
-    INACTIVE = 'INACTIVE',
-    COMPLETED = 'COMPLETED',
-}
+import { ProjectPriority, ProjectStatus } from "../enums/project";
 
-export enum ProjectPriority {
-    LOW = 'LOW',
-    MEDIUM = 'MEDIUM',
-    HIGH = 'HIGH',
-}
 
 export interface ICreateProject {
     user_id?: string | null;

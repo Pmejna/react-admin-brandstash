@@ -2,10 +2,11 @@ import { FormControl, Grid, Input, InputLabel, MenuItem, TextField, Typography }
 import axios from "axios";
 import { FunctionComponent, SyntheticEvent, useContext, useDebugValue, useEffect, useState } from "react";
 import StyledButton from "../../../../components/Common/StyledButton/StyledButton";
-import { ICreateProject, ProjectPriority, ProjectStatus } from "../../../../ts/interfaces/iProject";
+import { ICreateProject } from "../../../../ts/interfaces/iProject";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useMe } from "../../../../lib/fetcher-hooks";
 import dayjs from "dayjs";
+import { ProjectPriority, ProjectStatus } from "../../../../ts/enums/project";
 
 interface ProjectNewFormProps {
     callback: () => void;

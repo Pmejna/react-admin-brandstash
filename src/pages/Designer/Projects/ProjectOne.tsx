@@ -6,7 +6,8 @@ import { useProject } from '../../../lib/fetcher-hooks';
 const ProjectOne: FC = () => {
     
     const { pathname } = useLocation();
-    const {project, isLoading} = useProject(pathname.replace("/projects/", ""))
+    const {project, isLoading} = useProject(pathname.replace("/projects/", ""));
+    console.log(isLoading, project);
 
     return (
         <>
@@ -14,7 +15,7 @@ const ProjectOne: FC = () => {
                 isLoading ? <CircularProgress /> :
                 (
                     <Typography>
-                        {`Project: ${project?.project_name}`} 
+                        {`Client: ${project?.company ? project?.company : "No Client Assigned"}`} 
                     </Typography>
                 )
             }
