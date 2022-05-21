@@ -15,7 +15,7 @@ const ProjectOne: FC = () => {
                 isLoading ? <CircularProgress /> :
                 (
                     <Typography>
-                        {`Client: ${project?.company ? project?.company : "No Client Assigned"}`} 
+                        {`Client: ${project?.project_company_uuid ? project?.project_company_uuid : "No Client Assigned"}`} 
                     </Typography>
                 )
             }
