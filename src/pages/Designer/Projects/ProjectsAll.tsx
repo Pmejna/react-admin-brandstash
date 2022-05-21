@@ -37,7 +37,7 @@ const ProjectsAll: FC = () => {
                                             rows.map((row: any, index: number) => {
                                                 let cell;
                                                 if (index === 5) {
-                                                    cell = <Link to={`${row}`}>Click</Link>
+                                                    cell = <Link style={{textDecoration: "none", color: "#00005D", fontWeight: "bold"}} to={`${row}`}>Click</Link>
                                                 } else {
                                                     cell = row
                                                 }

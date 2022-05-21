@@ -9,8 +9,10 @@ import "typeface-source-sans-pro";
 import { SWRConfigProvider } from './components/Common/SWRConfigProvider/SWEConfigProvider';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import Wrapper from './components/Wrapper/Wrapper';
 import {ThemeContextProvider} from './context/ThemeContext';
+import {Provider} from 'react-redux';
+import store from './components/store/store';
+import Wrapper from './components/Wrapper/Wrapper';
 import AccountStats from './pages/Common/AccountStats';
 import Dashboard from './pages/Common/Dashboard';
 import ProjectBrief from './pages/Designer/Brief/ProjectBrief';
@@ -36,52 +38,54 @@ function App() {
   return (
     <div className="App">
         <ThemeContextProvider>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <SWRConfigProvider>
-              <Router>
-                <CssBaseline/>
-                <Routes>
-                  <Route path="/">
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/register" element={<Register/>}/>
-                    <Route element={<Wrapper><Outlet/></Wrapper>}>
-                        <Route index element={<Dashboard/>}/>
-                        <Route path="projects">
-                            <Route index element={<ProjectsAll/>}/>
-                            <Route path=":projectUuid" element={<ProjectOne/>}/>
-                            <Route path="new" element={<ProjectNew/>}/>
-                            <Route path="stats" element={<ProjectsStats/>}/>
-                        </Route>
-                        <Route path="briefs">
-                            <Route index element={<ProjectsBriefs/>}/>
-                            <Route path=":briefUuid" element={<ProjectBrief/>}/>
-                        </Route>
-                        <Route path="clients">
-                            <Route index element={<ClientsAll/>}/>
-                            <Route path=":clientUuid">
-                                <Route index element={<ClientView/>}/>                        
-                                <Route path="briefs">
-                                    <Route index element={<ClientsBriefs/>}/>
-                                    <Route path=":briefUuid" element={<ClientBrief/>}/>
-                                </Route>
-                                <Route path="projects">
-                                  <Route index element={<ClientProjects/>}/>
-                                  <Route path=":projectUuid" element={<ClientProject/>}/>
-                                </Route>
-                            </Route>
-                            <Route path="briefs" element={<ClientsBriefs/>}/>
-                        </Route>
-                        <Route path="account-stats" element={<AccountStats/>}/>
-                        <Route path="business/invoices" element={<Invoices/>}/>
-                        <Route path="business" element={<Management/>}/>
-                        <Route path="notifications" element={<Notifications/>}/>
-                        <Route path="user" element={<User/>}/>
+          <Provider store={store}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <SWRConfigProvider>
+                <Router>
+                  <CssBaseline/>
+                  <Routes>
+                    <Route path="/">
+                      <Route path="/login" element={<Login/>}/>
+                      <Route path="/register" element={<Register/>}/>
+                      <Route element={<Wrapper><Outlet/></Wrapper>}>
+                          <Route index element={<Dashboard/>}/>
+                          <Route path="projects">
+                              <Route index element={<ProjectsAll/>}/>
+                              <Route path=":projectUuid" element={<ProjectOne/>}/>
+                              <Route path="new" element={<ProjectNew/>}/>
+                              <Route path="stats" element={<ProjectsStats/>}/>
+                          </Route>
+                          <Route path="briefs">
+                              <Route index element={<ProjectsBriefs/>}/>
+                              <Route path=":briefUuid" element={<ProjectBrief/>}/>
+                          </Route>
+                          <Route path="clients">
+                              <Route index element={<ClientsAll/>}/>
+                              <Route path=":clientUuid">
+                                  <Route index element={<ClientView/>}/>                        
+                                  <Route path="briefs">
+                                      <Route index element={<ClientsBriefs/>}/>
+                                      <Route path=":briefUuid" element={<ClientBrief/>}/>
+                                  </Route>
+                                  <Route path="projects">
+                                    <Route index element={<ClientProjects/>}/>
+                                    <Route path=":projectUuid" element={<ClientProject/>}/>
+                                  </Route>
+                              </Route>
+                              <Route path="briefs" element={<ClientsBriefs/>}/>
+                          </Route>
+                          <Route path="account-stats" element={<AccountStats/>}/>
+                          <Route path="business/invoices" element={<Invoices/>}/>
+                          <Route path="business" element={<Management/>}/>
+                          <Route path="notifications" element={<Notifications/>}/>
+                          <Route path="user" element={<User/>}/>
+                      </Route>
                     </Route>
-                  </Route>
-                </Routes>
-              </Router>
-            </SWRConfigProvider>
-          </LocalizationProvider>
+                  </Routes>
+                </Router>
+              </SWRConfigProvider>
+            </LocalizationProvider>
+          </Provider>
         </ThemeContextProvider>
     </div>
   );

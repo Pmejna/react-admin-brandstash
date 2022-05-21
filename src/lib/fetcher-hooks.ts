@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import { ProjectData } from "../ts/types/project";
 import { Sections } from "../ts/types/sections";
 import fetcher from "./fetcher";
 
@@ -26,7 +27,7 @@ export const useProject = (uuid: string) => {
     const {data, error} = useSWR(`/project/${uuid}`, fetcher)
 
     return {
-        project: data,
+        project: data as ProjectData,
         isLoading: !data && !error,
         isError: error
     }
