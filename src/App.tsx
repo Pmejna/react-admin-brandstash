@@ -11,7 +11,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import {ThemeContextProvider} from './context/ThemeContext';
 import {Provider} from 'react-redux';
-import store from './components/store/store';
+import store from './redux-toolkit/store/store';
 import Wrapper from './components/Wrapper/Wrapper';
 import AccountStats from './pages/Common/AccountStats';
 import Dashboard from './pages/Common/Dashboard';

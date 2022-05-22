@@ -1,10 +1,16 @@
 import { CircularProgress, Grid, Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from "@mui/material";
-import {FC} from "react";
+import {FC, useEffect} from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import StyledTable, { StyledTableCell, StyledTableRow } from "../../../components/Common/StyledTable/StyledTable";
 import { useProjects } from "../../../lib/fetcher-hooks";
+import { setLocation } from "../../../redux-toolkit/store/store";
 
 const ProjectsAll: FC = () => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(setLocation('Projects'));
+    });
     const {projects, isError, isLoading} = useProjects();
     console.log(isLoading, projects);
     
