@@ -1,9 +1,10 @@
-import {FunctionComponent, useContext} from 'react';
+import {FunctionComponent, useContext, useEffect, useState} from 'react';
 import { 
   Avatar, 
   CircularProgress, 
   Grid, 
-  Toolbar 
+  Toolbar, 
+  Typography
 } from '@mui/material';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import { styled, useTheme, Theme} from '@mui/material/styles';
@@ -13,6 +14,8 @@ import MenuListComposition from '../Common/MenuList/MenuList';
 import isPropValid from '@emotion/is-prop-valid'
 import { User } from '../../ts/types/user';
 import { UserContext } from '../Wrapper/Wrapper';
+import { useSelector } from 'react-redux';
+import { selectLocation } from '../../redux-toolkit/store/store';
 
 
 interface AppBarProps extends MuiAppBarProps {
@@ -57,7 +60,7 @@ const NavBar: FunctionComponent<NavBarProps> = ({
 }) => {
     const theme = useTheme();
     const user = useContext<User | null>(UserContext);
-    console.log(user)
+    const location = useSelector(selectLocation);
     function stringToColor(string: string) {
         let hash = 0;
         let i;
@@ -97,6 +100,9 @@ const NavBar: FunctionComponent<NavBarProps> = ({
         <ToolbarStyled theme={theme}>
           <Grid container style={{width: '100%', display: 'flex', flexDirection: 'row', paddingBottom: "0.4rem", borderBottom: `1px solid ${theme.palette.common.divider}`}}>
             <Grid item xs={5} lg={4}>
+              {location && (
+                <Typography sx={{color: "#000"}}>{location}</Typography>
+                )}
                 {/* <SearchInput /> */}
             </Grid>
             <Grid item xs={7} lg={8}>
