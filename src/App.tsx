@@ -1,17 +1,21 @@
 import { CssBaseline } from '@mui/material';
-import {
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Outlet
+// } from 'react-router-dom';
+import { 
   BrowserRouter as Router,
-  Routes,
   Route,
+  Routes,
   Outlet
-} from 'react-router-dom';
+ } from 'react-router-dom';
 import "typeface-source-sans-pro";
 import { SWRConfigProvider } from './components/Common/SWRConfigProvider/SWEConfigProvider';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import {ThemeContextProvider} from './context/ThemeContext';
-import {Provider} from 'react-redux';
-import store from './redux-toolkit/store/store';
 import Wrapper from './components/Wrapper/Wrapper';
 import AccountStats from './pages/Common/AccountStats';
 import Dashboard from './pages/Common/Dashboard';
@@ -33,6 +37,8 @@ import Notifications from './pages/Common/Notifications';
 import Register from './pages/Register/Register';
 import User from './pages/Common/User/User';
 import Management from './pages/Common/Management';
+import Provider from 'react-redux/es/components/Provider';
+import store from './app/store';
 
 function App() {
   return (

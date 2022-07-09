@@ -1,6 +1,6 @@
 import { Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from "@mui/material";
 import { styled} from '@mui/material/styles';
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactNode } from "react";
 
 
 export const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -26,6 +26,7 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
 interface StyledTableProps {
     tableHead: string[];
     tableData?: any[];
+    children?: ReactNode;
 }
  
 const StyledTable: FunctionComponent<StyledTableProps> = ({tableHead, tableData, children}) => {

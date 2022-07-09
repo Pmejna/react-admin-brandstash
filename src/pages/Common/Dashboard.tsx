@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
-import { setLocation } from '../../redux-toolkit/store/store';
+import { setLocation } from '../../app/store';
 
 const Dashboard: FunctionComponent = () => {
     const dispatch = useDispatch();

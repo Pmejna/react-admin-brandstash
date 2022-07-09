@@ -1,6 +1,6 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import { createContext, FC, useContext, useMemo, useState } from "react";
-import { styleCommonUtils, themeColors } from "../ts/enums/theme";
+import { themeColors } from "../ts/enums/theme";
 import "@mui/material/styles/createPalette";
 
 
@@ -31,7 +31,7 @@ interface IThemeContext {
 }
 interface ThemeContextProviderProps {
     // any upcoming props here   
-    // children: React.ReactNode
+    children: React.ReactNode
 }
 
 export const ThemeContext = createContext<IThemeContext>({
