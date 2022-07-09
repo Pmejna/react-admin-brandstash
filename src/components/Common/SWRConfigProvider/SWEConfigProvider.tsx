@@ -4,4 +4,9 @@ const swrConfig = {
 //  revalidateOnFocus: false,
 //  shouldRetryOnError: false
 }
-export const SWRConfigProvider: React.FC = ({ children }) => <SWRConfig value={swrConfig}>{children}</SWRConfig>
+
+export interface SWRProps {
+    children: React.ReactNode;
+}
+
+export const SWRConfigProvider: React.FC<SWRProps> = ({ children }) => <SWRConfig value={swrConfig}>{children}</SWRConfig>

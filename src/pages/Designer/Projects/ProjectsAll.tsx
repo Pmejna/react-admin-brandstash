@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import StyledTable, { StyledTableCell, StyledTableRow } from "../../../components/Common/StyledTable/StyledTable";
 import { useProjects } from "../../../lib/fetcher-hooks";
-import { setLocation } from "../../../redux-toolkit/store/store";
+import { setLocation } from "../../../app/store";
 
 const ProjectsAll: FC = () => {
     const dispatch = useDispatch();

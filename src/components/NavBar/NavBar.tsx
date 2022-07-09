@@ -1,4 +1,4 @@
-import {FunctionComponent, useContext, useEffect, useState} from 'react';
+import {FunctionComponent, ReactNode, useContext } from 'react';
 import { 
   Avatar, 
   CircularProgress, 
@@ -8,14 +8,14 @@ import {
 } from '@mui/material';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import { styled, useTheme, Theme} from '@mui/material/styles';
-import SearchInput from '../Navigation/SearchInput/SearchInput';
+// import SearchInput from '../Navigation/SearchInput/SearchInput';
 import ThemeButton from '../ThemeButton/ThemeButton';
 import MenuListComposition from '../Common/MenuList/MenuList';
 import isPropValid from '@emotion/is-prop-valid'
 import { User } from '../../ts/types/user';
 import { UserContext } from '../Wrapper/Wrapper';
 import { useSelector } from 'react-redux';
-import { selectLocation } from '../../redux-toolkit/store/store';
+import { selectLocation } from '../../app/store';
 
 
 interface AppBarProps extends MuiAppBarProps {
@@ -51,6 +51,7 @@ interface NavBarProps {
     open?:              boolean;
     drawerOpenWidth:    number
     drawerClosedWidth:  number
+    children?: ReactNode;
 }
  
 const NavBar: FunctionComponent<NavBarProps> = ({

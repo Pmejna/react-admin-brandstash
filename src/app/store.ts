@@ -27,7 +27,8 @@ const store = configureStore(
     },
 });
 
-type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export const selectLocation = (state: RootState) => state.location.location;
 
