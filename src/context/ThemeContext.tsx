@@ -1,7 +1,9 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import { createContext, FC, useContext, useMemo, useState } from "react";
-import { themeColors } from "../ts/enums/theme";
 import "@mui/material/styles/createPalette";
+import type { FC } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
+
+import { themeColors } from "../ts/enums/theme";
 
 
 declare module "@mui/material/styles/createPalette" {
@@ -35,7 +37,8 @@ interface ThemeContextProviderProps {
 }
 
 export const ThemeContext = createContext<IThemeContext>({
-    toggleTheme: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    toggleTheme: (): void => {},
     mode: "light"
 })
 

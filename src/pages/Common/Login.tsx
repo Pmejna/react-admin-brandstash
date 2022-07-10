@@ -1,13 +1,17 @@
+/* eslint-disable no-console */
 import { Box, FormControl, Grid, Input, InputLabel, Typography, useTheme } from '@mui/material';
 import axios from 'axios';
-import React, { FunctionComponent, SyntheticEvent, useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import type { FC, SyntheticEvent } from 'react';
+
+import { Navigate, Link } from 'react-router-dom';
+
 import StyledButton from '../../components/Common/StyledButton/StyledButton';
 import LoginRegisterWrapper from '../../components/Wrapper/LoginRegisterWrapper';
 import background from "../../resources/images/login-bg.png";
 
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface LoginProps {
 }
 
@@ -16,7 +20,7 @@ interface LoginStateProps {
     password: string;
 }
  
-const Login: FunctionComponent<LoginProps> = () => {
+const Login: FC<LoginProps> = () => {
     const [loginState, setLoginState] = useState<LoginStateProps>({
         email: "",
         password: ""
@@ -36,7 +40,7 @@ const Login: FunctionComponent<LoginProps> = () => {
             }
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
         })
     }
 
@@ -82,7 +86,7 @@ const Login: FunctionComponent<LoginProps> = () => {
                 component='div'
             >
                 <Typography variant="body2" sx={{ marginTop: '2rem', fontSize: '1.6rem', textAlign: 'center', fontWeight: 300}}>
-                    Don't have an account?
+                    Do not have an account?
                 </Typography>
                 <Box component='div' sx={{ display: "flex", justifyContent: "center" }}>
                     <Link style={{fontSize: '1.3rem', textDecoration: 'none', color: `${theme.palette.primary.main}`}} to='/'>Register</Link>

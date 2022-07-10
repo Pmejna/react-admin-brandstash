@@ -1,6 +1,5 @@
-import React , {FC} from 'react';
-import Wrapper from '../../../components/Wrapper/Wrapper';
- 
+import type {FC} from 'react';
+
 const ProjectBrief: FC = () => {
     return (
         <>

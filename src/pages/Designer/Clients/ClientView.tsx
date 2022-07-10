@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from "react";
-import Wrapper from "../../../components/Wrapper/Wrapper";
+import type { FC } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface ClientViewProps {
     
 }
  
-const ClientView: FunctionComponent<ClientViewProps> = () => {
+const ClientView: FC<ClientViewProps> = () => {
     return ( 
         <>
             Client View

@@ -1,4 +1,4 @@
-import { ProjectPriority, ProjectStatus } from "../enums/project";
+import type { ProjectPriority, ProjectStatus } from "../enums/project";
 
 
 export interface ICreateProject {

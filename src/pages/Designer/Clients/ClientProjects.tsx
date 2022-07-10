@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
-import Wrapper from "../../../components/Wrapper/Wrapper";
+import type { FunctionComponent } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface ClientProjectsProps {
     
 }

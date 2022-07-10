@@ -1,16 +1,19 @@
 import { Typography } from "@mui/material";
-import React, { FunctionComponent, useState } from "react";
+import { useState } from "react";
+import type { FC } from "react";
+
 import MenuTabs, { TabPanel } from "../../../components/Common/MenuTabs/MenuTabs";
 import { useMe } from "../../../lib/fetcher-hooks";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface UserProps {
     
 }
  
-const User: FunctionComponent<UserProps> = () => {
+const User: FC<UserProps> = () => {
     const [value, setValue] = useState(0);
-    const {user, isError, isLoading} = useMe();
-    console.log(user)
+    const {user} = useMe();
+
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };

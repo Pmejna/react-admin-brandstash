@@ -1,10 +1,17 @@
-import React, { FunctionComponent, ReactNode, useEffect, useMemo, useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useEffect, useMemo, useState, createContext } from 'react';
+import type { FunctionComponent, ReactNode } from "react";
+
 import { Navigate, useLocation} from "react-router-dom";
-import Navigation from "../Navigation/Navigation";
-import { User } from "../../ts/types/user";
+
 import axios from "axios";
 
-export const UserContext = React.createContext<User | null>(null);
+import Navigation from "../Navigation/Navigation";
+
+import type { User } from "../../ts/types/user";
+
+
+export const UserContext = createContext<User | null>(null);
 
 interface WrapperProps {
     children: ReactNode;
@@ -15,7 +22,7 @@ const Wrapper: FunctionComponent<WrapperProps> = ({children}) => {
     const [redirect, setRedirect] = useState(false);
     const [user, setUser] = useState<User | null>(null);
     const [currentLocation, setCurrentLocation] = useState<string>("");
-    let location = useLocation();
+    const location = useLocation();
     const userData = useMemo<User | void>(() => {
         (
             async  () => {

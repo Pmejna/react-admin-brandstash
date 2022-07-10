@@ -1,8 +1,12 @@
-import { Box, FormControl, FormHelperText, Grid, Input, InputLabel, Typography } from "@mui/material";
-import React, { Dispatch, FunctionComponent, SetStateAction, SyntheticEvent, useState } from "react";
+import { Box, FormControl, Grid, Input, InputLabel, Typography } from "@mui/material";
+import type { Dispatch, FunctionComponent, SetStateAction, SyntheticEvent } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import StyledButton from "../../components/Common/StyledButton/StyledButton";
+
 import axios from "axios";
+
+import StyledButton from "../../components/Common/StyledButton/StyledButton";
+
 import { companyType } from "../../ts/enums/company";
 
 

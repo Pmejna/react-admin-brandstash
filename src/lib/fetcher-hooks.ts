@@ -1,6 +1,7 @@
 import useSWR from "swr";
-import { ProjectData } from "../ts/types/project";
-import { Sections } from "../ts/types/sections";
+
+import type { ProjectData } from "../ts/types/project";
+
 import fetcher from "./fetcher";
 
 export const useMe = () => {

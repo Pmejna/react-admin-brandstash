@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { FunctionComponent, ReactNode } from "react";
 
 import { Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from "@mui/material";
@@ -26,7 +27,6 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 interface StyledTableProps {
     tableHead: string[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     tableData?: any[];
     children?: ReactNode;
 }

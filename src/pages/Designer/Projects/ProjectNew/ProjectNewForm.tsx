@@ -1,19 +1,26 @@
-import { FormControl, Grid, Input, InputLabel, MenuItem, TextField, Typography } from "@mui/material";
+/* eslint-disable no-console */
+import { FormControl, Grid, MenuItem, TextField, Typography } from "@mui/material";
 import axios from "axios";
-import { FunctionComponent, SyntheticEvent, useContext, useDebugValue, useEffect, useState } from "react";
-import StyledButton from "../../../../components/Common/StyledButton/StyledButton";
-import { ICreateProject } from "../../../../ts/interfaces/iProject";
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { useMe } from "../../../../lib/fetcher-hooks";
+import { useEffect, useState } from "react";
+import type { FC, SyntheticEvent} from "react";
 import dayjs from "dayjs";
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
+import StyledButton from "../../../../components/Common/StyledButton/StyledButton";
+
+import type { ICreateProject } from "../../../../ts/interfaces/iProject";
+
+
+import { useMe } from "../../../../lib/fetcher-hooks";
+
 import { ProjectPriority, ProjectStatus } from "../../../../ts/enums/project";
 
 interface ProjectNewFormProps {
     callback: () => void;
 }
 
-const ProjectNewForm: FunctionComponent<ProjectNewFormProps> = ({callback}) => {
-    const {user, isError, isLoading} = useMe();
+const ProjectNewForm: FC<ProjectNewFormProps> = ({callback}) => {
+    const {user} = useMe();
     const [newProjectState, setNewProjectState] = useState<ICreateProject>({
         user_id: "",
         project_name: "",

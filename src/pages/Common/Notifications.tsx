@@ -1,11 +1,12 @@
-import React, { FunctionComponent } from "react";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import type { FC } from "react";
 
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface NotificationsProps {
     
 }
  
-const Notifications: FunctionComponent<NotificationsProps> = () => (
+const Notifications : FC<NotificationsProps> = () => (
     <>
         Notifications
     </>

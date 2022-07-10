@@ -1,14 +1,10 @@
 import { Grid } from "@mui/material";
-import React, { FunctionComponent, useState } from "react";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import type { FC } from "react";
 
-
-
-interface AccountStatsProps {
-    
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface AccountStatsProps {}
  
-const AccountStats: FunctionComponent<AccountStatsProps> = () => {
+const AccountStats: FC<AccountStatsProps> = () => {
 
     return ( 
         <Grid container>

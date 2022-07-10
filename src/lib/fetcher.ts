@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export default function fetcher(url: string, data: undefined | any = undefined, method: 'GET' | 'POST' | 'PUT' | 'DELETE' = 'GET'): Promise<any> {
     return fetch(`${process.env.REACT_APP_API_URL}${url}`, {
         credentials: 'include',
@@ -12,6 +14,7 @@ export default function fetcher(url: string, data: undefined | any = undefined, 
         }
         return res.json()
     }).catch((e) => {
+        // eslint-disable-next-line no-console
         console.error(e);
         throw new Error();
     })

@@ -1,8 +1,10 @@
-import App from './App';
+import axios from 'axios';
 
 import { createRoot } from 'react-dom/client';
+
+import App from './App';
+
 // import { createRoot } from 'react-dom/client';
-import axios from 'axios';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.withCredentials = true;

@@ -1,6 +1,3 @@
-import { ListItemButtonBaseProps } from "@mui/material";
-import {SxProps, Theme} from '@mui/material/styles';
-
 export type SectionElements = {
     section_icon: string;
     section_id:   number;

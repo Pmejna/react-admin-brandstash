@@ -52,7 +52,8 @@ interface AppBarProps extends MuiAppBarProps {
     theme: Theme;
   };
   
-  const ToolbarStyled = styled(Toolbar, { shouldForwardProp: (prop) => true })<ToolbarStyledProps>(({ theme }) => ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const ToolbarStyled = styled(Toolbar, { shouldForwardProp: () => true })<ToolbarStyledProps>(({ theme }) => ({
     padding: '4px 12px',
   }));
 

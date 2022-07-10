@@ -1,5 +1,7 @@
-import { FunctionComponent, ReactNode } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { FC, ReactNode } from "react";
 import { Box, Grid } from "@mui/material";
+
 import title from '../../resources/images/login-register-title.svg';
 
 declare module "*.png" {
@@ -11,7 +13,7 @@ interface LoginRegisterWrapperProps {
     children: ReactNode;
 }
  
-const LoginRegisterWrapper: FunctionComponent<LoginRegisterWrapperProps> = ({background, children}) => {
+const LoginRegisterWrapper: FC<LoginRegisterWrapperProps> = ({background, children}) => {
     return ( 
         <>
             <Grid

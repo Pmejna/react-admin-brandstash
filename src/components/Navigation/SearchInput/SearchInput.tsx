@@ -1,8 +1,8 @@
 import { IconButton, InputBase, useTheme } from "@mui/material";
-import { FunctionComponent } from "react";
+import type { FC } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchInput: FunctionComponent = () => {
+const SearchInput: FC = () => {
     const theme = useTheme();
     return ( 
         <>

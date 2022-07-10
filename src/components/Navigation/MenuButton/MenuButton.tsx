@@ -1,4 +1,5 @@
-import {FunctionComponent, MouseEventHandler} from 'react';
+import type {FC, MouseEventHandler} from 'react';
+
 import SvgIcon from '../../SvgIcon/SvgIcon';
 
 interface MenuButtonProps {
@@ -7,7 +8,7 @@ interface MenuButtonProps {
     open:       boolean;
 }
  
-const MenuButton: FunctionComponent<MenuButtonProps> = ({open, onClick, style}) => {
+const MenuButton: FC<MenuButtonProps> = ({open, onClick, style}) => {
     return ( 
         <>
             {
