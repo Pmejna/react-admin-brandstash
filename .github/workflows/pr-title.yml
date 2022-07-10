@@ -15,4 +15,4 @@ jobs:
           # Make sure we keep semantic PR titles to ensure a descriptive commit history on the main branch
           regex: '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([^)]+\))?:.+$'
           min_length: 10 # ensure title is something meaningful, not just "fixing it"
-          # github_token: ${{ github.token }}
+          github_token: ${{ github.token }}
