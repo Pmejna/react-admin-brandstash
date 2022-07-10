@@ -1,5 +1,6 @@
 import { Paper, Typography } from "@mui/material";
-import { FunctionComponent } from "react";
+import type { FunctionComponent } from "react";
+import React from "react";
 import StyledButton from "../StyledButton/StyledButton";
 
 interface CardWithButtonProps {

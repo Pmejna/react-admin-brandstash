@@ -40,10 +40,10 @@ export default function MenuListComposition() {
 
   const handleLogout = async () => {
     await axios.post('/logout')
-          .then(res => {
+          .then(() => {
             navigate('/login');
           }).catch(err => {
-            console.log(err);
+            console.error(err);
           });
   }
 

@@ -1,5 +1,6 @@
-import { Box, Button, SvgIcon } from '@mui/material';
-import React, {FunctionComponent, MouseEventHandler, useContext} from 'react';
+import { Button, SvgIcon } from '@mui/material';
+import type {FunctionComponent, MouseEventHandler} from 'react';
+import {forwardRef} from 'react';
 import { SettingsIcon } from '../../SvgIcon/Icons';
 
 interface SettingsButtonProps {
@@ -11,7 +12,7 @@ interface SettingsButtonProps {
     id?:            string;
 }
  
-const SettingsButton: FunctionComponent<SettingsButtonProps> = React.forwardRef(({
+const SettingsButton: FunctionComponent<SettingsButtonProps> = forwardRef(({
         onClick, 
         fontSize,
         open,
