@@ -1,4 +1,6 @@
-import {FunctionComponent, ReactNode, useContext } from 'react';
+import { useContext } from 'react';
+import type { FunctionComponent, ReactNode } from 'react';
+
 import { 
   Avatar, 
   CircularProgress, 
@@ -6,15 +8,22 @@ import {
   Toolbar, 
   Typography
 } from '@mui/material';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import { styled, useTheme, Theme} from '@mui/material/styles';
-// import SearchInput from '../Navigation/SearchInput/SearchInput';
+import type { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import  MuiAppBar from '@mui/material/AppBar'; 
+import { styled, useTheme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
+
+import isPropValid from '@emotion/is-prop-valid'
+
+import { useSelector } from 'react-redux';
+
 import ThemeButton from '../ThemeButton/ThemeButton';
 import MenuListComposition from '../Common/MenuList/MenuList';
-import isPropValid from '@emotion/is-prop-valid'
-import { User } from '../../ts/types/user';
+
+import type { User } from '../../ts/types/user';
 import { UserContext } from '../Wrapper/Wrapper';
-import { useSelector } from 'react-redux';
+
+
 import { selectLocation } from '../../app/store';
 
 

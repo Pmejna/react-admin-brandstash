@@ -1,10 +1,12 @@
 import { Button, SvgIcon } from '@mui/material';
 import type {FunctionComponent, MouseEventHandler} from 'react';
 import {forwardRef} from 'react';
+
 import { SettingsIcon } from '../../SvgIcon/Icons';
 
 interface SettingsButtonProps {
     onClick?:       MouseEventHandler<SVGSVGElement>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ref?:           React.Ref<any>;
     handleToggle?:  () => void;
     fontSize?:      "small" | "inherit" | "large" | "medium" | undefined;

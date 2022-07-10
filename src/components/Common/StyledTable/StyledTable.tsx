@@ -1,6 +1,7 @@
+import type { FunctionComponent, ReactNode } from "react";
+
 import { Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from "@mui/material";
 import { styled} from '@mui/material/styles';
-import { FunctionComponent, ReactNode } from "react";
 
 
 export const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -25,6 +26,7 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 interface StyledTableProps {
     tableHead: string[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     tableData?: any[];
     children?: ReactNode;
 }

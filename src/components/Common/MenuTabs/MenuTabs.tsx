@@ -1,5 +1,7 @@
+import type {FunctionComponent } from "react";
+
 import { Box, Grid, Tab, Tabs, Typography } from "@mui/material";
-import { FunctionComponent, useState } from "react";
+
 
 interface TabPanelProps {
     children?: React.ReactNode;
