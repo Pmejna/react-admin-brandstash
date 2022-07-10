@@ -1,19 +1,30 @@
-import styled from "@emotion/styled";
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { FunctionComponent, useState } from "react";
-import background from "../../resources/images/register-bg.png";
-import registerQuoteBg from "../../resources/images/register-quote-bg.svg";
-import SelectRegistrationMode from "./SelectRegistrationMode";
-import LoginRegisterWrapper from "../../components/Wrapper/LoginRegisterWrapper";
+import { useState } from "react";
+import type { FC } from "react";
+
 import { Link } from "react-router-dom";
+
 import { useTheme } from '@mui/material/styles';
+
+import background from "../../resources/images/register-bg.png";
+
+import registerQuoteBg from "../../resources/images/register-quote-bg.svg";
+
+import LoginRegisterWrapper from "../../components/Wrapper/LoginRegisterWrapper";
+
+import SelectRegistrationMode from "./SelectRegistrationMode";
+
+
+
+
 import RegisterForm from "./RegisterForm";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface RegisterProps {
 }
  
-const Register: FunctionComponent<RegisterProps> = () => {
+const Register: FC<RegisterProps> = () => {
     
     const theme = useTheme();
     const [mode, setMode] = useState("select-mode");
@@ -45,7 +56,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
                                 fontSize: '1.5rem',
                             }}
                         >
-                            "We connect you with creatives, designers, and developers who are passionate about what they do."
+                            &quot;We connect you with creatives, designers, and developers who are passionate about what they do.&quot;
                         </Typography>
                     </Box>
                 </Grid>

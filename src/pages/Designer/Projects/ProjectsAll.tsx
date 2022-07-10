@@ -1,7 +1,10 @@
-import { CircularProgress, Grid, Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from "@mui/material";
-import {FC, useEffect} from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { CircularProgress, Grid  } from "@mui/material";
+import { useEffect} from "react";
+import type { FC } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
 import StyledTable, { StyledTableCell, StyledTableRow } from "../../../components/Common/StyledTable/StyledTable";
 import { useProjects } from "../../../lib/fetcher-hooks";
 import { setLocation } from "../../../app/store";
@@ -11,8 +14,7 @@ const ProjectsAll: FC = () => {
     useEffect(() => {
         dispatch(setLocation('Projects'));
     });
-    const {projects, isError, isLoading} = useProjects();
-    console.log(isLoading, projects);
+    const {projects, isLoading} = useProjects();
     
     const tableData = projects?.data.map((project: any) => [
         project.project_name,

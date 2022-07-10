@@ -7,8 +7,11 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
-import SettingsButton from './SettingsButton';
+
 import axios from 'axios';
+
+import SettingsButton from './SettingsButton';
+
 
 export default function MenuListComposition() {
   const [open, setOpen] = React.useState(false);
@@ -40,10 +43,11 @@ export default function MenuListComposition() {
 
   const handleLogout = async () => {
     await axios.post('/logout')
-          .then(res => {
+          .then(() => {
             navigate('/login');
           }).catch(err => {
-            console.log(err);
+            // eslint-disable-next-line no-console
+            console.error(err);
           });
   }
 

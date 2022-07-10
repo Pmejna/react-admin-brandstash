@@ -1,26 +1,39 @@
-import React, {useState, useEffect, useMemo} from 'react';
-import { styled, useTheme, Theme, CSSObject, SxProps } from '@mui/material/styles';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {useState, useEffect} from 'react';
+
+import { styled, useTheme } from '@mui/material/styles';
+
+import type {Theme, CSSObject, SxProps } from '@mui/material/styles';
+
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
-import Typography, { TypographyProps } from '@mui/material/Typography';
-import ListItemButton, { ListItemButtonBaseProps } from '@mui/material/ListItemButton';
+import Typography from '@mui/material/Typography';
+import type { TypographyProps } from '@mui/material/Typography';
+
+import ListItemButton from '@mui/material/ListItemButton';
+import type { ListItemButtonBaseProps } from '@mui/material/ListItemButton';
 import isPropValid from '@emotion/is-prop-valid';
 import {NavLink } from 'react-router-dom';
+
+import { CircularProgress} from '@mui/material';
+
+import { useNavigation } from '../../lib/fetcher-hooks';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import NavBar from '../NavBar/NavBar';
+
 import MenuButton from './MenuButton/MenuButton';
-import axios from 'axios';
-import { CircularProgress} from '@mui/material';
-import { useNavigation } from '../../lib/fetcher-hooks';
+
+
+
 
 
 const drawerOpenWidth = 180;
 const drawerClosedWidth = 90;
 const paddingOpen = 16;
 
-const openedMixin = (theme: Theme): CSSObject => ({
+const openedMixin = (): CSSObject => ({
   width:      drawerOpenWidth,
   overflowX:  'hidden',
 });
@@ -75,8 +88,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     height: '100vh',
     backgroundColor: theme.palette.common.sideBarBackgroundColor,
     ...(open && {
-      ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
+      ...openedMixin(),
+      '& .MuiDrawer-paper': openedMixin(),
     }),
     ...(!open && {
       ...closedMixin(theme),
@@ -127,12 +140,12 @@ const StyledListItemButton = styled(ListItemButton)<StyledListItemButtonProps>((
 }));
 
 export default function Navigation(props: any) {
-  useEffect(() => {
-  }, [props.location]);
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  useEffect(() => {}, [props.location]);
     
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const {sections, isError, isLoading} = useNavigation();
+  const {sections, isLoading} = useNavigation();
   
   const handleDrawerToggle = () => {
     setOpen(!open);
@@ -162,7 +175,7 @@ export default function Navigation(props: any) {
                   </DrawerTitle>
                   {
                     category.sections.map((element: any) => {
-                      let active = () => props.location.pathname === element.section_slug ? true : false
+                      const active = () => props.location.pathname === element.section_slug ? true : false
                       return (
                         <StyledListItemButton
                           key={element.section_text}

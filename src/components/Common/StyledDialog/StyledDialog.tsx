@@ -1,11 +1,13 @@
-import Box from '@mui/material/Box';
+import { useState } from 'react';
+import type { FC } from 'react';
+
 import Button from '@mui/material/Button';
-import Dialog, { DialogProps } from '@mui/material/Dialog';
+import Dialog from '@mui/material/Dialog';
+import type { DialogProps } from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { FC, useState } from 'react';
 
 interface StyledDialogProps {
   children?:  React.ReactNode;
@@ -17,12 +19,10 @@ interface StyledDialogProps {
 }
 
 const StyledDialog: FC<StyledDialogProps> = ({dialogContentText, dialogTitleText, children, open, setOpen, fullScreen}) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [fullWidth, setFullWidth] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [maxWidth, setMaxWidth] = useState<DialogProps['maxWidth']>('xl');
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
   const handleClose = () => {
     setOpen(false);

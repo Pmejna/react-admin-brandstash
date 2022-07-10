@@ -1,7 +1,9 @@
 import { CircularProgress, Typography } from '@mui/material';
-import {FC, useEffect} from 'react';
+import { useEffect} from 'react';
+import type { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+
 import { useProject } from '../../../lib/fetcher-hooks';
 import { setLocation } from '../../../app/store';
 
@@ -12,8 +14,8 @@ const ProjectOne: FC = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(setLocation(`Projects/${project?.project_name}`));
-    }, [project]);
-    console.log(isLoading, project);
+    }, [project, dispatch]);
+    // console.log(isLoading, project);
 
     return (
         <>

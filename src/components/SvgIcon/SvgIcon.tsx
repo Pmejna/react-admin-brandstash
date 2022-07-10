@@ -1,4 +1,5 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
+
 import {
     MenuOpen,
     MenuClosed,
@@ -30,11 +31,11 @@ interface SvgIconProps {
     marginLeft?:number;
 }
  
-const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onClick, margin, marginLeft}) => {
+const SvgIcon: FC<SvgIconProps> = ({variant, width, height, onClick, margin, marginLeft}) => {
     let icon: null | ReactNode = null;
-    let iconWidth = width ? width : 28
-    let iconHeight = height ? height : 28
-    let viewBox = `0 0 ${width ? width: 28} ${height ? height: 28}`
+    const iconWidth = width ? width : 28
+    const iconHeight = height ? height : 28
+    const viewBox = `0 0 ${width ? width: 28} ${height ? height: 28}`
 
     switch (variant) {
         case 'menu-open-icon':
@@ -84,9 +85,6 @@ const SvgIcon: FunctionComponent<SvgIconProps> = ({variant, width, height, onCli
         break; 
         case 'theme-light-icon':
             icon = <ThemeLightIcon/>
-        break; 
-        case 'account-stats-icon':
-            icon = <AccountStatsIcon/>
         break; 
         default: 
             icon = <DashboardIcon/>

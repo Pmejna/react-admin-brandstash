@@ -1,5 +1,7 @@
 import { Box, SvgIcon } from '@mui/material';
-import {FunctionComponent, MouseEventHandler, useContext} from 'react';
+import { useContext } from 'react';
+import type {FC, MouseEventHandler} from 'react';
+
 import { ThemeContext } from '../../context/ThemeContext';
 import { ThemeDarkIcon, ThemeLightIcon } from '../SvgIcon/Icons';
 
@@ -8,7 +10,7 @@ interface ThemeButtonProps {
     fontSize: "small" | "inherit" | "large" | "medium" | undefined;
 }
  
-const ThemeButton: FunctionComponent<ThemeButtonProps> = ({onClick, fontSize, ...props}) => {
+const ThemeButton: FC<ThemeButtonProps> = ({fontSize, ...props}) => {
     const {mode, toggleTheme} = useContext(ThemeContext);
     return ( 
         <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', px: '12px'}}>

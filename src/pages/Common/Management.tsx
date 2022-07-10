@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from "react";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import type { FC } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface ManagementProps {
     
 }
  
-const Management: FunctionComponent<ManagementProps> = () => (
+const Management: FC<ManagementProps> = () => (
     <>
         Management
     </>

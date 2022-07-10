@@ -1,4 +1,4 @@
-import { ProjectStatus } from "../enums/project"
+import type { ProjectStatus } from "../enums/project"
 
 export type ProjectData = {
     project_uuid: string

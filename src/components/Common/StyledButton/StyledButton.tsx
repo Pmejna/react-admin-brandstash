@@ -1,10 +1,13 @@
-import { FunctionComponent } from "react";
+import type { FunctionComponent } from "react";
 import styled from "@emotion/styled";
 import { 
     Button, 
-    ButtonProps, 
-    Theme, 
     useTheme 
+} from "@mui/material";
+
+import type {
+    ButtonProps, 
+    Theme 
 } from "@mui/material";
 
 interface ButtonStyledProps extends ButtonProps {

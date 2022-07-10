@@ -1,8 +1,8 @@
-import {FunctionComponent} from 'react';
+/* eslint-disable react/no-unknown-property */
+import type {FC} from 'react';
 import { useTheme } from '@mui/material/styles';
-import { palette } from '@mui/system';
 
-export const MenuOpen: FunctionComponent = () => {
+export const MenuOpen: FC = () => {
     const theme = useTheme();
     return ( 
         <g id="Menu_open" data-name="Menu_open" transform="translate(-162 -24)">
@@ -13,7 +13,7 @@ export const MenuOpen: FunctionComponent = () => {
      );
 };
 
-export const MenuClosed: FunctionComponent = () => {
+export const MenuClosed: FC = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_176" data-name="Group 176" transform="translate(-162 -24)">
@@ -24,7 +24,7 @@ export const MenuClosed: FunctionComponent = () => {
      );
 };
 
-export const MessagesIcon: FunctionComponent = () => {
+export const MessagesIcon: FC = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_185" data-name="Group 185" transform="translate(0 0)">
@@ -36,7 +36,7 @@ export const MessagesIcon: FunctionComponent = () => {
      );
 };
 
-export const SettingsIcon: FunctionComponent = () => {
+export const SettingsIcon: FC = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_187" data-name="Group 187" transform="translate(0 0)">
@@ -48,7 +48,7 @@ export const SettingsIcon: FunctionComponent = () => {
      );
 };
 
-export const NotificationsIcon: FunctionComponent = () => {
+export const NotificationsIcon: FC = () => {
     const theme = useTheme();
     return ( 
     <g id="Group_189" data-name="Group 189" transform="translate(0 0)">
@@ -62,7 +62,7 @@ export const NotificationsIcon: FunctionComponent = () => {
      );
 };
 
-export const ClientsIcon: FunctionComponent = () => {
+export const ClientsIcon: FC = () => {
     const theme = useTheme();
     return ( 
     <g id="Group_182" data-name="Group 182" transform="translate(0 0)">
@@ -79,7 +79,7 @@ export const ClientsIcon: FunctionComponent = () => {
      );
 }
 
-export const DashboardIcon: FunctionComponent = () => {
+export const DashboardIcon: FC = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_165" data-name="Group 165" transform="translate(-3169.99 -2395)">
@@ -91,7 +91,7 @@ export const DashboardIcon: FunctionComponent = () => {
      );
 }
 
-export const BriefIcon: FunctionComponent = () => {
+export const BriefIcon: FC = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_74" data-name="Group 74" transform="translate(-3153.61 -728.09)">
@@ -104,7 +104,7 @@ export const BriefIcon: FunctionComponent = () => {
      );
 }
 
-export const AccountStatsIcon: FunctionComponent = () => {
+export const AccountStatsIcon: FC = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_46" data-name="Group 46" transform="translate(-1674 -730.78)">
@@ -115,7 +115,7 @@ export const AccountStatsIcon: FunctionComponent = () => {
      );
 }
 
-export const StatsIcon: FunctionComponent = () => {
+export const StatsIcon: FC = () => {
     const theme = useTheme();
     return ( 
         <g id="Group_92" data-name="Group 92" transform="translate(-1084 -2114.17)">
@@ -125,7 +125,7 @@ export const StatsIcon: FunctionComponent = () => {
      );
 }
  
-export const NewProjectIcon: FunctionComponent = () => {
+export const NewProjectIcon: FC = () => {
     const theme = useTheme();
     return ( 
     <>
@@ -145,7 +145,7 @@ export const NewProjectIcon: FunctionComponent = () => {
      );
 }
 
-export const AllProjectsIcon: FunctionComponent = () => {
+export const AllProjectsIcon: FC = () => {
     const theme = useTheme();
     return ( 
     <>
@@ -172,7 +172,7 @@ export const AllProjectsIcon: FunctionComponent = () => {
      );
 }
 
-export const ManagementIcon: FunctionComponent = () => {
+export const ManagementIcon: FC = () => {
     const theme = useTheme();
     return ( 
     <>
@@ -192,7 +192,7 @@ export const ManagementIcon: FunctionComponent = () => {
      );
 }
 
-export const InvoicesIcon: FunctionComponent = () => {
+export const InvoicesIcon: FC = () => {
     const theme = useTheme();
     return ( 
     <>
@@ -224,7 +224,7 @@ export const InvoicesIcon: FunctionComponent = () => {
 
 
 
-export const ThemeDarkIcon: FunctionComponent = () => {
+export const ThemeDarkIcon: FC = () => {
     const theme = useTheme();
     return ( 
     <>
@@ -236,7 +236,7 @@ export const ThemeDarkIcon: FunctionComponent = () => {
      );
 }
 
-export const ThemeLightIcon: FunctionComponent = () => {
+export const ThemeLightIcon: FC = () => {
     const theme = useTheme();
     return ( 
     <>

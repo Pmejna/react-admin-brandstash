@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { FunctionComponent, ReactNode } from "react";
+
 import { Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from "@mui/material";
 import { styled} from '@mui/material/styles';
-import { FunctionComponent, ReactNode } from "react";
 
 
 export const StyledTableCell = styled(TableCell)(({ theme }) => ({

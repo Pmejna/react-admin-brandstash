@@ -1,11 +1,9 @@
-import React, { FunctionComponent } from "react";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import type { FC } from "react";
 
-interface InvoicesProps {
-    
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface InvoicesProps {}
  
-const Invoices: FunctionComponent<InvoicesProps> = () => (
+const Invoices: FC<InvoicesProps> = () => (
     <>
         Invoices
     </>

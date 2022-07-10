@@ -1,10 +1,12 @@
-import { FunctionComponent } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { FC } from 'react';
 
 interface DashboardDesignerProps {
     location: any;
 }
  
-const DashboardDesigner: FunctionComponent<DashboardDesignerProps> = (props) => {
+const DashboardDesigner: FC<DashboardDesignerProps> = (props) => {
+    // eslint-disable-next-line no-console
     console.log(props.location)
 
     return ( 

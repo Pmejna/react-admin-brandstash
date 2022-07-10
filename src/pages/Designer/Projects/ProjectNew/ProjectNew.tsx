@@ -1,8 +1,13 @@
 import { Grid } from '@mui/material';
-import {FC, useState} from 'react';
-import CardWithButton from '../../../../components/Common/CardWithButton/CardWithButton';
+import {useState} from 'react';
+import type { FC } from 'react';
+
 import AddIcon from '@mui/icons-material/Add';
+
+import CardWithButton from '../../../../components/Common/CardWithButton/CardWithButton';
+
 import StyledDialog from '../../../../components/Common/StyledDialog/StyledDialog';
+
 import ProjectNewForm from './ProjectNewForm';
 
 interface ProjectNewProps {

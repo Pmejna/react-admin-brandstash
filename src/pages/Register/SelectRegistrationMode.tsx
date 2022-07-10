@@ -1,5 +1,6 @@
 import { Grid } from '@mui/material';
-import React, { Dispatch, FunctionComponent, SetStateAction } from 'react';
+import type { Dispatch, FunctionComponent, SetStateAction } from 'react';
+
 import StyledButton from '../../components/Common/StyledButton/StyledButton';
 
 interface SelectRegistrationModeProps {
