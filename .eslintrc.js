@@ -105,7 +105,8 @@ module.exports = {
         'eslint:recommended', 
         'plugin:react/recommended',
         'plugin:import/errors',
-        'plugin:import/warnings'
+        'plugin:import/warnings',
+        'plugin:react/recommended',
     ],
     plugins: ['jest', 'react'],
     rules: sharedRules,
@@ -114,6 +115,11 @@ module.exports = {
     parserOptions: {
         ecmaVersion: '2019',
         sourceType: 'module',
+    },
+    settings: {
+        react: {
+            version: 'detect',
+        },
     },
     env: {
         'es6': true,

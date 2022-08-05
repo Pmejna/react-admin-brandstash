@@ -1,5 +1,4 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import "@mui/material/styles/createPalette";
 import type { FC } from "react";
 import { createContext, useContext, useMemo, useState } from "react";
 

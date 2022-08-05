@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../../../utils/test/testUtils";
 
 import StyledButton from "../StyledButton";
 
