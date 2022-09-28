@@ -13,7 +13,7 @@ export const navDetailsSlice = createSlice({
     name: 'navDetails',
     initialState,
     reducers: {
-        setLocation: (state, action: PayloadAction<string>) => {
+        setLocation: (state, action: PayloadAction<string>): void => {
             state.location = action.payload;
         }
     }

@@ -1,13 +1,12 @@
-import { Button, SvgIcon } from '@mui/material';
-import type {FunctionComponent, MouseEventHandler} from 'react';
+import type {Ref, FunctionComponent, MouseEventHandler} from 'react';
+import { Button, ListItem, SvgIcon } from '@mui/material';
 import {forwardRef} from 'react';
 
 import { SettingsIcon } from '../../SvgIcon/Icons';
 
 interface SettingsButtonProps {
-    onClick?:       MouseEventHandler<SVGSVGElement>;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ref?:           React.Ref<any>;
+    onClick?:       MouseEventHandler<HTMLButtonElement>;
+    ref?:           Ref<HTMLButtonElement>;
     handleToggle?:  () => void;
     fontSize?:      "small" | "inherit" | "large" | "medium" | undefined;
     open?:          boolean;
@@ -36,9 +35,11 @@ const SettingsButton: FunctionComponent<SettingsButtonProps> = forwardRef(({
                 padding: 0
             }}
         >
-            <SvgIcon fontSize={fontSize?fontSize:"large"} onClick={onClick} {...props}>
+            <ListItem>
+            <SvgIcon component={'button'} fontSize={fontSize?fontSize:"large"} onClick={onClick} {...props}>
                 <SettingsIcon/>
             </SvgIcon>
+            </ListItem>
         </Button>
     );
 })
