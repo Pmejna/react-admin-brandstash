@@ -7,7 +7,7 @@ export interface ICreateProject {
     project_description: string;
     project_status?: ProjectStatus | "";
     project_type: string;
-    project_priority?: ProjectPriority | string | undefined;
+    project_priority?: ProjectPriority | string;
     project_budget?: number | null,
     project_budget_estimated: string | null,
     project_objective: string,

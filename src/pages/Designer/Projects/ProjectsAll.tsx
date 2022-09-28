@@ -5,25 +5,42 @@ import type { FC } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
+import type { ProjectData } from "../../../ts/types/project";
+
 import StyledTable, { StyledTableCell, StyledTableRow } from "../../../components/Common/StyledTable/StyledTable";
 import { useProjects } from "../../../lib/fetcher-hooks";
 import { setLocation } from "../../../app/store";
 
 const ProjectsAll: FC = () => {
     const dispatch = useDispatch();
+    const {projects, isLoading} = useProjects();
+    
+    function isArray(projects: any): asserts projects is ProjectData[] {
+        if (!(
+                projects instanceof Array &&
+                "data" in projects
+            )) {
+            throw new Error("Projects is not an array");
+        }
+    };
+
+    const tableData: ProjectData[] = 
+            projects.data.map((project: any) => [
+                project.project_name,
+                project.project_description,
+                project.project_status,
+                project.project_type,
+                project.project_priority,
+                project.project_uuid
+            ]);
+
     useEffect(() => {
         dispatch(setLocation('Projects'));
     });
-    const {projects, isLoading} = useProjects();
-    
-    const tableData = projects?.data.map((project: any) => [
-        project.project_name,
-        project.project_description,
-        project.project_status,
-        project.project_type,
-        project.project_priority,
-        project.project_uuid
-    ]);
+
+    useEffect(() => {
+        async (projects: any) => await projects && isArray(projects);
+    } , [tableData]);
 
     return (
         <Grid 

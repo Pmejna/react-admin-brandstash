@@ -10,7 +10,6 @@ import StyledButton from "../../../../components/Common/StyledButton/StyledButto
 
 import type { ICreateProject } from "../../../../ts/interfaces/iProject";
 
-
 import { useMe } from "../../../../lib/fetcher-hooks";
 
 import { ProjectPriority, ProjectStatus } from "../../../../ts/enums/project";
